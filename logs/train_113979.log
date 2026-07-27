@@ -1,0 +1,450 @@
+======================================
+作业开始时间: Thu Jul 16 15:26:53 CST 2026
+节点: hpcgpu12
+作业ID: 113979
+GPU信息:
+name, memory.total [MiB], memory.used [MiB]
+NVIDIA GeForce RTX 4090 D, 24564 MiB, 0 MiB
+NVIDIA GeForce RTX 4090 D, 24564 MiB, 0 MiB
+======================================
+📦 可用GPU数量: 2
+✅ GPU列表: ['NVIDIA GeForce RTX 4090 D', 'NVIDIA GeForce RTX 4090 D']
+   GPU 0: NVIDIA GeForce RTX 4090 D - 可用显存: 24.88 GB / 25.25 GB
+   GPU 1: NVIDIA GeForce RTX 4090 D - 可用显存: 24.88 GB / 25.25 GB
+结果保存目录: /home/student/s230005071/shu/cnn_models_update/20260716_152759_ASTNet_vs_Baselines_3Class
+
+🚀 多卡模式 (2 GPUs)，串行轮换训练
+
+📦 准备训练 [AST-Net_GCN_resnet18]，分配到 GPU 0
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnet18', 'gradient_checkpointing': True}
+🚀 [AST-Net_GCN_resnet18] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [AST-Net_GCN_resnet18]: 11.9M
+
+============================================================
+🚀 训练模型: AST-Net_GCN_resnet18
+============================================================
+  Epoch   1 | LR: 2.03e-05 | Train Loss: 1.1037 Acc: 0.3764 | Val Loss: 1.1170 Acc: 0.3156
+  ✅ EarlyStopping: val_loss 改善至 1.1170
+  Epoch   2 | LR: 4.02e-05 | Train Loss: 1.0123 Acc: 0.5390 | Val Loss: 0.8939 Acc: 0.4612
+  ✅ EarlyStopping: val_loss 改善至 0.8939
+  Epoch   3 | LR: 6.01e-05 | Train Loss: 0.8759 Acc: 0.6011 | Val Loss: 0.7572 Acc: 0.5336
+  ✅ EarlyStopping: val_loss 改善至 0.7572
+  Epoch   4 | LR: 7.98e-05 | Train Loss: 0.8274 Acc: 0.6315 | Val Loss: 1.1383 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   5 | LR: 9.93e-05 | Train Loss: 0.7929 Acc: 0.6586 | Val Loss: 0.7094 Acc: 0.8480
+  ✅ EarlyStopping: val_loss 改善至 0.7094
+  Epoch   6 | LR: 1.19e-04 | Train Loss: 0.7762 Acc: 0.6737 | Val Loss: 2.0320 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   7 | LR: 1.38e-04 | Train Loss: 0.7729 Acc: 0.6857 | Val Loss: 1.8734 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   8 | LR: 1.57e-04 | Train Loss: 0.7619 Acc: 0.6891 | Val Loss: 2.0322 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch   9 | LR: 1.75e-04 | Train Loss: 0.7619 Acc: 0.6987 | Val Loss: 1.6738 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch  10 | LR: 1.93e-04 | Train Loss: 0.7525 Acc: 0.7138 | Val Loss: 1.5061 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch  11 | LR: 2.11e-04 | Train Loss: 0.7468 Acc: 0.7211 | Val Loss: 1.9221 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch  12 | LR: 2.28e-04 | Train Loss: 0.7420 Acc: 0.7322 | Val Loss: 1.7640 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch  13 | LR: 2.45e-04 | Train Loss: 0.7347 Acc: 0.7369 | Val Loss: 1.6253 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch  14 | LR: 2.62e-04 | Train Loss: 0.7220 Acc: 0.7491 | Val Loss: 3.0797 Acc: 0.4694
+  ⏳ EarlyStopping: 未改善 9/10
+  Epoch  15 | LR: 2.78e-04 | Train Loss: 0.6893 Acc: 0.7819 | Val Loss: 2.2834 Acc: 0.4458
+  ⏳ EarlyStopping: 未改善 10/10
+  🛑 早停触发，在第 15 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [AST-Net_GCN_resnet18] 测试集结果 (Macro):
+  Acc: 0.5454 | F1: 0.4476 | Precision: 0.6540 | Recall: 0.5765 | AUC: 0.7358
+  混淆矩阵:
+[[2273   22    1]
+ [ 314  879    0]
+ [1649  646    6]]
+✅ [AST-Net_GCN_resnet18] 训练完成，释放显存
+
+📦 准备训练 [AST-Net_GCN_resnext50_32x4d]，分配到 GPU 1
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnext50_32x4d', 'gradient_checkpointing': True}
+🚀 [AST-Net_GCN_resnext50_32x4d] 使用GPU: 1 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [AST-Net_GCN_resnext50_32x4d]: 24.0M
+
+============================================================
+🚀 训练模型: AST-Net_GCN_resnext50_32x4d
+============================================================
+  Epoch   1 | LR: 2.03e-05 | Train Loss: 1.1236 Acc: 0.3246 | Val Loss: 1.0723 Acc: 0.4375
+  ✅ EarlyStopping: val_loss 改善至 1.0723
+  Epoch   2 | LR: 4.02e-05 | Train Loss: 0.8762 Acc: 0.6183 | Val Loss: 0.7146 Acc: 0.8554
+  ✅ EarlyStopping: val_loss 改善至 0.7146
+  Epoch   3 | LR: 6.01e-05 | Train Loss: 0.7944 Acc: 0.6713 | Val Loss: 1.2350 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   4 | LR: 7.98e-05 | Train Loss: 0.7759 Acc: 0.6998 | Val Loss: 1.7544 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   5 | LR: 9.93e-05 | Train Loss: 0.7613 Acc: 0.7209 | Val Loss: 0.9346 Acc: 0.5378
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch   6 | LR: 1.19e-04 | Train Loss: 0.7441 Acc: 0.7339 | Val Loss: 0.7342 Acc: 0.7413
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch   7 | LR: 1.38e-04 | Train Loss: 0.7043 Acc: 0.7706 | Val Loss: 1.3956 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch   8 | LR: 1.57e-04 | Train Loss: 0.6987 Acc: 0.7691 | Val Loss: 0.8818 Acc: 0.6934
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch   9 | LR: 1.75e-04 | Train Loss: 0.6511 Acc: 0.7971 | Val Loss: 2.2242 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch  10 | LR: 1.93e-04 | Train Loss: 0.6401 Acc: 0.8056 | Val Loss: 1.8427 Acc: 0.4788
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch  11 | LR: 2.11e-04 | Train Loss: 0.6336 Acc: 0.8080 | Val Loss: 2.7707 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 9/10
+  Epoch  12 | LR: 2.28e-04 | Train Loss: 0.6178 Acc: 0.8181 | Val Loss: 1.1496 Acc: 0.4458
+  ⏳ EarlyStopping: 未改善 10/10
+  🛑 早停触发，在第 12 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [AST-Net_GCN_resnext50_32x4d] 测试集结果 (Macro):
+  Acc: 0.6197 | F1: 0.5547 | Precision: 0.7262 | Recall: 0.6692 | AUC: 0.7884
+  混淆矩阵:
+[[2251   43    2]
+ [  82 1105    6]
+ [1404  665  232]]
+✅ [AST-Net_GCN_resnext50_32x4d] 训练完成，释放显存
+
+📦 准备训练 [Baseline_ResNeXt_resnet18]，分配到 GPU 0
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnet18', 'gradient_checkpointing': True}
+🚀 [Baseline_ResNeXt_resnet18] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [Baseline_ResNeXt_resnet18]: 13.3M
+
+============================================================
+🚀 训练模型: Baseline_ResNeXt_resnet18
+============================================================
+  Epoch   1 | LR: 2.03e-05 | Train Loss: 1.1115 Acc: 0.3121 | Val Loss: 1.1106 Acc: 0.4413
+  ✅ EarlyStopping: val_loss 改善至 1.1106
+  Epoch   2 | LR: 4.02e-05 | Train Loss: 1.0133 Acc: 0.5143 | Val Loss: 0.9637 Acc: 0.3938
+  ✅ EarlyStopping: val_loss 改善至 0.9637
+  Epoch   3 | LR: 6.01e-05 | Train Loss: 0.9195 Acc: 0.5745 | Val Loss: 0.8671 Acc: 0.4720
+  ✅ EarlyStopping: val_loss 改善至 0.8671
+  Epoch   4 | LR: 7.98e-05 | Train Loss: 0.8674 Acc: 0.6180 | Val Loss: 0.7934 Acc: 0.8225
+  ✅ EarlyStopping: val_loss 改善至 0.7934
+  Epoch   5 | LR: 9.93e-05 | Train Loss: 0.8234 Acc: 0.6614 | Val Loss: 0.8952 Acc: 0.6435
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   6 | LR: 1.19e-04 | Train Loss: 0.7851 Acc: 0.7066 | Val Loss: 1.6833 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   7 | LR: 1.38e-04 | Train Loss: 0.7640 Acc: 0.7261 | Val Loss: 2.1257 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch   8 | LR: 1.57e-04 | Train Loss: 0.7403 Acc: 0.7492 | Val Loss: 1.7749 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch   9 | LR: 1.75e-04 | Train Loss: 0.7188 Acc: 0.7707 | Val Loss: 1.7668 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch  10 | LR: 1.93e-04 | Train Loss: 0.7051 Acc: 0.7714 | Val Loss: 1.6319 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch  11 | LR: 2.11e-04 | Train Loss: 0.6920 Acc: 0.7820 | Val Loss: 1.2123 Acc: 0.4069
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch  12 | LR: 2.28e-04 | Train Loss: 0.6724 Acc: 0.7917 | Val Loss: 2.3707 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch  13 | LR: 2.45e-04 | Train Loss: 0.6536 Acc: 0.8051 | Val Loss: 2.4200 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 9/10
+  Epoch  14 | LR: 2.62e-04 | Train Loss: 0.6379 Acc: 0.8084 | Val Loss: 2.2236 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 10/10
+  🛑 早停触发，在第 14 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [Baseline_ResNeXt_resnet18] 测试集结果 (Macro):
+  Acc: 0.5724 | F1: 0.4793 | Precision: 0.4490 | Recall: 0.6207 | AUC: 0.7292
+  混淆矩阵:
+[[2268   28    0]
+ [ 125 1040   28]
+ [1661  634    6]]
+✅ [Baseline_ResNeXt_resnet18] 训练完成，释放显存
+
+📦 准备训练 [Baseline_EffNet_efficientnet_b0]，分配到 GPU 1
+   模型参数: {'num_classes': 3, 'backbone_name': 'efficientnet_b0', 'gradient_checkpointing': True}
+🚀 [Baseline_EffNet_efficientnet_b0] 使用GPU: 1 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [Baseline_EffNet_efficientnet_b0]: 9.3M
+
+============================================================
+🚀 训练模型: Baseline_EffNet_efficientnet_b0
+============================================================
+  Epoch   1 | LR: 2.03e-05 | Train Loss: 1.0885 Acc: 0.4332 | Val Loss: 1.0919 Acc: 0.3164
+  ✅ EarlyStopping: val_loss 改善至 1.0919
+  Epoch   2 | LR: 4.02e-05 | Train Loss: 0.9239 Acc: 0.5793 | Val Loss: 0.8306 Acc: 0.7588
+  ✅ EarlyStopping: val_loss 改善至 0.8306
+  Epoch   3 | LR: 6.01e-05 | Train Loss: 0.7860 Acc: 0.7191 | Val Loss: 0.9265 Acc: 0.7167
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   4 | LR: 7.98e-05 | Train Loss: 0.7027 Acc: 0.7836 | Val Loss: 0.8962 Acc: 0.7084
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   5 | LR: 9.93e-05 | Train Loss: 0.6498 Acc: 0.8045 | Val Loss: 1.0282 Acc: 0.5751
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch   6 | LR: 1.19e-04 | Train Loss: 0.6158 Acc: 0.8229 | Val Loss: 0.8462 Acc: 0.7195
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch   7 | LR: 1.38e-04 | Train Loss: 0.5903 Acc: 0.8322 | Val Loss: 0.8604 Acc: 0.6958
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch   8 | LR: 1.57e-04 | Train Loss: 0.5801 Acc: 0.8395 | Val Loss: 0.9548 Acc: 0.5404
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch   9 | LR: 1.75e-04 | Train Loss: 0.5664 Acc: 0.8459 | Val Loss: 0.8936 Acc: 0.5815
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch  10 | LR: 1.93e-04 | Train Loss: 0.5594 Acc: 0.8502 | Val Loss: 0.8794 Acc: 0.7379
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch  11 | LR: 2.11e-04 | Train Loss: 0.5496 Acc: 0.8575 | Val Loss: 0.9301 Acc: 0.5715
+  ⏳ EarlyStopping: 未改善 9/10
+  Epoch  12 | LR: 2.28e-04 | Train Loss: 0.5411 Acc: 0.8628 | Val Loss: 0.8591 Acc: 0.7319
+  ⏳ EarlyStopping: 未改善 10/10
+  🛑 早停触发，在第 12 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [Baseline_EffNet_efficientnet_b0] 测试集结果 (Macro):
+  Acc: 0.5489 | F1: 0.4708 | Precision: 0.4735 | Recall: 0.5694 | AUC: 0.7477
+  混淆矩阵:
+[[2264   19   13]
+ [ 143  805  245]
+ [1559  633  109]]
+✅ [Baseline_EffNet_efficientnet_b0] 训练完成，释放显存
+
+📦 准备训练 [Baseline_CNNLSTM_resnet18]，分配到 GPU 0
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnet18', 'gradient_checkpointing': True}
+🚀 [Baseline_CNNLSTM_resnet18] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [Baseline_CNNLSTM_resnet18]: 14.3M
+
+============================================================
+🚀 训练模型: Baseline_CNNLSTM_resnet18
+============================================================
+  Epoch   1 | LR: 2.03e-05 | Train Loss: 1.1078 Acc: 0.3019 | Val Loss: 1.1160 Acc: 0.4383
+  ✅ EarlyStopping: val_loss 改善至 1.1160
+  Epoch   2 | LR: 4.02e-05 | Train Loss: 1.0864 Acc: 0.4823 | Val Loss: 1.0783 Acc: 0.6228
+  ✅ EarlyStopping: val_loss 改善至 1.0783
+  Epoch   3 | LR: 6.01e-05 | Train Loss: 0.9358 Acc: 0.5549 | Val Loss: 0.7758 Acc: 0.5127
+  ✅ EarlyStopping: val_loss 改善至 0.7758
+  Epoch   4 | LR: 7.98e-05 | Train Loss: 0.8587 Acc: 0.6021 | Val Loss: 0.7924 Acc: 0.4899
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   5 | LR: 9.93e-05 | Train Loss: 0.8378 Acc: 0.6221 | Val Loss: 1.5629 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   6 | LR: 1.19e-04 | Train Loss: 0.8209 Acc: 0.6606 | Val Loss: 1.6783 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch   7 | LR: 1.38e-04 | Train Loss: 0.8216 Acc: 0.6499 | Val Loss: 0.7151 Acc: 0.7802
+  ✅ EarlyStopping: val_loss 改善至 0.7151
+  Epoch   8 | LR: 1.57e-04 | Train Loss: 0.7977 Acc: 0.6692 | Val Loss: 1.8057 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   9 | LR: 1.75e-04 | Train Loss: 0.7937 Acc: 0.6786 | Val Loss: 1.0107 Acc: 0.7183
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch  10 | LR: 1.93e-04 | Train Loss: 0.8012 Acc: 0.6778 | Val Loss: 0.7242 Acc: 0.8039
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch  11 | LR: 2.11e-04 | Train Loss: 0.7727 Acc: 0.6991 | Val Loss: 1.8214 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch  12 | LR: 2.28e-04 | Train Loss: 0.7722 Acc: 0.7099 | Val Loss: 0.7013 Acc: 0.8408
+  ✅ EarlyStopping: val_loss 改善至 0.7013
+  Epoch  13 | LR: 2.45e-04 | Train Loss: 0.7483 Acc: 0.7385 | Val Loss: 1.8733 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch  14 | LR: 2.62e-04 | Train Loss: 0.7247 Acc: 0.7507 | Val Loss: 0.7987 Acc: 0.6744
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch  15 | LR: 2.78e-04 | Train Loss: 0.7052 Acc: 0.7676 | Val Loss: 1.7461 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch  16 | LR: 2.75e-04 | Train Loss: 0.6754 Acc: 0.7789 | Val Loss: 1.8098 Acc: 0.4452
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch  17 | LR: 2.71e-04 | Train Loss: 0.6568 Acc: 0.7870 | Val Loss: 1.7584 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch  18 | LR: 2.68e-04 | Train Loss: 0.6436 Acc: 0.7918 | Val Loss: 1.7616 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch  19 | LR: 2.65e-04 | Train Loss: 0.6271 Acc: 0.8001 | Val Loss: 0.7810 Acc: 0.6557
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch  20 | LR: 2.61e-04 | Train Loss: 0.6245 Acc: 0.8040 | Val Loss: 1.5079 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch  21 | LR: 2.57e-04 | Train Loss: 0.6131 Acc: 0.8082 | Val Loss: 1.8422 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 9/10
+  Epoch  22 | LR: 2.53e-04 | Train Loss: 0.6033 Acc: 0.8130 | Val Loss: 1.7463 Acc: 0.4377
+  ⏳ EarlyStopping: 未改善 10/10
+  🛑 早停触发，在第 22 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [Baseline_CNNLSTM_resnet18] 测试集结果 (Macro):
+  Acc: 0.5836 | F1: 0.4771 | Precision: 0.6840 | Recall: 0.6443 | AUC: 0.8325
+  混淆矩阵:
+[[2223   72    1]
+ [  48 1145    0]
+ [1127 1163   11]]
+✅ [Baseline_CNNLSTM_resnet18] 训练完成，释放显存
+
+📦 准备训练 [EEGNet]，分配到 GPU 1
+   模型参数: {'num_classes': 3, 'num_channels': 8}
+🚀 [EEGNet] 使用GPU: 1 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [EEGNet]: 0.0M
+
+============================================================
+🚀 训练模型: EEGNet
+============================================================
+  Epoch   1 | LR: 2.03e-05 | Train Loss: 1.1133 Acc: 0.2410 | Val Loss: 1.1322 Acc: 0.1165
+  ✅ EarlyStopping: val_loss 改善至 1.1322
+  Epoch   2 | LR: 4.02e-05 | Train Loss: 1.1134 Acc: 0.2411 | Val Loss: 1.1329 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   3 | LR: 6.01e-05 | Train Loss: 1.1129 Acc: 0.2411 | Val Loss: 1.1328 Acc: 0.1163
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   4 | LR: 7.98e-05 | Train Loss: 1.1113 Acc: 0.2412 | Val Loss: 1.1350 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch   5 | LR: 9.93e-05 | Train Loss: 1.1110 Acc: 0.2412 | Val Loss: 1.1365 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch   6 | LR: 1.19e-04 | Train Loss: 1.1098 Acc: 0.2434 | Val Loss: 1.1374 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch   7 | LR: 1.38e-04 | Train Loss: 1.1091 Acc: 0.2487 | Val Loss: 1.1408 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch   8 | LR: 1.57e-04 | Train Loss: 1.1083 Acc: 0.2615 | Val Loss: 1.1440 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch   9 | LR: 1.75e-04 | Train Loss: 1.1079 Acc: 0.2773 | Val Loss: 1.1481 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch  10 | LR: 1.93e-04 | Train Loss: 1.1077 Acc: 0.3044 | Val Loss: 1.1527 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 9/10
+  Epoch  11 | LR: 2.11e-04 | Train Loss: 1.1076 Acc: 0.3210 | Val Loss: 1.1591 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 10/10
+  🛑 早停触发，在第 11 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [EEGNet] 测试集结果 (Macro):
+  Acc: 0.3972 | F1: 0.1899 | Precision: 0.1696 | Recall: 0.3332 | AUC: 0.4968
+  混淆矩阵:
+[[   1    0 2295]
+ [   6    0 1187]
+ [   2    0 2299]]
+✅ [EEGNet] 训练完成，释放显存
+
+📦 准备训练 [ST-GCN_EEG]，分配到 GPU 0
+   模型参数: {'num_classes': 3, 'num_nodes': 8}
+🚀 [ST-GCN_EEG] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [ST-GCN_EEG]: 0.1M
+
+============================================================
+🚀 训练模型: ST-GCN_EEG
+============================================================
+  Epoch   1 | LR: 2.03e-05 | Train Loss: 1.2274 Acc: 0.3069 | Val Loss: 1.0716 Acc: 0.4375
+  ✅ EarlyStopping: val_loss 改善至 1.0716
+  Epoch   2 | LR: 4.02e-05 | Train Loss: 1.2172 Acc: 0.3069 | Val Loss: 1.0880 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   3 | LR: 6.01e-05 | Train Loss: 1.1825 Acc: 0.3069 | Val Loss: 1.1908 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   4 | LR: 7.98e-05 | Train Loss: 1.1118 Acc: 0.3352 | Val Loss: 1.2753 Acc: 0.1173
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch   5 | LR: 9.93e-05 | Train Loss: 1.0813 Acc: 0.4278 | Val Loss: 1.6627 Acc: 0.1191
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch   6 | LR: 1.19e-04 | Train Loss: 1.0662 Acc: 0.4403 | Val Loss: 1.4462 Acc: 0.1211
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch   7 | LR: 1.38e-04 | Train Loss: 1.0564 Acc: 0.4496 | Val Loss: 1.1936 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch   8 | LR: 1.57e-04 | Train Loss: 1.0503 Acc: 0.4528 | Val Loss: 1.4360 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch   9 | LR: 1.75e-04 | Train Loss: 1.0427 Acc: 0.4648 | Val Loss: 3.4635 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch  10 | LR: 1.93e-04 | Train Loss: 1.0412 Acc: 0.4529 | Val Loss: 1.0022 Acc: 0.4452
+  ✅ EarlyStopping: val_loss 改善至 1.0022
+  Epoch  11 | LR: 2.11e-04 | Train Loss: 1.0370 Acc: 0.4612 | Val Loss: 3.1098 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch  12 | LR: 2.28e-04 | Train Loss: 1.0336 Acc: 0.4675 | Val Loss: 3.8012 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch  13 | LR: 2.45e-04 | Train Loss: 1.0306 Acc: 0.4682 | Val Loss: 8.2204 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch  14 | LR: 2.62e-04 | Train Loss: 1.0297 Acc: 0.4709 | Val Loss: 2.8162 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch  15 | LR: 2.78e-04 | Train Loss: 1.0283 Acc: 0.4752 | Val Loss: 1.0160 Acc: 0.4401
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch  16 | LR: 2.75e-04 | Train Loss: 1.0273 Acc: 0.4705 | Val Loss: 4.1259 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch  17 | LR: 2.71e-04 | Train Loss: 1.0269 Acc: 0.4699 | Val Loss: 7.2934 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch  18 | LR: 2.68e-04 | Train Loss: 1.0248 Acc: 0.4770 | Val Loss: 4.3661 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch  19 | LR: 2.65e-04 | Train Loss: 1.0251 Acc: 0.4767 | Val Loss: 3.8198 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 9/10
+  Epoch  20 | LR: 2.61e-04 | Train Loss: 1.0212 Acc: 0.4702 | Val Loss: 5.9607 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 10/10
+  🛑 早停触发，在第 20 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [ST-GCN_EEG] 测试集结果 (Macro):
+  Acc: 0.2055 | F1: 0.1137 | Precision: 0.0686 | Recall: 0.3325 | AUC: 0.6555
+  混淆矩阵:
+[[   0 2296    0]
+ [   3 1190    0]
+ [   1 2300    0]]
+✅ [ST-GCN_EEG] 训练完成，释放显存
+
+📦 准备训练 [EEGConformer_GCN]，分配到 GPU 1
+   模型参数: {'num_classes': 3, 'num_nodes': 8}
+🚀 [EEGConformer_GCN] 使用GPU: 1 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [EEGConformer_GCN]: 2.6M
+
+============================================================
+🚀 训练模型: EEGConformer_GCN
+============================================================
+  Epoch   1 | LR: 2.03e-05 | Train Loss: 1.1350 Acc: 0.3061 | Val Loss: 1.1199 Acc: 0.4375
+  ✅ EarlyStopping: val_loss 改善至 1.1199
+  Epoch   2 | LR: 4.02e-05 | Train Loss: 1.1128 Acc: 0.3377 | Val Loss: 1.1306 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   3 | LR: 6.01e-05 | Train Loss: 1.1104 Acc: 0.3360 | Val Loss: 1.1324 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   4 | LR: 7.98e-05 | Train Loss: 1.1097 Acc: 0.3412 | Val Loss: 1.1096 Acc: 0.4375
+  ✅ EarlyStopping: val_loss 改善至 1.1096
+  Epoch   5 | LR: 9.93e-05 | Train Loss: 1.1086 Acc: 0.3343 | Val Loss: 1.1157 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   6 | LR: 1.19e-04 | Train Loss: 1.1083 Acc: 0.3569 | Val Loss: 1.1356 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   7 | LR: 1.38e-04 | Train Loss: 1.1086 Acc: 0.3309 | Val Loss: 1.1051 Acc: 0.4460
+  ✅ EarlyStopping: val_loss 改善至 1.1051
+  Epoch   8 | LR: 1.57e-04 | Train Loss: 1.1076 Acc: 0.3476 | Val Loss: 1.1158 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   9 | LR: 1.75e-04 | Train Loss: 1.1080 Acc: 0.3444 | Val Loss: 1.1072 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch  10 | LR: 1.93e-04 | Train Loss: 1.1079 Acc: 0.3517 | Val Loss: 1.1104 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch  11 | LR: 2.11e-04 | Train Loss: 1.1078 Acc: 0.3727 | Val Loss: 1.1100 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch  12 | LR: 2.28e-04 | Train Loss: 1.1076 Acc: 0.3474 | Val Loss: 1.1148 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch  13 | LR: 2.45e-04 | Train Loss: 1.1074 Acc: 0.3612 | Val Loss: 1.1114 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch  14 | LR: 2.62e-04 | Train Loss: 1.1075 Acc: 0.3800 | Val Loss: 1.1141 Acc: 0.4295
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch  15 | LR: 2.78e-04 | Train Loss: 1.1077 Acc: 0.3617 | Val Loss: 1.1259 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch  16 | LR: 2.75e-04 | Train Loss: 1.1075 Acc: 0.3623 | Val Loss: 1.1003 Acc: 0.4375
+  ✅ EarlyStopping: val_loss 改善至 1.1003
+  Epoch  17 | LR: 2.71e-04 | Train Loss: 1.0908 Acc: 0.4090 | Val Loss: 1.3159 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch  18 | LR: 2.68e-04 | Train Loss: 1.0290 Acc: 0.4797 | Val Loss: 1.5721 Acc: 0.4401
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch  19 | LR: 2.65e-04 | Train Loss: 1.0145 Acc: 0.4953 | Val Loss: 1.6214 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch  20 | LR: 2.61e-04 | Train Loss: 1.0112 Acc: 0.4880 | Val Loss: 1.4960 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch  21 | LR: 2.57e-04 | Train Loss: 1.0028 Acc: 0.4968 | Val Loss: 1.5536 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch  22 | LR: 2.53e-04 | Train Loss: 0.9994 Acc: 0.5042 | Val Loss: 1.6250 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch  23 | LR: 2.49e-04 | Train Loss: 0.9992 Acc: 0.5043 | Val Loss: 1.4834 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch  24 | LR: 2.45e-04 | Train Loss: 1.0013 Acc: 0.5026 | Val Loss: 1.6243 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch  25 | LR: 2.40e-04 | Train Loss: 0.9993 Acc: 0.4965 | Val Loss: 1.6526 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 9/10
+  Epoch  26 | LR: 2.36e-04 | Train Loss: 0.9982 Acc: 0.4990 | Val Loss: 1.5228 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 10/10
+  🛑 早停触发，在第 26 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [EEGConformer_GCN] 测试集结果 (Macro):
+  Acc: 0.3965 | F1: 0.1894 | Precision: 0.1323 | Recall: 0.3333 | AUC: 0.5591
+  混淆矩阵:
+[[2296    0    0]
+ [1193    0    0]
+ [2297    4    0]]
+✅ [EEGConformer_GCN] 训练完成，释放显存
+
+======================================================================
+🏆 模型性能对比汇总 (按 Macro F1 降序)
+======================================================================
+                          model  accuracy     f1  precision  recall    auc  params_M  gpu_id
+    AST-Net_GCN_resnext50_32x4d    0.6197 0.5547     0.7262  0.6692 0.7884   23.9671       1
+      Baseline_ResNeXt_resnet18    0.5724 0.4793     0.4490  0.6207 0.7292   13.2757       0
+      Baseline_CNNLSTM_resnet18    0.5836 0.4771     0.6840  0.6443 0.8325   14.3320       0
+Baseline_EffNet_efficientnet_b0    0.5489 0.4708     0.4735  0.5694 0.7477    9.2525       1
+           AST-Net_GCN_resnet18    0.5454 0.4476     0.6540  0.5765 0.7358   11.8993       0
+                         EEGNet    0.3972 0.1899     0.1696  0.3332 0.4968    0.0013       1
+               EEGConformer_GCN    0.3965 0.1894     0.1323  0.3333 0.5591    2.6169       1
+                     ST-GCN_EEG    0.2055 0.1137     0.0686  0.3325 0.6555    0.1087       0
+
+✅ 所有实验完成。结果保存于: /home/student/s230005071/shu/cnn_models_update/20260716_152759_ASTNet_vs_Baselines_3Class
+======================================
+作业结束时间: Fri Jul 17 02:12:23 CST 2026
+======================================

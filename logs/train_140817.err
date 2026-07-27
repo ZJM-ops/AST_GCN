@@ -1,0 +1,118 @@
+Traceback (most recent call last):
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1623, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1549, in get_hf_file_metadata
+    response = _httpx_follow_relative_redirects(method="HEAD", url=url, headers=hf_headers, timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 284, in _httpx_follow_relative_redirects
+    response = http_backoff(
+               ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 405, in http_backoff
+    return next(
+           ^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 315, in _http_backoff_base
+    response = client.request(method=method, url=url, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/student/s230005071/shu/code2/main.py", line 101, in train_single_model_worker
+    model = model_cls(**model_kwargs).to(device)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/models/ast_net.py", line 185, in __init__
+    base_model = timm.create_model(backbone_name, pretrained=True, num_classes=0)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/_factory.py", line 138, in create_model
+    model = create_fn(
+            ^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/resnet.py", line 1496, in resnet18
+    return _create_resnet('resnet18', pretrained, **dict(model_args, **kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/resnet.py", line 791, in _create_resnet
+    return build_model_with_cfg(ResNet, variant, pretrained, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/_builder.py", line 457, in build_model_with_cfg
+    load_pretrained(
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/_builder.py", line 226, in load_pretrained
+    state_dict = load_state_dict_from_hf(pretrained_loc, weights_only=True, cache_dir=cache_dir)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/_hub.py", line 240, in load_state_dict_from_hf
+    cached_file = hf_hub_download(
+                  ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1007, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1135, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1734, in _raise_on_head_call_error
+    raise LocalEntryNotFoundError(
+huggingface_hub.errors.LocalEntryNotFoundError: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+/home/student/s230005071/shu/code2/utils/visualization.py:52: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  ax.set_xticklabels(results_df['model'], rotation=20, ha='right', fontsize=8)
+/home/student/s230005071/shu/code2/utils/visualization.py:52: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  ax.set_xticklabels(results_df['model'], rotation=20, ha='right', fontsize=8)
+/home/student/s230005071/shu/code2/utils/visualization.py:52: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  ax.set_xticklabels(results_df['model'], rotation=20, ha='right', fontsize=8)
+/home/student/s230005071/shu/code2/utils/visualization.py:52: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  ax.set_xticklabels(results_df['model'], rotation=20, ha='right', fontsize=8)
+/home/student/s230005071/shu/code2/utils/visualization.py:52: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  ax.set_xticklabels(results_df['model'], rotation=20, ha='right', fontsize=8)

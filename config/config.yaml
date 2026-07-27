@@ -1,0 +1,100 @@
+data:
+  base_dir: /home/student/s230005071/shu
+  labels_csv: /home/student/s230005071/shu/labels.csv
+  preprocessed_dir: /home/student/s230005071/shu/preprocessed_data_1-490
+  segmented_dir: /home/student/s230005071/shu/segmented_data_1-490
+  cwt_images_dir: /home/student/s230005071/shu/cwt_images_250-490_whole
+  split_data_dir: /home/student/s230005071/shu/split_data_42_3class
+  train_images: train_images.txt
+  val_images: val_images.txt
+  test_images: test_images.txt
+  train_1d: train_1d.txt
+  val_1d: val_1d.txt
+  test_1d: test_1d.txt
+
+model:
+  save_dir: /home/student/s230005071/shu/cnn_models_update
+  num_classes: 3
+  num_nodes: 8
+  image_size: 224
+  feature_dim: 2048
+  backbone_name: resnext50_32x4d
+  gradient_checkpointing: true
+
+training:
+  batch_size: 8
+  learning_rate: 0.0003
+  weight_decay: 0.0005
+  epochs: 100
+  patience: 12
+  warmup_epochs: 5
+  grad_clip: 1.0
+  accum_steps: 8
+  device: auto
+  mixed_precision: true
+  num_workers: 4
+  pin_memory: true
+  cuda_visible_devices: null
+  memory_growth: true
+  cosine_eta_min: 1e-6
+  cosine_restarts: 3
+
+training_1d:
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  epochs: 100
+  patience: 10
+  warmup_epochs: 5
+  grad_clip: 1.0
+  accum_steps: 4
+  cosine_eta_min: 1e-6
+  cosine_restarts: 3
+
+cwt:
+  wavelet: cmor1.5-1.0
+  f_min: 1.0
+  f_max: 490.0
+  num_scales: 500
+  sampling_rate: 1000
+  duration: 2.0
+
+preprocessing:
+  window_length_sec: 2
+  overlap_ratio: 0.5
+  l_freq: 1.0
+  h_freq: 490.0
+  notch_freqs: [50, 100, 150, 200, 250, 300, 350, 400, 450]
+
+channels:
+  with_prefix:
+    - 'EEG Fp1-Ref'
+    - 'EEG Fp2-Ref'
+    - 'EEG F3-Ref'
+    - 'EEG F4-Ref'
+    - 'EEG C3-Ref'
+    - 'EEG C4-Ref'
+    - 'EEG P3-Ref'
+    - 'EEG P4-Ref'
+  without_prefix:
+    - 'Fp1-Ref'
+    - 'Fp2-Ref'
+    - 'F3-Ref'
+    - 'F4-Ref'
+    - 'C3-Ref'
+    - 'C4-Ref'
+    - 'P3-Ref'
+    - 'P4-Ref'
+
+label_mapping:
+  Baseline: 0
+  Ictal: 1
+  Chronic: 2
+  Chronic-28d: 2
+
+group_mapping:
+  'VPA组': VPA_group
+  'mir过表达组': mir_overexpression_group
+  'pilo组': pilo_group
+  'sponges组': sponges_group
+  '空载组': scramble_group

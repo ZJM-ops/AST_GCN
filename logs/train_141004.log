@@ -1,0 +1,52 @@
+======================================
+作业开始时间: Mon Jul 27 15:50:59 CST 2026
+节点: hpcgpu14
+作业ID: 141004
+GPU信息:
+name, memory.total [MiB], memory.used [MiB]
+NVIDIA GeForce RTX 4090 D, 24564 MiB, 0 MiB
+NVIDIA GeForce RTX 4090 D, 24564 MiB, 0 MiB
+======================================
+📦 torch.cuda.device_count() 返回: 2
+✅ 实际可用GPU数量: 2
+✅ GPU列表: ['NVIDIA GeForce RTX 4090 D', 'NVIDIA GeForce RTX 4090 D']
+   GPU 0: NVIDIA GeForce RTX 4090 D - 可用显存: 24.88 GB / 25.25 GB
+   GPU 1: NVIDIA GeForce RTX 4090 D - 可用显存: 24.88 GB / 25.25 GB
+结果保存目录: /home/student/s230005071/shu/cnn_models_update/20260727_155108_ASTNet_vs_Baselines_3Class
+配置文件已保存: /home/student/s230005071/shu/cnn_models_update/20260727_155108_ASTNet_vs_Baselines_3Class/config.yaml
+
+🎯 单模型模式，仅训练: AST-Net_GCN_resnext50_32x4d
+
+🚀 多卡并行模式 (2 GPUs)，同时训练多个模型
+
+📦 准备训练 [AST-Net_GCN_resnext50_32x4d]，分配到 GPU 0
+   模型参数: {'num_classes': 3, 'num_nodes': 8, 'backbone_name': 'resnext50_32x4d', 'gradient_checkpointing': True, 'use_anatomical_prior': True}
+
+📦 准备训练 [AST-Net_GCN_resnext50_32x4d]，分配到 GPU 1
+   模型参数: {'num_classes': 3, 'num_nodes': 8, 'backbone_name': 'resnext50_32x4d', 'gradient_checkpointing': True}
+🔧 [AST-Net_GCN_resnext50_32x4d] 设置CUDA_VISIBLE_DEVICES=0
+🚀 [AST-Net_GCN_resnext50_32x4d] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [AST-Net_GCN_resnext50_32x4d]: 218.0M
+
+============================================================
+🚀 训练模型: AST-Net_GCN_resnext50_32x4d
+============================================================
+  训练参数:
+    epochs: 100, lr: 3.00e-04, weight_decay: 5.00e-04
+    patience: 12, warmup_epochs: 5, grad_clip: 1.0
+    accum_steps: 8, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cuda:0
+🔧 [AST-Net_GCN_resnext50_32x4d] 设置CUDA_VISIBLE_DEVICES=0
+🚀 [AST-Net_GCN_resnext50_32x4d] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [AST-Net_GCN_resnext50_32x4d]: 218.0M
+
+============================================================
+🚀 训练模型: AST-Net_GCN_resnext50_32x4d
+============================================================
+  训练参数:
+    epochs: 100, lr: 3.00e-04, weight_decay: 5.00e-04
+    patience: 12, warmup_epochs: 5, grad_clip: 1.0
+    accum_steps: 8, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cuda:0

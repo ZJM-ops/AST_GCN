@@ -1,0 +1,713 @@
+📦 可用GPU数量: 4
+✅ GPU列表: ['NVIDIA GeForce RTX 4090 D', 'NVIDIA GeForce RTX 4090 D', 'NVIDIA GeForce RTX 4090 D', 'NVIDIA GeForce RTX 4090 D']
+   GPU 0: NVIDIA GeForce RTX 4090 D - 可用显存: 24.88 GB / 25.25 GB
+   GPU 1: NVIDIA GeForce RTX 4090 D - 可用显存: 24.88 GB / 25.25 GB
+   GPU 2: NVIDIA GeForce RTX 4090 D - 可用显存: 24.88 GB / 25.25 GB
+   GPU 3: NVIDIA GeForce RTX 4090 D - 可用显存: 24.88 GB / 25.25 GB
+结果保存目录: /home/student/s230005071/shu/cnn_models_update/20260719_012012_ASTNet_vs_Baselines_3Class
+
+🚀 多卡并行模式 (4 GPUs)，同时训练多个模型
+
+📦 准备训练 [AST-Net_GCN_resnet18]，分配到 GPU 0
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnet18', 'gradient_checkpointing': True}
+
+📦 准备训练 [AST-Net_GCN_resnext50_32x4d]，分配到 GPU 1
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnext50_32x4d', 'gradient_checkpointing': True}
+🚀 [AST-Net_GCN_resnet18] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [AST-Net_GCN_resnet18]: 11.9M
+
+============================================================
+🚀 训练模型: AST-Net_GCN_resnet18
+============================================================
+
+📦 准备训练 [Baseline_ResNeXt_resnext50_32x4d]，分配到 GPU 2
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnext50_32x4d', 'gradient_checkpointing': True}
+🚀 [AST-Net_GCN_resnext50_32x4d] 使用GPU: 1 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [AST-Net_GCN_resnext50_32x4d]: 24.0M
+
+============================================================
+🚀 训练模型: AST-Net_GCN_resnext50_32x4d
+============================================================
+
+📦 准备训练 [Baseline_ResNet_resnet18]，分配到 GPU 3
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnet18', 'gradient_checkpointing': True}
+🚀 [Baseline_ResNeXt_resnext50_32x4d] 使用GPU: 2 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [Baseline_ResNeXt_resnext50_32x4d]: 31.4M
+
+============================================================
+🚀 训练模型: Baseline_ResNeXt_resnext50_32x4d
+============================================================
+
+📦 准备训练 [Baseline_EffNet_efficientnet_b0]，分配到 GPU 0
+   模型参数: {'num_classes': 3, 'backbone_name': 'efficientnet_b0', 'gradient_checkpointing': True}
+🚀 [Baseline_ResNet_resnet18] 使用GPU: 3 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [Baseline_ResNet_resnet18]: 13.3M
+
+============================================================
+🚀 训练模型: Baseline_ResNet_resnet18
+============================================================
+
+📦 准备训练 [Baseline_CNNLSTM_resnet18]，分配到 GPU 1
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnet18', 'gradient_checkpointing': True}
+🚀 [Baseline_EffNet_efficientnet_b0] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [Baseline_EffNet_efficientnet_b0]: 9.3M
+
+============================================================
+🚀 训练模型: Baseline_EffNet_efficientnet_b0
+============================================================
+
+📦 准备训练 [EEGNet]，分配到 GPU 2
+   模型参数: {'num_classes': 3, 'num_channels': 8}
+
+📦 准备训练 [ST-GCN_EEG]，分配到 GPU 3
+   模型参数: {'num_classes': 3, 'num_nodes': 8}
+
+📦 准备训练 [EEGConformer_GCN]，分配到 GPU 0
+   模型参数: {'num_classes': 3, 'num_nodes': 8}
+🚀 [Baseline_CNNLSTM_resnet18] 使用GPU: 1 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [Baseline_CNNLSTM_resnet18]: 14.3M
+
+============================================================
+🚀 训练模型: Baseline_CNNLSTM_resnet18
+============================================================
+🚀 [EEGNet] 使用GPU: 2 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [EEGNet]: 0.0M
+
+============================================================
+🚀 训练模型: EEGNet
+============================================================
+🚀 [ST-GCN_EEG] 使用GPU: 3 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [ST-GCN_EEG]: 0.1M
+
+============================================================
+🚀 训练模型: ST-GCN_EEG
+============================================================
+🚀 [EEGConformer_GCN] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [EEGConformer_GCN]: 2.6M
+
+============================================================
+🚀 训练模型: EEGConformer_GCN
+============================================================
+  Epoch   1 | LR: 2.03e-05 | Train Loss: 1.1185 Acc: 0.3453 | Val Loss: 1.1728 Acc: 0.2134
+  ✅ EarlyStopping: val_loss 改善至 1.1728
+  Epoch   1 | LR: 2.03e-05 | Train Loss: 1.1313 Acc: 0.2410 | Val Loss: 1.1282 Acc: 0.4375
+  ✅ EarlyStopping: val_loss 改善至 1.1282
+  Epoch   1 | LR: 2.03e-05 | Train Loss: 1.2270 Acc: 0.4521 | Val Loss: 1.0654 Acc: 0.4460
+  ✅ EarlyStopping: val_loss 改善至 1.0654
+  Epoch   2 | LR: 4.02e-05 | Train Loss: 1.1302 Acc: 0.2410 | Val Loss: 1.1285 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 1/20
+  Epoch   2 | LR: 4.02e-05 | Train Loss: 1.2132 Acc: 0.4521 | Val Loss: 1.0795 Acc: 0.6521
+  ⏳ EarlyStopping: 未改善 1/20
+  Epoch   2 | LR: 4.02e-05 | Train Loss: 1.1142 Acc: 0.3319 | Val Loss: 1.1514 Acc: 0.1165
+  ✅ EarlyStopping: val_loss 改善至 1.1514
+  Epoch   3 | LR: 6.01e-05 | Train Loss: 1.1289 Acc: 0.2410 | Val Loss: 1.1309 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 2/20
+  Epoch   4 | LR: 7.98e-05 | Train Loss: 1.1264 Acc: 0.2410 | Val Loss: 1.1322 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 3/20
+  Epoch   3 | LR: 6.01e-05 | Train Loss: 1.1737 Acc: 0.4521 | Val Loss: 1.2188 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 2/20
+  Epoch   3 | LR: 6.01e-05 | Train Loss: 1.1121 Acc: 0.3338 | Val Loss: 1.1307 Acc: 0.4460
+  ✅ EarlyStopping: val_loss 改善至 1.1307
+  Epoch   5 | LR: 9.93e-05 | Train Loss: 1.1238 Acc: 0.2410 | Val Loss: 1.1388 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 4/20
+  Epoch   4 | LR: 7.98e-05 | Train Loss: 1.1131 Acc: 0.4575 | Val Loss: 1.8430 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 3/20
+  Epoch   6 | LR: 1.19e-04 | Train Loss: 1.1209 Acc: 0.2410 | Val Loss: 1.1431 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 5/20
+  Epoch   4 | LR: 7.98e-05 | Train Loss: 1.1099 Acc: 0.3521 | Val Loss: 1.1297 Acc: 0.1165
+  ✅ EarlyStopping: val_loss 改善至 1.1297
+  Epoch   7 | LR: 1.38e-04 | Train Loss: 1.1170 Acc: 0.2412 | Val Loss: 1.1464 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 6/20
+  Epoch   5 | LR: 9.93e-05 | Train Loss: 1.0655 Acc: 0.4796 | Val Loss: 2.2086 Acc: 0.1163
+  ⏳ EarlyStopping: 未改善 4/20
+  Epoch   8 | LR: 1.57e-04 | Train Loss: 1.1137 Acc: 0.2433 | Val Loss: 1.1504 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 7/20
+  Epoch   5 | LR: 9.93e-05 | Train Loss: 1.1090 Acc: 0.3355 | Val Loss: 1.1168 Acc: 0.4375
+  ✅ EarlyStopping: val_loss 改善至 1.1168
+  Epoch   9 | LR: 1.75e-04 | Train Loss: 1.1103 Acc: 0.2545 | Val Loss: 1.1566 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 8/20
+  Epoch   6 | LR: 1.19e-04 | Train Loss: 1.0520 Acc: 0.4690 | Val Loss: 2.3214 Acc: 0.1139
+  ⏳ EarlyStopping: 未改善 5/20
+  Epoch  10 | LR: 1.93e-04 | Train Loss: 1.1052 Acc: 0.2834 | Val Loss: 1.1590 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 9/20
+  Epoch   6 | LR: 1.19e-04 | Train Loss: 1.1091 Acc: 0.3214 | Val Loss: 1.1176 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 1/20
+  Epoch  11 | LR: 2.11e-04 | Train Loss: 1.1006 Acc: 0.3218 | Val Loss: 1.1673 Acc: 0.4379
+  ⏳ EarlyStopping: 未改善 10/20
+  Epoch   7 | LR: 1.38e-04 | Train Loss: 1.0481 Acc: 0.4768 | Val Loss: 2.2257 Acc: 0.1137
+  ⏳ EarlyStopping: 未改善 6/20
+  Epoch  12 | LR: 2.28e-04 | Train Loss: 1.0946 Acc: 0.3599 | Val Loss: 1.1899 Acc: 0.4403
+  ⏳ EarlyStopping: 未改善 11/20
+  Epoch   7 | LR: 1.38e-04 | Train Loss: 1.1082 Acc: 0.3465 | Val Loss: 1.1105 Acc: 0.4375
+  ✅ EarlyStopping: val_loss 改善至 1.1105
+  Epoch   8 | LR: 1.57e-04 | Train Loss: 1.0430 Acc: 0.4711 | Val Loss: 2.3989 Acc: 0.1153
+  ⏳ EarlyStopping: 未改善 7/20
+  Epoch  13 | LR: 2.45e-04 | Train Loss: 1.0877 Acc: 0.3924 | Val Loss: 1.2181 Acc: 0.4434
+  ⏳ EarlyStopping: 未改善 12/20
+  Epoch  14 | LR: 2.62e-04 | Train Loss: 1.0771 Acc: 0.4196 | Val Loss: 1.2849 Acc: 0.4470
+  ⏳ EarlyStopping: 未改善 13/20
+  Epoch   9 | LR: 1.75e-04 | Train Loss: 1.0390 Acc: 0.4582 | Val Loss: 2.4273 Acc: 0.1175
+  ⏳ EarlyStopping: 未改善 8/20
+  Epoch   8 | LR: 1.57e-04 | Train Loss: 1.1080 Acc: 0.3146 | Val Loss: 1.1161 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 1/20
+  Epoch  15 | LR: 2.78e-04 | Train Loss: 1.0644 Acc: 0.4416 | Val Loss: 1.3696 Acc: 0.1967
+  ⏳ EarlyStopping: 未改善 14/20
+  Epoch  16 | LR: 2.75e-04 | Train Loss: 1.0491 Acc: 0.4605 | Val Loss: 1.4830 Acc: 0.1331
+  ⏳ EarlyStopping: 未改善 15/20
+  Epoch  10 | LR: 1.93e-04 | Train Loss: 1.0365 Acc: 0.4869 | Val Loss: 2.4501 Acc: 0.1181
+  ⏳ EarlyStopping: 未改善 9/20
+  Epoch   9 | LR: 1.75e-04 | Train Loss: 1.1079 Acc: 0.3288 | Val Loss: 1.1154 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 2/20
+  Epoch  17 | LR: 2.71e-04 | Train Loss: 1.0401 Acc: 0.4571 | Val Loss: 1.5694 Acc: 0.1426
+  ⏳ EarlyStopping: 未改善 16/20
+  Epoch  11 | LR: 2.11e-04 | Train Loss: 1.0320 Acc: 0.4724 | Val Loss: 2.6903 Acc: 0.1187
+  ⏳ EarlyStopping: 未改善 10/20
+  Epoch  18 | LR: 2.68e-04 | Train Loss: 1.0337 Acc: 0.4670 | Val Loss: 1.6295 Acc: 0.1458
+  ⏳ EarlyStopping: 未改善 17/20
+  Epoch  10 | LR: 1.93e-04 | Train Loss: 1.1078 Acc: 0.3330 | Val Loss: 1.1188 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 3/20
+  Epoch  19 | LR: 2.65e-04 | Train Loss: 1.0334 Acc: 0.4624 | Val Loss: 1.6636 Acc: 0.1484
+  ⏳ EarlyStopping: 未改善 18/20
+  Epoch  12 | LR: 2.28e-04 | Train Loss: 1.0339 Acc: 0.4616 | Val Loss: 2.5973 Acc: 0.1201
+  ⏳ EarlyStopping: 未改善 11/20
+  Epoch  20 | LR: 2.61e-04 | Train Loss: 1.0299 Acc: 0.4707 | Val Loss: 1.6855 Acc: 0.1498
+  ⏳ EarlyStopping: 未改善 19/20
+  Epoch  11 | LR: 2.11e-04 | Train Loss: 1.1077 Acc: 0.3003 | Val Loss: 1.1132 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 4/20
+  Epoch  13 | LR: 2.45e-04 | Train Loss: 1.0297 Acc: 0.4697 | Val Loss: 2.4206 Acc: 0.1217
+  ⏳ EarlyStopping: 未改善 12/20
+  Epoch  21 | LR: 2.57e-04 | Train Loss: 1.0284 Acc: 0.4720 | Val Loss: 1.7364 Acc: 0.1476
+  ⏳ EarlyStopping: 未改善 20/20
+  🛑 早停触发，在第 21 轮停止训练
+  🔄 已恢复最优权重
+  Epoch  12 | LR: 2.28e-04 | Train Loss: 1.1074 Acc: 0.3545 | Val Loss: 1.1138 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 5/20
+  Epoch  14 | LR: 2.62e-04 | Train Loss: 1.0318 Acc: 0.4662 | Val Loss: 2.5985 Acc: 0.1173
+  ⏳ EarlyStopping: 未改善 13/20
+  Epoch  15 | LR: 2.78e-04 | Train Loss: 1.0285 Acc: 0.4751 | Val Loss: 2.5802 Acc: 0.1177
+  ⏳ EarlyStopping: 未改善 14/20
+  Epoch  13 | LR: 2.45e-04 | Train Loss: 1.1076 Acc: 0.3227 | Val Loss: 1.1190 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 6/20
+  Epoch  16 | LR: 2.75e-04 | Train Loss: 1.0280 Acc: 0.4724 | Val Loss: 2.3334 Acc: 0.1205
+  ⏳ EarlyStopping: 未改善 15/20
+  Epoch  14 | LR: 2.62e-04 | Train Loss: 1.1076 Acc: 0.3335 | Val Loss: 1.1101 Acc: 0.4375
+  ✅ EarlyStopping: val_loss 改善至 1.1101
+
+📊 [EEGNet] 测试集结果 (Macro):
+  Acc: 0.3971 | F1: 0.1902 | Precision: 0.4656 | Recall: 0.3338 | AUC: 0.5795
+  混淆矩阵:
+[[2296    0    0]
+ [1193    0    0]
+ [2298    0    3]]
+  Epoch  17 | LR: 2.71e-04 | Train Loss: 1.0247 Acc: 0.4810 | Val Loss: 2.4790 Acc: 0.1189
+  ⏳ EarlyStopping: 未改善 16/20
+  Epoch  15 | LR: 2.78e-04 | Train Loss: 1.1076 Acc: 0.3220 | Val Loss: 1.1172 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 1/20
+  Epoch  18 | LR: 2.68e-04 | Train Loss: 1.0254 Acc: 0.4754 | Val Loss: 2.2130 Acc: 0.1211
+  ⏳ EarlyStopping: 未改善 17/20
+  Epoch  16 | LR: 2.75e-04 | Train Loss: 1.1077 Acc: 0.3361 | Val Loss: 1.1121 Acc: 0.4319
+  ⏳ EarlyStopping: 未改善 2/20
+  Epoch  19 | LR: 2.65e-04 | Train Loss: 1.0234 Acc: 0.4764 | Val Loss: 1.9024 Acc: 0.1243
+  ⏳ EarlyStopping: 未改善 18/20
+  Epoch  17 | LR: 2.71e-04 | Train Loss: 1.1077 Acc: 0.3383 | Val Loss: 1.1165 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 3/20
+  Epoch  20 | LR: 2.61e-04 | Train Loss: 1.0222 Acc: 0.4806 | Val Loss: 2.1639 Acc: 0.1211
+  ⏳ EarlyStopping: 未改善 19/20
+  Epoch  18 | LR: 2.68e-04 | Train Loss: 1.1075 Acc: 0.3297 | Val Loss: 1.1145 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 4/20
+  Epoch  21 | LR: 2.57e-04 | Train Loss: 1.0219 Acc: 0.4744 | Val Loss: 2.1713 Acc: 0.1205
+  ⏳ EarlyStopping: 未改善 20/20
+  🛑 早停触发，在第 21 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [ST-GCN_EEG] 测试集结果 (Macro):
+  Acc: 0.2060 | F1: 0.1139 | Precision: 0.0687 | Recall: 0.3333 | AUC: 0.7144
+  混淆矩阵:
+[[   0 2296    0]
+ [   0 1193    0]
+ [   0 2301    0]]
+  Epoch  19 | LR: 2.65e-04 | Train Loss: 1.1073 Acc: 0.3394 | Val Loss: 1.1162 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 5/20
+  Epoch  20 | LR: 2.61e-04 | Train Loss: 1.1073 Acc: 0.3408 | Val Loss: 1.1158 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 6/20
+  Epoch  21 | LR: 2.57e-04 | Train Loss: 1.1072 Acc: 0.3518 | Val Loss: 1.1186 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 7/20
+  Epoch  22 | LR: 2.53e-04 | Train Loss: 1.1074 Acc: 0.3409 | Val Loss: 1.1162 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 8/20
+  Epoch  23 | LR: 2.49e-04 | Train Loss: 1.1073 Acc: 0.2949 | Val Loss: 1.1149 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 9/20
+  Epoch  24 | LR: 2.45e-04 | Train Loss: 1.1075 Acc: 0.3408 | Val Loss: 1.1124 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 10/20
+  Epoch  25 | LR: 2.40e-04 | Train Loss: 1.1074 Acc: 0.3408 | Val Loss: 1.1150 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 11/20
+  Epoch  26 | LR: 2.36e-04 | Train Loss: 1.1074 Acc: 0.3495 | Val Loss: 1.1153 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 12/20
+  Epoch  27 | LR: 2.31e-04 | Train Loss: 1.1074 Acc: 0.3202 | Val Loss: 1.1151 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 13/20
+  Epoch  28 | LR: 2.27e-04 | Train Loss: 1.1074 Acc: 0.3317 | Val Loss: 1.1110 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 14/20
+  Epoch  29 | LR: 2.22e-04 | Train Loss: 1.1072 Acc: 0.3911 | Val Loss: 1.1148 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 15/20
+  Epoch   1 | LR: 2.03e-05 | Train Loss: 1.0964 Acc: 0.4187 | Val Loss: 1.0654 Acc: 0.8109
+  ✅ EarlyStopping: val_loss 改善至 1.0654
+  Epoch   1 | LR: 2.03e-05 | Train Loss: 1.0744 Acc: 0.4912 | Val Loss: 1.0984 Acc: 0.5246
+  ✅ EarlyStopping: val_loss 改善至 1.0984
+  Epoch   1 | LR: 2.03e-05 | Train Loss: 1.1101 Acc: 0.2831 | Val Loss: 1.1274 Acc: 0.1165
+  ✅ EarlyStopping: val_loss 改善至 1.1274
+  Epoch   1 | LR: 2.03e-05 | Train Loss: 1.1074 Acc: 0.4499 | Val Loss: 1.1162 Acc: 0.4460
+  ✅ EarlyStopping: val_loss 改善至 1.1162
+  Epoch   1 | LR: 2.03e-05 | Train Loss: 1.0923 Acc: 0.4209 | Val Loss: 1.0877 Acc: 0.7321
+  ✅ EarlyStopping: val_loss 改善至 1.0877
+  Epoch   1 | LR: 2.03e-05 | Train Loss: 1.1042 Acc: 0.4274 | Val Loss: 1.1043 Acc: 0.4458
+  ✅ EarlyStopping: val_loss 改善至 1.1043
+  Epoch  30 | LR: 2.17e-04 | Train Loss: 1.1074 Acc: 0.3650 | Val Loss: 1.1164 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 16/20
+  Epoch  31 | LR: 2.12e-04 | Train Loss: 1.1073 Acc: 0.3249 | Val Loss: 1.1153 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 17/20
+  Epoch  32 | LR: 2.07e-04 | Train Loss: 1.1073 Acc: 0.3493 | Val Loss: 1.1162 Acc: 0.4377
+  ⏳ EarlyStopping: 未改善 18/20
+  Epoch  33 | LR: 2.02e-04 | Train Loss: 1.1072 Acc: 0.3988 | Val Loss: 1.1156 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 19/20
+  Epoch  34 | LR: 1.96e-04 | Train Loss: 1.1073 Acc: 0.3366 | Val Loss: 1.1149 Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 20/20
+  🛑 早停触发，在第 34 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [EEGConformer_GCN] 测试集结果 (Macro):
+  Acc: 0.3965 | F1: 0.1893 | Precision: 0.1322 | Recall: 0.3333 | AUC: 0.5059
+  混淆矩阵:
+[[2296    0    0]
+ [1193    0    0]
+ [2301    0    0]]
+  Epoch   2 | LR: 4.02e-05 | Train Loss: 1.0894 Acc: 0.5029 | Val Loss: 1.0723 Acc: 0.4381
+  ✅ EarlyStopping: val_loss 改善至 1.0723
+  Epoch   2 | LR: 4.02e-05 | Train Loss: 0.9399 Acc: 0.5684 | Val Loss: 0.8784 Acc: 0.4708
+  ✅ EarlyStopping: val_loss 改善至 0.8784
+  Epoch   2 | LR: 4.02e-05 | Train Loss: 1.0055 Acc: 0.5166 | Val Loss: 1.0455 Acc: 0.5957
+  ✅ EarlyStopping: val_loss 改善至 1.0455
+  Epoch   2 | LR: 4.02e-05 | Train Loss: 0.9303 Acc: 0.5957 | Val Loss: 0.9080 Acc: 0.7030
+  ✅ EarlyStopping: val_loss 改善至 0.9080
+  Epoch   2 | LR: 4.02e-05 | Train Loss: 1.0224 Acc: 0.5041 | Val Loss: 0.9352 Acc: 0.4030
+  ✅ EarlyStopping: val_loss 改善至 0.9352
+  Epoch   2 | LR: 4.02e-05 | Train Loss: 0.8669 Acc: 0.6275 | Val Loss: 0.7298 Acc: 0.5304
+  ✅ EarlyStopping: val_loss 改善至 0.7298
+  Epoch   3 | LR: 6.01e-05 | Train Loss: 0.9455 Acc: 0.5512 | Val Loss: 0.8195 Acc: 0.4794
+  ✅ EarlyStopping: val_loss 改善至 0.8195
+  Epoch   3 | LR: 6.01e-05 | Train Loss: 0.8529 Acc: 0.6313 | Val Loss: 0.7505 Acc: 0.8261
+  ✅ EarlyStopping: val_loss 改善至 0.7505
+  Epoch   3 | LR: 6.01e-05 | Train Loss: 0.7815 Acc: 0.7256 | Val Loss: 1.5597 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 1/20
+  Epoch   3 | LR: 6.01e-05 | Train Loss: 0.8721 Acc: 0.6004 | Val Loss: 0.7775 Acc: 0.5151
+  ✅ EarlyStopping: val_loss 改善至 0.7775
+  Epoch   3 | LR: 6.01e-05 | Train Loss: 0.9228 Acc: 0.5735 | Val Loss: 0.9059 Acc: 0.7506
+  ✅ EarlyStopping: val_loss 改善至 0.9059
+  Epoch   3 | LR: 6.01e-05 | Train Loss: 0.7923 Acc: 0.6727 | Val Loss: 0.7889 Acc: 0.5316
+  ⏳ EarlyStopping: 未改善 1/20
+  Epoch   4 | LR: 7.98e-05 | Train Loss: 0.8084 Acc: 0.6656 | Val Loss: 1.8205 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 1/20
+  Epoch   4 | LR: 7.98e-05 | Train Loss: 0.6989 Acc: 0.7859 | Val Loss: 1.5964 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 2/20
+  Epoch   4 | LR: 7.98e-05 | Train Loss: 0.8633 Acc: 0.6049 | Val Loss: 1.6710 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 1/20
+  Epoch   4 | LR: 7.98e-05 | Train Loss: 0.8238 Acc: 0.6274 | Val Loss: 0.7384 Acc: 0.8506
+  ✅ EarlyStopping: val_loss 改善至 0.7384
+  Epoch   4 | LR: 7.98e-05 | Train Loss: 0.8744 Acc: 0.6158 | Val Loss: 0.8057 Acc: 0.7167
+  ✅ EarlyStopping: val_loss 改善至 0.8057
+  Epoch   4 | LR: 7.98e-05 | Train Loss: 0.7659 Acc: 0.7172 | Val Loss: 0.7856 Acc: 0.6717
+  ⏳ EarlyStopping: 未改善 2/20
+  Epoch   5 | LR: 9.93e-05 | Train Loss: 0.7774 Acc: 0.7063 | Val Loss: 1.6306 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 2/20
+  Epoch   5 | LR: 9.93e-05 | Train Loss: 0.8341 Acc: 0.6367 | Val Loss: 1.1602 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 2/20
+  Epoch   5 | LR: 9.93e-05 | Train Loss: 0.6490 Acc: 0.8065 | Val Loss: 1.7286 Acc: 0.4454
+  ⏳ EarlyStopping: 未改善 3/20
+  Epoch   5 | LR: 9.93e-05 | Train Loss: 0.8305 Acc: 0.6567 | Val Loss: 0.9284 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 1/20
+  Epoch   5 | LR: 9.93e-05 | Train Loss: 0.8015 Acc: 0.6495 | Val Loss: 1.8749 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 1/20
+  Epoch   6 | LR: 1.19e-04 | Train Loss: 0.7438 Acc: 0.7447 | Val Loss: 1.3673 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 3/20
+  Epoch   5 | LR: 9.93e-05 | Train Loss: 0.7553 Acc: 0.7229 | Val Loss: 1.5519 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 3/20
+  Epoch   6 | LR: 1.19e-04 | Train Loss: 0.8262 Acc: 0.6467 | Val Loss: 1.7413 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 3/20
+  Epoch   6 | LR: 1.19e-04 | Train Loss: 0.6198 Acc: 0.8177 | Val Loss: 1.4020 Acc: 0.4448
+  ⏳ EarlyStopping: 未改善 4/20
+  Epoch   6 | LR: 1.19e-04 | Train Loss: 0.8012 Acc: 0.6829 | Val Loss: 1.7973 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 2/20
+  Epoch   6 | LR: 1.19e-04 | Train Loss: 0.7802 Acc: 0.6728 | Val Loss: 0.9669 Acc: 0.4093
+  ⏳ EarlyStopping: 未改善 2/20
+  Epoch   7 | LR: 1.38e-04 | Train Loss: 0.7059 Acc: 0.7758 | Val Loss: 2.0289 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 4/20
+  Epoch   7 | LR: 1.38e-04 | Train Loss: 0.8308 Acc: 0.6471 | Val Loss: 1.7885 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 4/20
+  Epoch   7 | LR: 1.38e-04 | Train Loss: 0.6019 Acc: 0.8292 | Val Loss: 1.4910 Acc: 0.4421
+  ⏳ EarlyStopping: 未改善 5/20
+  Epoch   7 | LR: 1.38e-04 | Train Loss: 0.7667 Acc: 0.7219 | Val Loss: 1.0320 Acc: 0.5889
+  ⏳ EarlyStopping: 未改善 3/20
+  Epoch   7 | LR: 1.38e-04 | Train Loss: 0.7728 Acc: 0.6797 | Val Loss: 1.9951 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 3/20
+  Epoch   6 | LR: 1.19e-04 | Train Loss: 0.7483 Acc: 0.7287 | Val Loss: 1.7411 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 4/20
+  Epoch   8 | LR: 1.57e-04 | Train Loss: 0.6825 Acc: 0.7894 | Val Loss: 1.6355 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 5/20
+  Epoch   8 | LR: 1.57e-04 | Train Loss: 0.7939 Acc: 0.6796 | Val Loss: 1.7562 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 5/20
+  Epoch   8 | LR: 1.57e-04 | Train Loss: 0.5871 Acc: 0.8332 | Val Loss: 1.1163 Acc: 0.4448
+  ⏳ EarlyStopping: 未改善 6/20
+  Epoch   8 | LR: 1.57e-04 | Train Loss: 0.7447 Acc: 0.7526 | Val Loss: 1.7773 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 4/20
+  Epoch   8 | LR: 1.57e-04 | Train Loss: 0.7624 Acc: 0.6894 | Val Loss: 0.6841 Acc: 0.7479
+  ✅ EarlyStopping: val_loss 改善至 0.6841
+  Epoch   7 | LR: 1.38e-04 | Train Loss: 0.7390 Acc: 0.7334 | Val Loss: 1.0780 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 5/20
+  Epoch   9 | LR: 1.75e-04 | Train Loss: 0.6610 Acc: 0.8006 | Val Loss: 1.5778 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 6/20
+  Epoch   9 | LR: 1.75e-04 | Train Loss: 0.7949 Acc: 0.6761 | Val Loss: 1.8672 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 6/20
+  Epoch   9 | LR: 1.75e-04 | Train Loss: 0.5716 Acc: 0.8435 | Val Loss: 0.8736 Acc: 0.7117
+  ✅ EarlyStopping: val_loss 改善至 0.8736
+  Epoch   9 | LR: 1.75e-04 | Train Loss: 0.7560 Acc: 0.7111 | Val Loss: 1.9231 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 1/20
+  Epoch   9 | LR: 1.75e-04 | Train Loss: 0.7221 Acc: 0.7698 | Val Loss: 1.6837 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 5/20
+  Epoch   8 | LR: 1.57e-04 | Train Loss: 0.7170 Acc: 0.7633 | Val Loss: 2.2444 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 6/20
+  Epoch  10 | LR: 1.93e-04 | Train Loss: 0.6421 Acc: 0.8058 | Val Loss: 0.7572 Acc: 0.7933
+  ⏳ EarlyStopping: 未改善 7/20
+  Epoch  10 | LR: 1.93e-04 | Train Loss: 0.7782 Acc: 0.6993 | Val Loss: 1.7757 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 7/20
+  Epoch  10 | LR: 1.93e-04 | Train Loss: 0.5594 Acc: 0.8504 | Val Loss: 1.0220 Acc: 0.4450
+  ⏳ EarlyStopping: 未改善 1/20
+  Epoch  10 | LR: 1.93e-04 | Train Loss: 0.7491 Acc: 0.7229 | Val Loss: 2.1080 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 2/20
+  Epoch  10 | LR: 1.93e-04 | Train Loss: 0.6987 Acc: 0.7820 | Val Loss: 2.1995 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 6/20
+  Epoch  11 | LR: 2.11e-04 | Train Loss: 0.6212 Acc: 0.8161 | Val Loss: 1.8982 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 8/20
+  Epoch  11 | LR: 2.11e-04 | Train Loss: 0.7777 Acc: 0.6958 | Val Loss: 1.0726 Acc: 0.6555
+  ⏳ EarlyStopping: 未改善 8/20
+  Epoch  11 | LR: 2.11e-04 | Train Loss: 0.5615 Acc: 0.8513 | Val Loss: 1.0645 Acc: 0.4604
+  ⏳ EarlyStopping: 未改善 2/20
+  Epoch  11 | LR: 2.11e-04 | Train Loss: 0.7441 Acc: 0.7296 | Val Loss: 1.5459 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 3/20
+  Epoch  11 | LR: 2.11e-04 | Train Loss: 0.6907 Acc: 0.7845 | Val Loss: 0.7826 Acc: 0.7640
+  ✅ EarlyStopping: val_loss 改善至 0.7826
+  Epoch   9 | LR: 1.75e-04 | Train Loss: 0.6838 Acc: 0.7861 | Val Loss: 1.7139 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 7/20
+  Epoch  12 | LR: 2.28e-04 | Train Loss: 0.6027 Acc: 0.8261 | Val Loss: 1.3542 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 9/20
+  Epoch  12 | LR: 2.28e-04 | Train Loss: 0.7724 Acc: 0.7070 | Val Loss: 1.7898 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 9/20
+  Epoch  12 | LR: 2.28e-04 | Train Loss: 0.5498 Acc: 0.8560 | Val Loss: 1.1346 Acc: 0.4450
+  ⏳ EarlyStopping: 未改善 3/20
+  Epoch  12 | LR: 2.28e-04 | Train Loss: 0.7369 Acc: 0.7378 | Val Loss: 2.0691 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 4/20
+  Epoch  12 | LR: 2.28e-04 | Train Loss: 0.6690 Acc: 0.7961 | Val Loss: 2.0121 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 1/20
+  Epoch  10 | LR: 1.93e-04 | Train Loss: 0.6553 Acc: 0.8016 | Val Loss: 1.4889 Acc: 0.4458
+  ⏳ EarlyStopping: 未改善 8/20
+  Epoch  13 | LR: 2.45e-04 | Train Loss: 0.5906 Acc: 0.8368 | Val Loss: 0.9484 Acc: 0.6443
+  ⏳ EarlyStopping: 未改善 10/20
+  Epoch  13 | LR: 2.45e-04 | Train Loss: 0.7535 Acc: 0.7328 | Val Loss: 0.6701 Acc: 0.8344
+  ✅ EarlyStopping: val_loss 改善至 0.6701
+  Epoch  13 | LR: 2.45e-04 | Train Loss: 0.5459 Acc: 0.8578 | Val Loss: 1.0719 Acc: 0.7524
+  ⏳ EarlyStopping: 未改善 4/20
+  Epoch  13 | LR: 2.45e-04 | Train Loss: 0.7299 Acc: 0.7449 | Val Loss: 1.6559 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 5/20
+  Epoch  13 | LR: 2.45e-04 | Train Loss: 0.6533 Acc: 0.8003 | Val Loss: 1.6593 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 2/20
+  Epoch  11 | LR: 2.11e-04 | Train Loss: 0.6376 Acc: 0.8079 | Val Loss: 1.7274 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 9/20
+  Epoch  14 | LR: 2.62e-04 | Train Loss: 0.5870 Acc: 0.8399 | Val Loss: 0.7725 Acc: 0.7459
+  ⏳ EarlyStopping: 未改善 11/20
+  Epoch  14 | LR: 2.62e-04 | Train Loss: 0.7217 Acc: 0.7548 | Val Loss: 0.7756 Acc: 0.7632
+  ⏳ EarlyStopping: 未改善 1/20
+  Epoch  14 | LR: 2.62e-04 | Train Loss: 0.5406 Acc: 0.8592 | Val Loss: 0.9888 Acc: 0.4403
+  ⏳ EarlyStopping: 未改善 5/20
+  Epoch  14 | LR: 2.62e-04 | Train Loss: 0.7121 Acc: 0.7657 | Val Loss: 1.1607 Acc: 0.6078
+  ⏳ EarlyStopping: 未改善 6/20
+  Epoch  14 | LR: 2.62e-04 | Train Loss: 0.6350 Acc: 0.8135 | Val Loss: 1.7421 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 3/20
+  Epoch  15 | LR: 2.78e-04 | Train Loss: 0.5708 Acc: 0.8474 | Val Loss: 1.2564 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 12/20
+  Epoch  15 | LR: 2.78e-04 | Train Loss: 0.6996 Acc: 0.7692 | Val Loss: 1.9519 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 2/20
+  Epoch  15 | LR: 2.78e-04 | Train Loss: 0.5390 Acc: 0.8648 | Val Loss: 1.5060 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 6/20
+  Epoch  15 | LR: 2.78e-04 | Train Loss: 0.6766 Acc: 0.7843 | Val Loss: 1.7150 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 7/20
+  Epoch  15 | LR: 2.78e-04 | Train Loss: 0.6199 Acc: 0.8203 | Val Loss: 1.5058 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 4/20
+  Epoch  12 | LR: 2.28e-04 | Train Loss: 0.6333 Acc: 0.8108 | Val Loss: 1.5572 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 10/20
+  Epoch  16 | LR: 2.75e-04 | Train Loss: 0.5640 Acc: 0.8512 | Val Loss: 1.3030 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 13/20
+  Epoch  16 | LR: 2.75e-04 | Train Loss: 0.6753 Acc: 0.7811 | Val Loss: 1.8436 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 3/20
+  Epoch  16 | LR: 2.75e-04 | Train Loss: 0.5426 Acc: 0.8654 | Val Loss: 1.3833 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 7/20
+  Epoch  16 | LR: 2.75e-04 | Train Loss: 0.6545 Acc: 0.7990 | Val Loss: 1.6273 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 8/20
+  Epoch  16 | LR: 2.75e-04 | Train Loss: 0.6359 Acc: 0.8159 | Val Loss: 1.0927 Acc: 0.6760
+  ⏳ EarlyStopping: 未改善 5/20
+  Epoch  13 | LR: 2.45e-04 | Train Loss: 0.6333 Acc: 0.8085 | Val Loss: 2.6614 Acc: 0.3106
+  ⏳ EarlyStopping: 未改善 11/20
+  Epoch  17 | LR: 2.71e-04 | Train Loss: 0.5596 Acc: 0.8525 | Val Loss: 1.0462 Acc: 0.6593
+  ⏳ EarlyStopping: 未改善 14/20
+  Epoch  17 | LR: 2.71e-04 | Train Loss: 0.6567 Acc: 0.7903 | Val Loss: 1.2188 Acc: 0.5139
+  ⏳ EarlyStopping: 未改善 4/20
+  Epoch  17 | LR: 2.71e-04 | Train Loss: 0.5359 Acc: 0.8669 | Val Loss: 2.5690 Acc: 0.4456
+  ⏳ EarlyStopping: 未改善 8/20
+  Epoch  17 | LR: 2.71e-04 | Train Loss: 0.6443 Acc: 0.8039 | Val Loss: 2.2195 Acc: 0.5202
+  ⏳ EarlyStopping: 未改善 9/20
+  Epoch  17 | LR: 2.71e-04 | Train Loss: 0.5966 Acc: 0.8325 | Val Loss: 1.9373 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 6/20
+  Epoch  18 | LR: 2.68e-04 | Train Loss: 0.5570 Acc: 0.8564 | Val Loss: 0.7923 Acc: 0.7413
+  ⏳ EarlyStopping: 未改善 15/20
+  Epoch  18 | LR: 2.68e-04 | Train Loss: 0.6441 Acc: 0.7912 | Val Loss: 1.7666 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 5/20
+  Epoch  14 | LR: 2.62e-04 | Train Loss: 0.6161 Acc: 0.8224 | Val Loss: 1.1688 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 12/20
+  Epoch  18 | LR: 2.68e-04 | Train Loss: 0.5339 Acc: 0.8663 | Val Loss: 0.8824 Acc: 0.7257
+  ⏳ EarlyStopping: 未改善 9/20
+  Epoch  18 | LR: 2.68e-04 | Train Loss: 0.6299 Acc: 0.8107 | Val Loss: 1.5592 Acc: 0.4297
+  ⏳ EarlyStopping: 未改善 10/20
+  Epoch  18 | LR: 2.68e-04 | Train Loss: 0.5972 Acc: 0.8348 | Val Loss: 1.4394 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 7/20
+  Epoch  19 | LR: 2.65e-04 | Train Loss: 0.5496 Acc: 0.8587 | Val Loss: 0.7853 Acc: 0.7716
+  ⏳ EarlyStopping: 未改善 16/20
+  Epoch  19 | LR: 2.65e-04 | Train Loss: 0.6279 Acc: 0.8013 | Val Loss: 0.8714 Acc: 0.6401
+  ⏳ EarlyStopping: 未改善 6/20
+  Epoch  19 | LR: 2.65e-04 | Train Loss: 0.5251 Acc: 0.8707 | Val Loss: 0.9820 Acc: 0.5113
+  ⏳ EarlyStopping: 未改善 10/20
+  Epoch  19 | LR: 2.65e-04 | Train Loss: 0.5809 Acc: 0.8390 | Val Loss: 1.6299 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 8/20
+  Epoch  19 | LR: 2.65e-04 | Train Loss: 0.6179 Acc: 0.8182 | Val Loss: 1.7138 Acc: 0.4347
+  ⏳ EarlyStopping: 未改善 11/20
+  Epoch  15 | LR: 2.78e-04 | Train Loss: 0.6430 Acc: 0.8064 | Val Loss: 2.0909 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 13/20
+  Epoch  20 | LR: 2.61e-04 | Train Loss: 0.5477 Acc: 0.8584 | Val Loss: 1.4893 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 17/20
+  Epoch  20 | LR: 2.61e-04 | Train Loss: 0.5225 Acc: 0.8744 | Val Loss: 1.1299 Acc: 0.4417
+  ⏳ EarlyStopping: 未改善 11/20
+  Epoch  20 | LR: 2.61e-04 | Train Loss: 0.6156 Acc: 0.8098 | Val Loss: 1.7996 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 7/20
+  Epoch  20 | LR: 2.61e-04 | Train Loss: 0.5703 Acc: 0.8464 | Val Loss: 1.1564 Acc: 0.6431
+  ⏳ EarlyStopping: 未改善 9/20
+  Epoch  20 | LR: 2.61e-04 | Train Loss: 0.6132 Acc: 0.8207 | Val Loss: 1.7286 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 12/20
+  Epoch  16 | LR: 2.75e-04 | Train Loss: 0.6533 Acc: 0.7953 | Val Loss: 1.6595 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 14/20
+  Epoch  21 | LR: 2.57e-04 | Train Loss: 0.5451 Acc: 0.8640 | Val Loss: 0.7518 Acc: 0.7744
+  ⏳ EarlyStopping: 未改善 18/20
+  Epoch  21 | LR: 2.57e-04 | Train Loss: 0.5241 Acc: 0.8745 | Val Loss: 1.0582 Acc: 0.6479
+  ⏳ EarlyStopping: 未改善 12/20
+  Epoch  21 | LR: 2.57e-04 | Train Loss: 0.6089 Acc: 0.8117 | Val Loss: 0.9441 Acc: 0.6505
+  ⏳ EarlyStopping: 未改善 8/20
+  Epoch  21 | LR: 2.57e-04 | Train Loss: 0.5635 Acc: 0.8469 | Val Loss: 1.3270 Acc: 0.6320
+  ⏳ EarlyStopping: 未改善 10/20
+  Epoch  21 | LR: 2.57e-04 | Train Loss: 0.6000 Acc: 0.8270 | Val Loss: 1.5370 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 13/20
+  Epoch  22 | LR: 2.53e-04 | Train Loss: 0.5454 Acc: 0.8636 | Val Loss: 1.1835 Acc: 0.4458
+  ⏳ EarlyStopping: 未改善 19/20
+  Epoch  22 | LR: 2.53e-04 | Train Loss: 0.5160 Acc: 0.8795 | Val Loss: 6.0816 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 13/20
+  Epoch  22 | LR: 2.53e-04 | Train Loss: 0.5932 Acc: 0.8247 | Val Loss: 1.8921 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 9/20
+  Epoch  22 | LR: 2.53e-04 | Train Loss: 0.5756 Acc: 0.8450 | Val Loss: 1.5858 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 11/20
+  Epoch  22 | LR: 2.53e-04 | Train Loss: 0.5882 Acc: 0.8379 | Val Loss: 0.7408 Acc: 0.7746
+  ⏳ EarlyStopping: 未改善 14/20
+  Epoch  17 | LR: 2.71e-04 | Train Loss: 0.7361 Acc: 0.7408 | Val Loss: 2.2474 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 15/20
+  Epoch  23 | LR: 2.49e-04 | Train Loss: 0.5445 Acc: 0.8633 | Val Loss: 0.7731 Acc: 0.6236
+  ⏳ EarlyStopping: 未改善 20/20
+  🛑 早停触发，在第 23 轮停止训练
+  🔄 已恢复最优权重
+  Epoch  23 | LR: 2.49e-04 | Train Loss: 0.5107 Acc: 0.8828 | Val Loss: 1.0225 Acc: 0.4865
+  ⏳ EarlyStopping: 未改善 14/20
+  Epoch  23 | LR: 2.49e-04 | Train Loss: 0.5789 Acc: 0.8288 | Val Loss: 1.8937 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 10/20
+  Epoch  23 | LR: 2.49e-04 | Train Loss: 0.5579 Acc: 0.8547 | Val Loss: 2.1348 Acc: 0.4672
+  ⏳ EarlyStopping: 未改善 12/20
+  Epoch  23 | LR: 2.49e-04 | Train Loss: 0.5783 Acc: 0.8413 | Val Loss: 1.4202 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 15/20
+
+📊 [Baseline_ResNeXt_resnext50_32x4d] 测试集结果 (Macro):
+  Acc: 0.5807 | F1: 0.4907 | Precision: 0.6106 | Recall: 0.6316 | AUC: 0.7335
+  混淆矩阵:
+[[2265   30    1]
+ [ 110 1069   14]
+ [1637  636   28]]
+  Epoch  18 | LR: 2.68e-04 | Train Loss: 0.7394 Acc: 0.7596 | Val Loss: 1.5670 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 16/20
+  Epoch  24 | LR: 2.45e-04 | Train Loss: 0.5108 Acc: 0.8833 | Val Loss: 2.4535 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 15/20
+  Epoch  24 | LR: 2.45e-04 | Train Loss: 0.5767 Acc: 0.8285 | Val Loss: 1.2717 Acc: 0.4454
+  ⏳ EarlyStopping: 未改善 11/20
+  Epoch  24 | LR: 2.45e-04 | Train Loss: 0.5525 Acc: 0.8556 | Val Loss: 1.0141 Acc: 0.4456
+  ⏳ EarlyStopping: 未改善 13/20
+  Epoch  24 | LR: 2.45e-04 | Train Loss: 0.5699 Acc: 0.8491 | Val Loss: 1.1561 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 16/20
+  Epoch  25 | LR: 2.40e-04 | Train Loss: 0.5052 Acc: 0.8864 | Val Loss: 0.9811 Acc: 0.7139
+  ⏳ EarlyStopping: 未改善 16/20
+  Epoch  25 | LR: 2.40e-04 | Train Loss: 0.5573 Acc: 0.8436 | Val Loss: 1.6572 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 12/20
+  Epoch  25 | LR: 2.40e-04 | Train Loss: 0.5485 Acc: 0.8604 | Val Loss: 0.8362 Acc: 0.7363
+  ⏳ EarlyStopping: 未改善 14/20
+  Epoch  25 | LR: 2.40e-04 | Train Loss: 0.5670 Acc: 0.8480 | Val Loss: 1.8560 Acc: 0.4259
+  ⏳ EarlyStopping: 未改善 17/20
+  Epoch  19 | LR: 2.65e-04 | Train Loss: 0.7418 Acc: 0.7590 | Val Loss: nan Acc: 0.4375
+  ⏳ EarlyStopping: 未改善 17/20
+  Epoch  26 | LR: 2.36e-04 | Train Loss: 0.5032 Acc: 0.8869 | Val Loss: 1.0264 Acc: 0.6950
+  ⏳ EarlyStopping: 未改善 17/20
+  Epoch  26 | LR: 2.36e-04 | Train Loss: 0.5530 Acc: 0.8429 | Val Loss: 0.9931 Acc: 0.4454
+  ⏳ EarlyStopping: 未改善 13/20
+  Epoch  26 | LR: 2.36e-04 | Train Loss: 0.5432 Acc: 0.8653 | Val Loss: 1.3230 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 15/20
+  Epoch  26 | LR: 2.36e-04 | Train Loss: 0.5624 Acc: 0.8502 | Val Loss: 1.4213 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 18/20
+  Epoch  20 | LR: 2.61e-04 | Train Loss: nan Acc: 0.6816 | Val Loss: nan Acc: 0.4405
+  ⏳ EarlyStopping: 未改善 18/20
+  Epoch  27 | LR: 2.31e-04 | Train Loss: 0.4980 Acc: 0.8942 | Val Loss: 0.9008 Acc: 0.7255
+  ⏳ EarlyStopping: 未改善 18/20
+  Epoch  27 | LR: 2.31e-04 | Train Loss: 0.5475 Acc: 0.8490 | Val Loss: 0.7160 Acc: 0.7997
+  ⏳ EarlyStopping: 未改善 14/20
+  Epoch  27 | LR: 2.31e-04 | Train Loss: 0.5424 Acc: 0.8634 | Val Loss: 1.4297 Acc: 0.5771
+  ⏳ EarlyStopping: 未改善 16/20
+  Epoch  27 | LR: 2.31e-04 | Train Loss: 0.5604 Acc: 0.8506 | Val Loss: 1.2597 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 19/20
+  Epoch  28 | LR: 2.27e-04 | Train Loss: 0.5441 Acc: 0.8521 | Val Loss: 1.5077 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 15/20
+  Epoch  28 | LR: 2.27e-04 | Train Loss: 0.4963 Acc: 0.8947 | Val Loss: 0.8868 Acc: 0.6818
+  ⏳ EarlyStopping: 未改善 19/20
+  Epoch  28 | LR: 2.27e-04 | Train Loss: 0.5371 Acc: 0.8653 | Val Loss: 1.3318 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 17/20
+  Epoch  28 | LR: 2.27e-04 | Train Loss: 0.5542 Acc: 0.8531 | Val Loss: 1.9232 Acc: 0.4309
+  ⏳ EarlyStopping: 未改善 20/20
+  🛑 早停触发，在第 28 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [AST-Net_GCN_resnet18] 测试集结果 (Macro):
+  Acc: 0.6634 | F1: 0.6306 | Precision: 0.7001 | Recall: 0.6921 | AUC: 0.7775
+  混淆矩阵:
+[[2196   24   76]
+ [ 157 1003   33]
+ [ 970  689  642]]
+  Epoch  21 | LR: 2.57e-04 | Train Loss: nan Acc: 0.6485 | Val Loss: nan Acc: 0.8348
+  ⏳ EarlyStopping: 未改善 19/20
+  Epoch  29 | LR: 2.22e-04 | Train Loss: 0.5390 Acc: 0.8546 | Val Loss: 0.9632 Acc: 0.6754
+  ⏳ EarlyStopping: 未改善 16/20
+  Epoch  29 | LR: 2.22e-04 | Train Loss: 0.4896 Acc: 0.8959 | Val Loss: 1.1542 Acc: 0.3840
+  ⏳ EarlyStopping: 未改善 20/20
+  🛑 早停触发，在第 29 轮停止训练
+  🔄 已恢复最优权重
+  Epoch  29 | LR: 2.22e-04 | Train Loss: 0.5380 Acc: 0.8614 | Val Loss: 1.3686 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 18/20
+
+📊 [Baseline_EffNet_efficientnet_b0] 测试集结果 (Macro):
+  Acc: 0.5218 | F1: 0.4439 | Precision: 0.3895 | Recall: 0.5923 | AUC: 0.6889
+  混淆矩阵:
+[[1853  256  187]
+ [  46 1145    2]
+ [1259 1019   23]]
+  Epoch  30 | LR: 2.17e-04 | Train Loss: 0.5342 Acc: 0.8597 | Val Loss: 1.6418 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 17/20
+  Epoch  30 | LR: 2.17e-04 | Train Loss: 0.5331 Acc: 0.8685 | Val Loss: 1.2323 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 19/20
+  Epoch  22 | LR: 2.53e-04 | Train Loss: nan Acc: 0.6274 | Val Loss: nan Acc: 0.8496
+  ⏳ EarlyStopping: 未改善 20/20
+  🛑 早停触发，在第 22 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [AST-Net_GCN_resnext50_32x4d] 测试集结果 (Macro):
+  Acc: 0.4755 | F1: 0.4320 | Precision: 0.5061 | Recall: 0.5462 | AUC: 0.7730
+  混淆矩阵:
+[[  53   19 2224]
+ [  38 1095   60]
+ [  16  680 1605]]
+  Epoch  31 | LR: 2.12e-04 | Train Loss: 0.5334 Acc: 0.8588 | Val Loss: 0.8076 Acc: 0.7361
+  ⏳ EarlyStopping: 未改善 18/20
+  Epoch  31 | LR: 2.12e-04 | Train Loss: 0.5354 Acc: 0.8651 | Val Loss: 0.7665 Acc: 0.7712
+  ✅ EarlyStopping: val_loss 改善至 0.7665
+  Epoch  32 | LR: 2.07e-04 | Train Loss: 0.5316 Acc: 0.8608 | Val Loss: 0.7683 Acc: 0.7319
+  ⏳ EarlyStopping: 未改善 19/20
+  Epoch  32 | LR: 2.07e-04 | Train Loss: 0.5336 Acc: 0.8701 | Val Loss: 0.8572 Acc: 0.8368
+  ⏳ EarlyStopping: 未改善 1/20
+  Epoch  33 | LR: 2.02e-04 | Train Loss: 0.5273 Acc: 0.8632 | Val Loss: 0.9722 Acc: 0.4289
+  ⏳ EarlyStopping: 未改善 20/20
+  🛑 早停触发，在第 33 轮停止训练
+  🔄 已恢复最优权重
+  Epoch  33 | LR: 2.02e-04 | Train Loss: 0.5292 Acc: 0.8703 | Val Loss: 1.0956 Acc: 0.6439
+  ⏳ EarlyStopping: 未改善 2/20
+
+📊 [Baseline_CNNLSTM_resnet18] 测试集结果 (Macro):
+  Acc: 0.5931 | F1: 0.5032 | Precision: 0.7318 | Recall: 0.6493 | AUC: 0.8224
+  混淆矩阵:
+[[2271   25    0]
+ [  70 1123    0]
+ [1592  669   40]]
+  Epoch  34 | LR: 1.96e-04 | Train Loss: 0.5278 Acc: 0.8698 | Val Loss: 1.4832 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 3/20
+  Epoch  35 | LR: 1.91e-04 | Train Loss: 0.5266 Acc: 0.8730 | Val Loss: 0.9605 Acc: 0.7520
+  ⏳ EarlyStopping: 未改善 4/20
+  Epoch  36 | LR: 1.86e-04 | Train Loss: 0.5260 Acc: 0.8743 | Val Loss: 1.4100 Acc: 0.6579
+  ⏳ EarlyStopping: 未改善 5/20
+  Epoch  37 | LR: 1.80e-04 | Train Loss: 0.5235 Acc: 0.8739 | Val Loss: 0.8172 Acc: 0.7495
+  ⏳ EarlyStopping: 未改善 6/20
+  Epoch  38 | LR: 1.75e-04 | Train Loss: 0.5229 Acc: 0.8761 | Val Loss: 1.1215 Acc: 0.6146
+  ⏳ EarlyStopping: 未改善 7/20
+  Epoch  39 | LR: 1.69e-04 | Train Loss: 0.5205 Acc: 0.8757 | Val Loss: 1.7499 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 8/20
+  Epoch  40 | LR: 1.64e-04 | Train Loss: 0.5197 Acc: 0.8751 | Val Loss: 1.4057 Acc: 0.5815
+  ⏳ EarlyStopping: 未改善 9/20
+  Epoch  41 | LR: 1.58e-04 | Train Loss: 0.5189 Acc: 0.8759 | Val Loss: 0.7958 Acc: 0.7441
+  ⏳ EarlyStopping: 未改善 10/20
+  Epoch  42 | LR: 1.53e-04 | Train Loss: 0.5174 Acc: 0.8793 | Val Loss: 1.6346 Acc: 0.6549
+  ⏳ EarlyStopping: 未改善 11/20
+  Epoch  43 | LR: 1.47e-04 | Train Loss: 0.5161 Acc: 0.8780 | Val Loss: 0.9936 Acc: 0.7483
+  ⏳ EarlyStopping: 未改善 12/20
+  Epoch  44 | LR: 1.42e-04 | Train Loss: 0.5162 Acc: 0.8793 | Val Loss: 1.6527 Acc: 0.5274
+  ⏳ EarlyStopping: 未改善 13/20
+  Epoch  45 | LR: 1.36e-04 | Train Loss: 0.5135 Acc: 0.8792 | Val Loss: 1.0918 Acc: 0.7939
+  ⏳ EarlyStopping: 未改善 14/20
+  Epoch  46 | LR: 1.31e-04 | Train Loss: 0.5150 Acc: 0.8799 | Val Loss: 0.7997 Acc: 0.7411
+  ⏳ EarlyStopping: 未改善 15/20
+  Epoch  47 | LR: 1.25e-04 | Train Loss: 0.5121 Acc: 0.8813 | Val Loss: 1.0137 Acc: 0.6328
+  ⏳ EarlyStopping: 未改善 16/20
+  Epoch  48 | LR: 1.20e-04 | Train Loss: 0.5116 Acc: 0.8835 | Val Loss: 1.1683 Acc: 0.5929
+  ⏳ EarlyStopping: 未改善 17/20
+  Epoch  49 | LR: 1.14e-04 | Train Loss: 0.5113 Acc: 0.8832 | Val Loss: 0.8384 Acc: 0.5789
+  ⏳ EarlyStopping: 未改善 18/20
+  Epoch  50 | LR: 1.09e-04 | Train Loss: 0.5114 Acc: 0.8828 | Val Loss: 0.7856 Acc: 0.7437
+  ⏳ EarlyStopping: 未改善 19/20
+  Epoch  51 | LR: 1.04e-04 | Train Loss: 0.5103 Acc: 0.8839 | Val Loss: 1.8115 Acc: 0.4424
+  ⏳ EarlyStopping: 未改善 20/20
+  🛑 早停触发，在第 51 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [Baseline_ResNet_resnet18] 测试集结果 (Macro):
+  Acc: 0.5912 | F1: 0.4978 | Precision: 0.6927 | Recall: 0.6508 | AUC: 0.7949
+  混淆矩阵:
+[[2262   32    2]
+ [  47 1146    0]
+ [1613  673   15]]
+
+⏳ 等待所有 9 个模型训练完成...
+
+======================================================================
+🏆 模型性能对比汇总 (按 Macro F1 降序)
+======================================================================
+                           model  accuracy     f1  precision  recall    auc  params_M  gpu_id
+            AST-Net_GCN_resnet18    0.6634 0.6306     0.7001  0.6921 0.7775   11.8993       0
+       Baseline_CNNLSTM_resnet18    0.5931 0.5032     0.7318  0.6493 0.8224   14.3320       1
+        Baseline_ResNet_resnet18    0.5912 0.4978     0.6927  0.6508 0.7949   13.2757       3
+Baseline_ResNeXt_resnext50_32x4d    0.5807 0.4907     0.6106  0.6316 0.7335   31.3706       2
+ Baseline_EffNet_efficientnet_b0    0.5218 0.4439     0.3895  0.5923 0.6889    9.2525       0
+     AST-Net_GCN_resnext50_32x4d    0.4755 0.4320     0.5061  0.5462 0.7730   23.9671       1
+                          EEGNet    0.3971 0.1902     0.4656  0.3338 0.5795    0.0013       2
+                EEGConformer_GCN    0.3965 0.1893     0.1322  0.3333 0.5059    2.6169       0
+                      ST-GCN_EEG    0.2060 0.1139     0.0687  0.3333 0.7144    0.1087       3
+
+✅ 所有实验完成。结果保存于: /home/student/s230005071/shu/cnn_models_update/20260719_012012_ASTNet_vs_Baselines_3Class

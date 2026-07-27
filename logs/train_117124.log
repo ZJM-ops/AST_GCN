@@ -1,0 +1,161 @@
+📦 可用GPU数量: 2
+✅ GPU列表: ['NVIDIA GeForce RTX 4090 D', 'NVIDIA GeForce RTX 4090 D']
+   GPU 0: NVIDIA GeForce RTX 4090 D - 可用显存: 24.88 GB / 25.25 GB
+   GPU 1: NVIDIA GeForce RTX 4090 D - 可用显存: 24.88 GB / 25.25 GB
+结果保存目录: /home/student/s230005071/shu/cnn_models_update/20260720_003041_ASTNet_vs_Baselines_3Class
+配置文件已保存: /home/student/s230005071/shu/cnn_models_update/20260720_003041_ASTNet_vs_Baselines_3Class/config.yaml
+
+🚀 多卡并行模式 (2 GPUs)，同时训练多个模型
+
+📦 准备训练 [AST-Net_GCN_resnet18]，分配到 GPU 0
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnet18', 'gradient_checkpointing': True}
+
+📦 准备训练 [AST-Net_GCN_resnext50_32x4d]，分配到 GPU 1
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnext50_32x4d', 'gradient_checkpointing': True}
+🚀 [AST-Net_GCN_resnet18] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [AST-Net_GCN_resnet18]: 11.9M
+
+============================================================
+🚀 训练模型: AST-Net_GCN_resnet18
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-04, weight_decay: 1.00e-03
+    patience: 10, warmup_epochs: 10, grad_clip: 1.0
+    accum_steps: 32, mixed_precision: True
+❌ [AST-Net_GCN_resnet18] 训练失败: Unknown format code 'e' for object of type 'str'
+
+📦 准备训练 [Baseline_ResNeXt_resnext50_32x4d]，分配到 GPU 0
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnext50_32x4d', 'gradient_checkpointing': True}
+🚀 [AST-Net_GCN_resnext50_32x4d] 使用GPU: 1 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [AST-Net_GCN_resnext50_32x4d]: 24.0M
+
+============================================================
+🚀 训练模型: AST-Net_GCN_resnext50_32x4d
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-04, weight_decay: 1.00e-03
+    patience: 10, warmup_epochs: 10, grad_clip: 1.0
+    accum_steps: 32, mixed_precision: True
+❌ [AST-Net_GCN_resnext50_32x4d] 训练失败: Unknown format code 'e' for object of type 'str'
+
+📦 准备训练 [Baseline_ResNet_resnet18]，分配到 GPU 1
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnet18', 'gradient_checkpointing': True}
+🚀 [Baseline_ResNeXt_resnext50_32x4d] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [Baseline_ResNeXt_resnext50_32x4d]: 31.4M
+
+============================================================
+🚀 训练模型: Baseline_ResNeXt_resnext50_32x4d
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-04, weight_decay: 1.00e-03
+    patience: 10, warmup_epochs: 10, grad_clip: 1.0
+    accum_steps: 32, mixed_precision: True
+❌ [Baseline_ResNeXt_resnext50_32x4d] 训练失败: Unknown format code 'e' for object of type 'str'
+
+📦 准备训练 [Baseline_EffNet_efficientnet_b0]，分配到 GPU 0
+   模型参数: {'num_classes': 3, 'backbone_name': 'efficientnet_b0', 'gradient_checkpointing': True}
+🚀 [Baseline_ResNet_resnet18] 使用GPU: 1 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [Baseline_ResNet_resnet18]: 13.3M
+
+============================================================
+🚀 训练模型: Baseline_ResNet_resnet18
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-04, weight_decay: 1.00e-03
+    patience: 10, warmup_epochs: 10, grad_clip: 1.0
+    accum_steps: 32, mixed_precision: True
+❌ [Baseline_ResNet_resnet18] 训练失败: Unknown format code 'e' for object of type 'str'
+
+📦 准备训练 [Baseline_CNNLSTM_resnet18]，分配到 GPU 1
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnet18', 'gradient_checkpointing': True}
+🚀 [Baseline_EffNet_efficientnet_b0] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [Baseline_EffNet_efficientnet_b0]: 9.3M
+
+============================================================
+🚀 训练模型: Baseline_EffNet_efficientnet_b0
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-04, weight_decay: 1.00e-03
+    patience: 10, warmup_epochs: 10, grad_clip: 1.0
+    accum_steps: 32, mixed_precision: True
+❌ [Baseline_EffNet_efficientnet_b0] 训练失败: Unknown format code 'e' for object of type 'str'
+
+📦 准备训练 [EEGNet]，分配到 GPU 0
+   模型参数: {'num_classes': 3, 'num_channels': 8}
+
+📦 准备训练 [ST-GCN_EEG]，分配到 GPU 1
+   模型参数: {'num_classes': 3, 'num_nodes': 8}
+
+📦 准备训练 [EEGConformer_GCN]，分配到 GPU 0
+   模型参数: {'num_classes': 3, 'num_nodes': 8}
+🚀 [Baseline_CNNLSTM_resnet18] 使用GPU: 1 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [Baseline_CNNLSTM_resnet18]: 14.3M
+
+============================================================
+🚀 训练模型: Baseline_CNNLSTM_resnet18
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-04, weight_decay: 1.00e-03
+    patience: 10, warmup_epochs: 10, grad_clip: 1.0
+    accum_steps: 32, mixed_precision: True
+❌ [Baseline_CNNLSTM_resnet18] 训练失败: Unknown format code 'e' for object of type 'str'
+🚀 [ST-GCN_EEG] 使用GPU: 1 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [ST-GCN_EEG]: 0.1M
+
+============================================================
+🚀 训练模型: ST-GCN_EEG
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-03, weight_decay: 1.00e-04
+    patience: 10, warmup_epochs: 5, grad_clip: 1.0
+    accum_steps: 4, mixed_precision: True
+❌ [ST-GCN_EEG] 训练失败: Unknown format code 'e' for object of type 'str'
+🚀 [EEGNet] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [EEGNet]: 0.0M
+
+============================================================
+🚀 训练模型: EEGNet
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-03, weight_decay: 1.00e-04
+    patience: 10, warmup_epochs: 5, grad_clip: 1.0
+    accum_steps: 4, mixed_precision: True
+❌ [EEGNet] 训练失败: Unknown format code 'e' for object of type 'str'
+🚀 [EEGConformer_GCN] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [EEGConformer_GCN]: 2.6M
+
+============================================================
+🚀 训练模型: EEGConformer_GCN
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-03, weight_decay: 1.00e-04
+    patience: 10, warmup_epochs: 5, grad_clip: 1.0
+    accum_steps: 4, mixed_precision: True
+❌ [EEGConformer_GCN] 训练失败: Unknown format code 'e' for object of type 'str'
+
+⏳ 等待所有 9 个模型训练完成...
+⚠️ [AST-Net_GCN_resnet18] 训练失败: Unknown format code 'e' for object of type 'str'
+⚠️ [AST-Net_GCN_resnext50_32x4d] 训练失败: Unknown format code 'e' for object of type 'str'
+⚠️ [Baseline_ResNeXt_resnext50_32x4d] 训练失败: Unknown format code 'e' for object of type 'str'
+⚠️ [Baseline_ResNet_resnet18] 训练失败: Unknown format code 'e' for object of type 'str'
+⚠️ [Baseline_EffNet_efficientnet_b0] 训练失败: Unknown format code 'e' for object of type 'str'
+⚠️ [Baseline_CNNLSTM_resnet18] 训练失败: Unknown format code 'e' for object of type 'str'
+⚠️ [ST-GCN_EEG] 训练失败: Unknown format code 'e' for object of type 'str'
+⚠️ [EEGNet] 训练失败: Unknown format code 'e' for object of type 'str'
+⚠️ [EEGConformer_GCN] 训练失败: Unknown format code 'e' for object of type 'str'
+
+======================================================================
+🏆 模型性能对比汇总 (按 Macro F1 降序)
+======================================================================
+                           model  accuracy     f1  precision  recall    auc  params_M  gpu_id                                            error
+            AST-Net_GCN_resnet18    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0 Unknown format code 'e' for object of type 'str'
+     AST-Net_GCN_resnext50_32x4d    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       1 Unknown format code 'e' for object of type 'str'
+Baseline_ResNeXt_resnext50_32x4d    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0 Unknown format code 'e' for object of type 'str'
+        Baseline_ResNet_resnet18    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       1 Unknown format code 'e' for object of type 'str'
+ Baseline_EffNet_efficientnet_b0    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0 Unknown format code 'e' for object of type 'str'
+       Baseline_CNNLSTM_resnet18    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       1 Unknown format code 'e' for object of type 'str'
+                      ST-GCN_EEG    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       1 Unknown format code 'e' for object of type 'str'
+                          EEGNet    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0 Unknown format code 'e' for object of type 'str'
+                EEGConformer_GCN    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0 Unknown format code 'e' for object of type 'str'
+
+✅ 所有实验完成。结果保存于: /home/student/s230005071/shu/cnn_models_update/20260720_003041_ASTNet_vs_Baselines_3Class

@@ -1,0 +1,348 @@
+📦 可用GPU数量: 4
+✅ GPU列表: ['Tesla V100-SXM2-32GB', 'Tesla V100-SXM2-32GB', 'Tesla V100-SXM2-32GB', 'Tesla V100-SXM2-32GB']
+   GPU 0: Tesla V100-SXM2-32GB - 可用显存: 2.28 GB / 34.07 GB
+   GPU 1: Tesla V100-SXM2-32GB - 可用显存: 33.75 GB / 34.07 GB
+   GPU 2: Tesla V100-SXM2-32GB - 可用显存: 33.75 GB / 34.07 GB
+   GPU 3: Tesla V100-SXM2-32GB - 可用显存: 33.75 GB / 34.07 GB
+结果保存目录: /home/student/s230005071/shu/cnn_models_update/20260719_010137_ASTNet_vs_Baselines_3Class
+
+🚀 多卡并行模式 (4 GPUs)，同时训练多个模型
+
+📦 准备训练 [AST-Net_GCN_resnet18]，分配到 GPU 0
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnet18', 'gradient_checkpointing': True}
+
+📦 准备训练 [AST-Net_GCN_resnext50_32x4d]，分配到 GPU 1
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnext50_32x4d', 'gradient_checkpointing': True}
+🚀 [AST-Net_GCN_resnet18] 使用GPU: 0 (Tesla V100-SXM2-32GB)
+模型参数量 [AST-Net_GCN_resnet18]: 11.9M
+
+============================================================
+🚀 训练模型: AST-Net_GCN_resnet18
+============================================================
+
+📦 准备训练 [Baseline_ResNeXt_resnext50_32x4d]，分配到 GPU 2
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnext50_32x4d', 'gradient_checkpointing': True}
+🚀 [AST-Net_GCN_resnext50_32x4d] 使用GPU: 1 (Tesla V100-SXM2-32GB)
+模型参数量 [AST-Net_GCN_resnext50_32x4d]: 24.0M
+
+============================================================
+🚀 训练模型: AST-Net_GCN_resnext50_32x4d
+============================================================
+
+📦 准备训练 [Baseline_ResNet_resnet18]，分配到 GPU 3
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnet18', 'gradient_checkpointing': True}
+🚀 [Baseline_ResNeXt_resnext50_32x4d] 使用GPU: 2 (Tesla V100-SXM2-32GB)
+模型参数量 [Baseline_ResNeXt_resnext50_32x4d]: 31.4M
+
+============================================================
+🚀 训练模型: Baseline_ResNeXt_resnext50_32x4d
+============================================================
+
+📦 准备训练 [Baseline_EffNet_efficientnet_b0]，分配到 GPU 0
+   模型参数: {'num_classes': 3, 'backbone_name': 'efficientnet_b0', 'gradient_checkpointing': True}
+🚀 [Baseline_ResNet_resnet18] 使用GPU: 3 (Tesla V100-SXM2-32GB)
+模型参数量 [Baseline_ResNet_resnet18]: 13.3M
+
+============================================================
+🚀 训练模型: Baseline_ResNet_resnet18
+============================================================
+
+📦 准备训练 [Baseline_CNNLSTM_resnet18]，分配到 GPU 1
+   模型参数: {'num_classes': 3, 'backbone_name': 'resnet18', 'gradient_checkpointing': True}
+🚀 [Baseline_EffNet_efficientnet_b0] 使用GPU: 0 (Tesla V100-SXM2-32GB)
+模型参数量 [Baseline_EffNet_efficientnet_b0]: 9.3M
+
+============================================================
+🚀 训练模型: Baseline_EffNet_efficientnet_b0
+============================================================
+
+📦 准备训练 [EEGNet]，分配到 GPU 2
+   模型参数: {'num_classes': 3, 'num_channels': 8}
+
+📦 准备训练 [ST-GCN_EEG]，分配到 GPU 3
+   模型参数: {'num_classes': 3, 'num_nodes': 8}
+
+📦 准备训练 [EEGConformer_GCN]，分配到 GPU 0
+   模型参数: {'num_classes': 3, 'num_nodes': 8}
+🚀 [Baseline_CNNLSTM_resnet18] 使用GPU: 1 (Tesla V100-SXM2-32GB)
+模型参数量 [Baseline_CNNLSTM_resnet18]: 14.3M
+
+============================================================
+🚀 训练模型: Baseline_CNNLSTM_resnet18
+============================================================
+🚀 [ST-GCN_EEG] 使用GPU: 3 (Tesla V100-SXM2-32GB)
+模型参数量 [ST-GCN_EEG]: 0.1M
+
+============================================================
+🚀 训练模型: ST-GCN_EEG
+============================================================
+🚀 [EEGNet] 使用GPU: 2 (Tesla V100-SXM2-32GB)
+模型参数量 [EEGNet]: 0.0M
+
+============================================================
+🚀 训练模型: EEGNet
+============================================================
+🚀 [EEGConformer_GCN] 使用GPU: 0 (Tesla V100-SXM2-32GB)
+模型参数量 [EEGConformer_GCN]: 2.6M
+
+============================================================
+🚀 训练模型: EEGConformer_GCN
+============================================================
+❌ [Baseline_EffNet_efficientnet_b0] 训练失败: CUDA out of memory. Tried to allocate 98.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 102.75 MiB is free. Process 3179392 has 29.30 GiB memory in use. Process 2107639 has 308.00 MiB memory in use. Process 2107923 has 1.11 GiB memory in use. Including non-PyTorch memory, this process has 624.00 MiB memory in use. Process 2108358 has 318.00 MiB memory in use. 26.97 GiB allowed; Of the allocated memory 243.79 MiB is allocated by PyTorch, and 10.21 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+❌ [AST-Net_GCN_resnet18] 训练失败: CUDA out of memory. Tried to allocate 50.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 12.75 MiB is free. Process 3179392 has 29.30 GiB memory in use. Process 2107639 has 308.00 MiB memory in use. Including non-PyTorch memory, this process has 1.19 GiB memory in use. Process 2108171 has 624.00 MiB memory in use. Process 2108358 has 318.00 MiB memory in use. 26.97 GiB allowed; Of the allocated memory 817.92 MiB is allocated by PyTorch, and 14.08 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+❌ [EEGConformer_GCN] 训练失败: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+  Epoch   1 | LR: 1.53e-05 | Train Loss: 1.1079 Acc: 0.2408 | Val Loss: 1.7384 Acc: 0.1165
+  ✅ EarlyStopping: val_loss 改善至 1.7384
+  Epoch   1 | LR: 1.53e-05 | Train Loss: 1.1136 Acc: 0.3038 | Val Loss: 1.1625 Acc: 0.1165
+  ✅ EarlyStopping: val_loss 改善至 1.1625
+  Epoch   2 | LR: 3.02e-05 | Train Loss: 1.1071 Acc: 0.2430 | Val Loss: 1.7244 Acc: 0.1165
+  ✅ EarlyStopping: val_loss 改善至 1.7244
+  Epoch   2 | LR: 3.02e-05 | Train Loss: 1.1136 Acc: 0.3013 | Val Loss: 1.1601 Acc: 0.1165
+  ✅ EarlyStopping: val_loss 改善至 1.1601
+  Epoch   3 | LR: 4.51e-05 | Train Loss: 1.1058 Acc: 0.2472 | Val Loss: 1.7251 Acc: 0.4415
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   3 | LR: 4.51e-05 | Train Loss: 1.1135 Acc: 0.3018 | Val Loss: 1.1600 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   4 | LR: 5.99e-05 | Train Loss: 1.1129 Acc: 0.3017 | Val Loss: 1.1606 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   4 | LR: 5.99e-05 | Train Loss: 1.1024 Acc: 0.3209 | Val Loss: 1.7530 Acc: 0.4458
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   5 | LR: 7.45e-05 | Train Loss: 1.1126 Acc: 0.3011 | Val Loss: 1.1621 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch   5 | LR: 7.45e-05 | Train Loss: 1.0900 Acc: 0.4134 | Val Loss: 1.5879 Acc: 0.1177
+  ✅ EarlyStopping: val_loss 改善至 1.5879
+  Epoch   6 | LR: 8.90e-05 | Train Loss: 1.1119 Acc: 0.3010 | Val Loss: 1.1628 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch   6 | LR: 8.90e-05 | Train Loss: 1.0738 Acc: 0.4295 | Val Loss: 1.6039 Acc: 0.1203
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   7 | LR: 1.03e-04 | Train Loss: 1.1112 Acc: 0.3016 | Val Loss: 1.1611 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch   7 | LR: 1.03e-04 | Train Loss: 1.0605 Acc: 0.4493 | Val Loss: 2.3110 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   8 | LR: 1.17e-04 | Train Loss: 1.1105 Acc: 0.2965 | Val Loss: 1.1628 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch   8 | LR: 1.17e-04 | Train Loss: 1.0496 Acc: 0.4483 | Val Loss: 3.2669 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch   9 | LR: 1.31e-04 | Train Loss: 1.0431 Acc: 0.4657 | Val Loss: 3.0477 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch   9 | LR: 1.31e-04 | Train Loss: 1.1095 Acc: 0.2987 | Val Loss: 1.1632 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch   1 | LR: 1.53e-05 | Train Loss: 1.1055 Acc: 0.2471 | Val Loss: 1.1246 Acc: 0.1169
+  ✅ EarlyStopping: val_loss 改善至 1.1246
+  Epoch   1 | LR: 1.53e-05 | Train Loss: 1.1090 Acc: 0.3313 | Val Loss: 1.1024 Acc: 0.4379
+  ✅ EarlyStopping: val_loss 改善至 1.1024
+  Epoch   1 | LR: 1.53e-05 | Train Loss: 1.1027 Acc: 0.3372 | Val Loss: 1.1130 Acc: 0.1777
+  ✅ EarlyStopping: val_loss 改善至 1.1130
+  Epoch   1 | LR: 1.53e-05 | Train Loss: 1.0808 Acc: 0.4393 | Val Loss: 1.0805 Acc: 0.4460
+  ✅ EarlyStopping: val_loss 改善至 1.0805
+  Epoch  10 | LR: 1.44e-04 | Train Loss: 1.1089 Acc: 0.2934 | Val Loss: 1.1640 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch  10 | LR: 1.44e-04 | Train Loss: 1.0392 Acc: 0.4472 | Val Loss: 3.2012 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch  11 | LR: 1.58e-04 | Train Loss: 1.0367 Acc: 0.4608 | Val Loss: 6.2923 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch  11 | LR: 1.58e-04 | Train Loss: 1.1080 Acc: 0.2947 | Val Loss: 1.1636 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 9/10
+  Epoch  12 | LR: 1.70e-04 | Train Loss: 1.0331 Acc: 0.4584 | Val Loss: 4.9731 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch  12 | LR: 1.70e-04 | Train Loss: 1.1074 Acc: 0.2875 | Val Loss: 1.1683 Acc: 0.1165
+  ⏳ EarlyStopping: 未改善 10/10
+  🛑 早停触发，在第 12 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [EEGNet] 测试集结果 (Macro):
+  Acc: 0.3974 | F1: 0.1896 | Precision: 0.1325 | Recall: 0.3333 | AUC: 0.4364
+  混淆矩阵:
+[[   0    0 2296]
+ [   0    0 1193]
+ [   0    0 2301]]
+  Epoch  13 | LR: 1.83e-04 | Train Loss: 1.0314 Acc: 0.4635 | Val Loss: 4.7814 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch  14 | LR: 1.95e-04 | Train Loss: 1.0302 Acc: 0.4793 | Val Loss: 1.8538 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 9/10
+  Epoch  15 | LR: 2.06e-04 | Train Loss: 1.0280 Acc: 0.4656 | Val Loss: 1.6727 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 10/10
+  🛑 早停触发，在第 15 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [ST-GCN_EEG] 测试集结果 (Macro):
+  Acc: 0.3953 | F1: 0.1920 | Precision: 0.2153 | Recall: 0.3324 | AUC: 0.4505
+  混淆矩阵:
+[[   0    0 2296]
+ [   0    6 1187]
+ [   0   18 2283]]
+  Epoch   2 | LR: 3.02e-05 | Train Loss: 1.0536 Acc: 0.4695 | Val Loss: 1.0741 Acc: 0.2571
+  ✅ EarlyStopping: val_loss 改善至 1.0741
+  Epoch   2 | LR: 3.02e-05 | Train Loss: 1.0984 Acc: 0.3862 | Val Loss: 1.1069 Acc: 0.3012
+  ✅ EarlyStopping: val_loss 改善至 1.1069
+  Epoch   2 | LR: 3.02e-05 | Train Loss: 0.9817 Acc: 0.5224 | Val Loss: 0.9339 Acc: 0.4203
+  ✅ EarlyStopping: val_loss 改善至 0.9339
+  Epoch   2 | LR: 3.02e-05 | Train Loss: 0.9041 Acc: 0.6185 | Val Loss: 0.7934 Acc: 0.5043
+  ✅ EarlyStopping: val_loss 改善至 0.7934
+  Epoch   3 | LR: 4.51e-05 | Train Loss: 0.9662 Acc: 0.5319 | Val Loss: 0.9803 Acc: 0.3820
+  ✅ EarlyStopping: val_loss 改善至 0.9803
+  Epoch   3 | LR: 4.51e-05 | Train Loss: 1.0613 Acc: 0.4751 | Val Loss: 1.0697 Acc: 0.3281
+  ✅ EarlyStopping: val_loss 改善至 1.0697
+  Epoch   3 | LR: 4.51e-05 | Train Loss: 0.8958 Acc: 0.5948 | Val Loss: 0.8151 Acc: 0.5294
+  ✅ EarlyStopping: val_loss 改善至 0.8151
+  Epoch   4 | LR: 5.99e-05 | Train Loss: 0.9363 Acc: 0.5489 | Val Loss: 0.8567 Acc: 0.4460
+  ✅ EarlyStopping: val_loss 改善至 0.8567
+  Epoch   4 | LR: 5.99e-05 | Train Loss: 0.9187 Acc: 0.5688 | Val Loss: 0.8813 Acc: 0.4590
+  ✅ EarlyStopping: val_loss 改善至 0.8813
+  Epoch   4 | LR: 5.99e-05 | Train Loss: 0.8659 Acc: 0.6158 | Val Loss: 0.7650 Acc: 0.8494
+  ✅ EarlyStopping: val_loss 改善至 0.7650
+  Epoch   3 | LR: 4.51e-05 | Train Loss: 0.8130 Acc: 0.6526 | Val Loss: 0.7657 Acc: 0.8490
+  ✅ EarlyStopping: val_loss 改善至 0.7657
+  Epoch   5 | LR: 7.45e-05 | Train Loss: 0.8895 Acc: 0.5962 | Val Loss: 0.8323 Acc: 0.7925
+  ✅ EarlyStopping: val_loss 改善至 0.8323
+  Epoch   5 | LR: 7.45e-05 | Train Loss: 0.8561 Acc: 0.6102 | Val Loss: 0.7461 Acc: 0.8562
+  ✅ EarlyStopping: val_loss 改善至 0.7461
+  Epoch   5 | LR: 7.45e-05 | Train Loss: 0.8311 Acc: 0.6398 | Val Loss: 0.7532 Acc: 0.7796
+  ✅ EarlyStopping: val_loss 改善至 0.7532
+  Epoch   6 | LR: 8.90e-05 | Train Loss: 0.8679 Acc: 0.6183 | Val Loss: 0.8002 Acc: 0.8053
+  ✅ EarlyStopping: val_loss 改善至 0.8002
+  Epoch   6 | LR: 8.90e-05 | Train Loss: 0.8395 Acc: 0.6204 | Val Loss: 0.7510 Acc: 0.5286
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   6 | LR: 8.90e-05 | Train Loss: 0.8048 Acc: 0.6697 | Val Loss: 0.9917 Acc: 0.4454
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   4 | LR: 5.99e-05 | Train Loss: 0.7895 Acc: 0.6747 | Val Loss: 1.4242 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   7 | LR: 1.03e-04 | Train Loss: 0.8431 Acc: 0.6341 | Val Loss: 0.9099 Acc: 0.4039
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   7 | LR: 1.03e-04 | Train Loss: 0.8233 Acc: 0.6242 | Val Loss: 0.8253 Acc: 0.7483
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   7 | LR: 1.03e-04 | Train Loss: 0.7868 Acc: 0.6852 | Val Loss: 1.0844 Acc: 0.4454
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   8 | LR: 1.17e-04 | Train Loss: 0.8217 Acc: 0.6543 | Val Loss: 1.1372 Acc: 0.2982
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   8 | LR: 1.17e-04 | Train Loss: 0.8123 Acc: 0.6484 | Val Loss: 1.7357 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch   8 | LR: 1.17e-04 | Train Loss: 0.8047 Acc: 0.6782 | Val Loss: 1.4197 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch   9 | LR: 1.31e-04 | Train Loss: 0.8015 Acc: 0.6868 | Val Loss: 0.8708 Acc: 0.6475
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch   9 | LR: 1.31e-04 | Train Loss: 0.8208 Acc: 0.6374 | Val Loss: 0.8957 Acc: 0.7477
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch   5 | LR: 7.45e-05 | Train Loss: 0.7698 Acc: 0.7121 | Val Loss: 1.1445 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   9 | LR: 1.31e-04 | Train Loss: 0.7646 Acc: 0.7253 | Val Loss: 1.9289 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch  10 | LR: 1.44e-04 | Train Loss: 0.7807 Acc: 0.7063 | Val Loss: 1.9018 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch  10 | LR: 1.44e-04 | Train Loss: 0.8417 Acc: 0.6360 | Val Loss: 1.8658 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch  11 | LR: 1.58e-04 | Train Loss: 0.7681 Acc: 0.7228 | Val Loss: 2.6944 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch  11 | LR: 1.58e-04 | Train Loss: 0.7917 Acc: 0.6881 | Val Loss: 2.0173 Acc: 0.4883
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch  10 | LR: 1.44e-04 | Train Loss: 0.7282 Acc: 0.7614 | Val Loss: 1.3811 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch   6 | LR: 8.90e-05 | Train Loss: 0.7563 Acc: 0.7221 | Val Loss: 1.2077 Acc: 0.4452
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch  12 | LR: 1.70e-04 | Train Loss: 0.7564 Acc: 0.7319 | Val Loss: 1.7800 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch  12 | LR: 1.70e-04 | Train Loss: 0.7895 Acc: 0.6867 | Val Loss: 1.8466 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch  11 | LR: 1.58e-04 | Train Loss: 0.6985 Acc: 0.7837 | Val Loss: 2.0386 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch  13 | LR: 1.83e-04 | Train Loss: 0.7393 Acc: 0.7528 | Val Loss: 2.1720 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch  13 | LR: 1.83e-04 | Train Loss: 0.8216 Acc: 0.6648 | Val Loss: 0.8600 Acc: 0.7399
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch  12 | LR: 1.70e-04 | Train Loss: 0.6753 Acc: 0.7969 | Val Loss: 0.7846 Acc: 0.7373
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch   7 | LR: 1.03e-04 | Train Loss: 0.7488 Acc: 0.7311 | Val Loss: 1.4987 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch  14 | LR: 1.95e-04 | Train Loss: 0.7262 Acc: 0.7661 | Val Loss: 2.0324 Acc: 0.5083
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch  14 | LR: 1.95e-04 | Train Loss: 0.7853 Acc: 0.6851 | Val Loss: 1.1334 Acc: 0.6477
+  ⏳ EarlyStopping: 未改善 9/10
+  Epoch  13 | LR: 1.83e-04 | Train Loss: 0.6561 Acc: 0.8050 | Val Loss: 1.7778 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch  15 | LR: 2.06e-04 | Train Loss: 0.7023 Acc: 0.7803 | Val Loss: 1.6250 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 9/10
+  Epoch  15 | LR: 2.06e-04 | Train Loss: 0.7725 Acc: 0.7020 | Val Loss: 2.0032 Acc: 0.4764
+  ⏳ EarlyStopping: 未改善 10/10
+  🛑 早停触发，在第 15 轮停止训练
+  🔄 已恢复最优权重
+  Epoch  14 | LR: 1.95e-04 | Train Loss: 0.6432 Acc: 0.8051 | Val Loss: 1.7360 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 9/10
+  Epoch   8 | LR: 1.17e-04 | Train Loss: 0.7474 Acc: 0.7280 | Val Loss: 1.6209 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 5/10
+
+📊 [Baseline_CNNLSTM_resnet18] 测试集结果 (Macro):
+  Acc: 0.5832 | F1: 0.4876 | Precision: 0.3926 | Recall: 0.6437 | AUC: 0.7286
+  混淆矩阵:
+[[2234   62    0]
+ [  50 1143    0]
+ [1618  683    0]]
+  Epoch  16 | LR: 2.17e-04 | Train Loss: 0.6873 Acc: 0.7849 | Val Loss: 1.9914 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 10/10
+  🛑 早停触发，在第 16 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [Baseline_ResNet_resnet18] 测试集结果 (Macro):
+  Acc: 0.5494 | F1: 0.4551 | Precision: 0.3769 | Recall: 0.5838 | AUC: 0.7292
+  混淆矩阵:
+[[2272   24    0]
+ [ 208  909   76]
+ [1678  623    0]]
+  Epoch  15 | LR: 2.06e-04 | Train Loss: 0.6321 Acc: 0.8088 | Val Loss: 2.5060 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 10/10
+  🛑 早停触发，在第 15 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [Baseline_ResNeXt_resnext50_32x4d] 测试集结果 (Macro):
+  Acc: 0.5965 | F1: 0.5252 | Precision: 0.6346 | Recall: 0.6484 | AUC: 0.7456
+  混淆矩阵:
+[[2221   32   43]
+ [  83 1095   15]
+ [1521  642  138]]
+  Epoch   9 | LR: 1.31e-04 | Train Loss: 0.7401 Acc: 0.7333 | Val Loss: 1.5007 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch  10 | LR: 1.44e-04 | Train Loss: 0.7326 Acc: 0.7451 | Val Loss: 1.3330 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch  11 | LR: 1.58e-04 | Train Loss: 0.6970 Acc: 0.7750 | Val Loss: 1.8959 Acc: 0.4460
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch  12 | LR: 1.70e-04 | Train Loss: 0.6573 Acc: 0.7965 | Val Loss: 0.8633 Acc: 0.6545
+  ⏳ EarlyStopping: 未改善 9/10
+  Epoch  13 | LR: 1.83e-04 | Train Loss: 0.6430 Acc: 0.8011 | Val Loss: 1.1984 Acc: 0.6802
+  ⏳ EarlyStopping: 未改善 10/10
+  🛑 早停触发，在第 13 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [AST-Net_GCN_resnext50_32x4d] 测试集结果 (Macro):
+  Acc: 0.5660 | F1: 0.4678 | Precision: 0.3723 | Recall: 0.6329 | AUC: 0.7363
+  混淆矩阵:
+[[2106  190    0]
+ [  22 1171    0]
+ [1433  868    0]]
+
+⏳ 等待所有 9 个模型训练完成...
+⚠️ [Baseline_EffNet_efficientnet_b0] 训练失败: CUDA out of memory. Tried to allocate 98.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 102.75 MiB is free. Process 3179392 has 29.30 GiB memory in use. Process 2107639 has 308.00 MiB memory in use. Process 2107923 has 1.11 GiB memory in use. Including non-PyTorch memory, this process has 624.00 MiB memory in use. Process 2108358 has 318.00 MiB memory in use. 26.97 GiB allowed; Of the allocated memory 243.79 MiB is allocated by PyTorch, and 10.21 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+⚠️ [AST-Net_GCN_resnet18] 训练失败: CUDA out of memory. Tried to allocate 50.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 12.75 MiB is free. Process 3179392 has 29.30 GiB memory in use. Process 2107639 has 308.00 MiB memory in use. Including non-PyTorch memory, this process has 1.19 GiB memory in use. Process 2108171 has 624.00 MiB memory in use. Process 2108358 has 318.00 MiB memory in use. 26.97 GiB allowed; Of the allocated memory 817.92 MiB is allocated by PyTorch, and 14.08 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+⚠️ [EEGConformer_GCN] 训练失败: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+======================================================================
+🏆 模型性能对比汇总 (按 Macro F1 降序)
+======================================================================
+                           model  accuracy     f1  precision  recall    auc  params_M  gpu_id                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       error
+Baseline_ResNeXt_resnext50_32x4d    0.5965 0.5252     0.6346  0.6484 0.7456   31.3706       2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         NaN
+       Baseline_CNNLSTM_resnet18    0.5832 0.4876     0.3926  0.6437 0.7286   14.3320       1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         NaN
+     AST-Net_GCN_resnext50_32x4d    0.5660 0.4678     0.3723  0.6329 0.7363   23.9671       1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         NaN
+        Baseline_ResNet_resnet18    0.5494 0.4551     0.3769  0.5838 0.7292   13.2757       3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         NaN
+                      ST-GCN_EEG    0.3953 0.1920     0.2153  0.3324 0.4505    0.1087       3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         NaN
+                          EEGNet    0.3974 0.1896     0.1325  0.3333 0.4364    0.0013       2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         NaN
+ Baseline_EffNet_efficientnet_b0    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0 CUDA out of memory. Tried to allocate 98.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 102.75 MiB is free. Process 3179392 has 29.30 GiB memory in use. Process 2107639 has 308.00 MiB memory in use. Process 2107923 has 1.11 GiB memory in use. Including non-PyTorch memory, this process has 624.00 MiB memory in use. Process 2108358 has 318.00 MiB memory in use. 26.97 GiB allowed; Of the allocated memory 243.79 MiB is allocated by PyTorch, and 10.21 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+            AST-Net_GCN_resnet18    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0  CUDA out of memory. Tried to allocate 50.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 12.75 MiB is free. Process 3179392 has 29.30 GiB memory in use. Process 2107639 has 308.00 MiB memory in use. Including non-PyTorch memory, this process has 1.19 GiB memory in use. Process 2108171 has 624.00 MiB memory in use. Process 2108358 has 318.00 MiB memory in use. 26.97 GiB allowed; Of the allocated memory 817.92 MiB is allocated by PyTorch, and 14.08 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+                EEGConformer_GCN    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            CUDA error: out of memory\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n
+
+✅ 所有实验完成。结果保存于: /home/student/s230005071/shu/cnn_models_update/20260719_010137_ASTNet_vs_Baselines_3Class

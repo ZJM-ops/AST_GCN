@@ -1,0 +1,84 @@
+Traceback (most recent call last):
+  File "/home/student/s230005071/shu/code2/main.py", line 98, in train_single_model_worker
+    trained_model = train_one_model(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/trainers/trainer.py", line 27, in train_one_model
+    print(f"    cosine_eta_min: {cosine_eta_min:.2e}, cosine_restarts: {cosine_restarts}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Unknown format code 'e' for object of type 'str'
+Traceback (most recent call last):
+  File "/home/student/s230005071/shu/code2/main.py", line 98, in train_single_model_worker
+    trained_model = train_one_model(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/trainers/trainer.py", line 27, in train_one_model
+    print(f"    cosine_eta_min: {cosine_eta_min:.2e}, cosine_restarts: {cosine_restarts}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Unknown format code 'e' for object of type 'str'
+Traceback (most recent call last):
+  File "/home/student/s230005071/shu/code2/main.py", line 98, in train_single_model_worker
+    trained_model = train_one_model(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/trainers/trainer.py", line 27, in train_one_model
+    print(f"    cosine_eta_min: {cosine_eta_min:.2e}, cosine_restarts: {cosine_restarts}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Unknown format code 'e' for object of type 'str'
+Traceback (most recent call last):
+  File "/home/student/s230005071/shu/code2/main.py", line 98, in train_single_model_worker
+    trained_model = train_one_model(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/trainers/trainer.py", line 27, in train_one_model
+    print(f"    cosine_eta_min: {cosine_eta_min:.2e}, cosine_restarts: {cosine_restarts}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Unknown format code 'e' for object of type 'str'
+Traceback (most recent call last):
+  File "/home/student/s230005071/shu/code2/main.py", line 98, in train_single_model_worker
+    trained_model = train_one_model(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/trainers/trainer.py", line 27, in train_one_model
+    print(f"    cosine_eta_min: {cosine_eta_min:.2e}, cosine_restarts: {cosine_restarts}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Unknown format code 'e' for object of type 'str'
+Traceback (most recent call last):
+  File "/home/student/s230005071/shu/code2/main.py", line 98, in train_single_model_worker
+    trained_model = train_one_model(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/trainers/trainer.py", line 27, in train_one_model
+    print(f"    cosine_eta_min: {cosine_eta_min:.2e}, cosine_restarts: {cosine_restarts}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Unknown format code 'e' for object of type 'str'
+/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/home/student/s230005071/shu/code2/main.py", line 98, in train_single_model_worker
+    trained_model = train_one_model(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/trainers/trainer.py", line 27, in train_one_model
+    print(f"    cosine_eta_min: {cosine_eta_min:.2e}, cosine_restarts: {cosine_restarts}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Unknown format code 'e' for object of type 'str'
+  File "/home/student/s230005071/shu/code2/main.py", line 98, in train_single_model_worker
+    trained_model = train_one_model(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/trainers/trainer.py", line 27, in train_one_model
+    print(f"    cosine_eta_min: {cosine_eta_min:.2e}, cosine_restarts: {cosine_restarts}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Unknown format code 'e' for object of type 'str'
+Traceback (most recent call last):
+  File "/home/student/s230005071/shu/code2/main.py", line 98, in train_single_model_worker
+    trained_model = train_one_model(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/trainers/trainer.py", line 27, in train_one_model
+    print(f"    cosine_eta_min: {cosine_eta_min:.2e}, cosine_restarts: {cosine_restarts}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Unknown format code 'e' for object of type 'str'
+/home/student/s230005071/shu/code2/utils/visualization.py:52: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  ax.set_xticklabels(results_df['model'], rotation=20, ha='right', fontsize=8)
+/home/student/s230005071/shu/code2/utils/visualization.py:52: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  ax.set_xticklabels(results_df['model'], rotation=20, ha='right', fontsize=8)
+/home/student/s230005071/shu/code2/utils/visualization.py:52: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  ax.set_xticklabels(results_df['model'], rotation=20, ha='right', fontsize=8)
+/home/student/s230005071/shu/code2/utils/visualization.py:52: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  ax.set_xticklabels(results_df['model'], rotation=20, ha='right', fontsize=8)
+/home/student/s230005071/shu/code2/utils/visualization.py:52: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  ax.set_xticklabels(results_df['model'], rotation=20, ha='right', fontsize=8)

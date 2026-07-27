@@ -1,0 +1,263 @@
+======================================
+作业开始时间: Tue Jul 21 11:52:59 CST 2026
+节点: hpcgpu14
+作业ID: 117223
+GPU信息:
+name, memory.total [MiB], memory.used [MiB]
+NVIDIA GeForce RTX 4090 D, 24564 MiB, 0 MiB
+NVIDIA GeForce RTX 4090 D, 24564 MiB, 0 MiB
+======================================
+📦 可用GPU数量: 2
+✅ GPU列表: ['NVIDIA GeForce RTX 4090 D', 'NVIDIA GeForce RTX 4090 D']
+   GPU 0: NVIDIA GeForce RTX 4090 D - 可用显存: 24.88 GB / 25.25 GB
+   GPU 1: NVIDIA GeForce RTX 4090 D - 可用显存: 24.88 GB / 25.25 GB
+结果保存目录: /home/student/s230005071/shu/cnn_models_chbmit/20260721_115401_ASTNet_CHBMIT_2Class
+配置文件已保存: /home/student/s230005071/shu/cnn_models_chbmit/20260721_115401_ASTNet_CHBMIT_2Class/config.yaml
+
+🚀 多卡并行模式 (2 GPUs)，同时训练多个模型
+
+📦 准备训练 [AST-Net_GCN_resnet18]，分配到 GPU 0
+   模型参数: {'num_classes': 2, 'backbone_name': 'resnet18', 'gradient_checkpointing': True}
+
+📦 准备训练 [AST-Net_GCN_resnext50_32x4d]，分配到 GPU 1
+   模型参数: {'num_classes': 2, 'backbone_name': 'resnext50_32x4d', 'gradient_checkpointing': True}
+
+📦 准备训练 [Baseline_ResNeXt_resnext50_32x4d]，分配到 GPU 0
+   模型参数: {'num_classes': 2, 'backbone_name': 'resnext50_32x4d', 'gradient_checkpointing': True}
+
+📦 准备训练 [Baseline_ResNet_resnet18]，分配到 GPU 1
+   模型参数: {'num_classes': 2, 'backbone_name': 'resnet18', 'gradient_checkpointing': True}
+🚀 [Baseline_ResNeXt_resnext50_32x4d] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [Baseline_ResNeXt_resnext50_32x4d]: 31.4M
+
+============================================================
+🚀 训练模型: Baseline_ResNeXt_resnext50_32x4d
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-04, weight_decay: 1.00e-03
+    patience: 10, warmup_epochs: 10, grad_clip: 1.0
+    accum_steps: 32, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cuda:0
+
+📦 准备训练 [Baseline_EffNet_efficientnet_b0]，分配到 GPU 0
+   模型参数: {'num_classes': 2, 'backbone_name': 'efficientnet_b0', 'gradient_checkpointing': True}
+🚀 [Baseline_ResNet_resnet18] 使用GPU: 1 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [Baseline_ResNet_resnet18]: 13.3M
+
+============================================================
+🚀 训练模型: Baseline_ResNet_resnet18
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-04, weight_decay: 1.00e-03
+    patience: 10, warmup_epochs: 10, grad_clip: 1.0
+    accum_steps: 32, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cuda:1
+
+📦 准备训练 [Baseline_CNNLSTM_resnet18]，分配到 GPU 1
+   模型参数: {'num_classes': 2, 'backbone_name': 'resnet18', 'gradient_checkpointing': True}
+🚀 [Baseline_EffNet_efficientnet_b0] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [Baseline_EffNet_efficientnet_b0]: 9.3M
+
+============================================================
+🚀 训练模型: Baseline_EffNet_efficientnet_b0
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-04, weight_decay: 1.00e-03
+    patience: 10, warmup_epochs: 10, grad_clip: 1.0
+    accum_steps: 32, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cuda:0
+
+📦 准备训练 [EEGNet]，分配到 GPU 0
+   模型参数: {'num_classes': 2, 'num_channels': 18}
+
+📦 准备训练 [ST-GCN_EEG]，分配到 GPU 1
+   模型参数: {'num_classes': 2, 'num_nodes': 18}
+
+📦 准备训练 [EEGConformer_GCN]，分配到 GPU 0
+   模型参数: {'num_classes': 2, 'num_nodes': 18}
+🚀 [Baseline_CNNLSTM_resnet18] 使用GPU: 1 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [Baseline_CNNLSTM_resnet18]: 14.3M
+
+============================================================
+🚀 训练模型: Baseline_CNNLSTM_resnet18
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-04, weight_decay: 1.00e-03
+    patience: 10, warmup_epochs: 10, grad_clip: 1.0
+    accum_steps: 32, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cuda:1
+🚀 [EEGNet] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [EEGNet]: 0.0M
+
+============================================================
+🚀 训练模型: EEGNet
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-03, weight_decay: 1.00e-04
+    patience: 10, warmup_epochs: 5, grad_clip: 1.0
+    accum_steps: 4, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cuda:0
+🚀 [ST-GCN_EEG] 使用GPU: 1 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [ST-GCN_EEG]: 0.1M
+
+============================================================
+🚀 训练模型: ST-GCN_EEG
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-03, weight_decay: 1.00e-04
+    patience: 10, warmup_epochs: 5, grad_clip: 1.0
+    accum_steps: 4, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cuda:1
+🚀 [EEGConformer_GCN] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+模型参数量 [EEGConformer_GCN]: 2.7M
+
+============================================================
+🚀 训练模型: EEGConformer_GCN
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-03, weight_decay: 1.00e-04
+    patience: 10, warmup_epochs: 5, grad_clip: 1.0
+    accum_steps: 4, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cuda:0
+🚀 [AST-Net_GCN_resnet18] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+❌ [AST-Net_GCN_resnet18] 训练失败: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+🚀 [AST-Net_GCN_resnext50_32x4d] 使用GPU: 1 (NVIDIA GeForce RTX 4090 D)
+❌ [AST-Net_GCN_resnext50_32x4d] 训练失败: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+❌ [Baseline_ResNeXt_resnext50_32x4d] 训练失败: shape '[64, 3, 224, 224]' is invalid for input of size 21676032
+❌ [Baseline_ResNet_resnet18] 训练失败: shape '[64, 3, 224, 224]' is invalid for input of size 21676032
+❌ [Baseline_EffNet_efficientnet_b0] 训练失败: shape '[64, 3, 224, 224]' is invalid for input of size 21676032
+❌ [Baseline_CNNLSTM_resnet18] 训练失败: shape '[64, 3, 224, 224]' is invalid for input of size 21676032
+  Epoch   1 | LR: 9.97e-04 | Train Loss: 0.7049 Acc: 0.5102 | Val Loss: 0.6931 Acc: 0.5000
+  ✅ EarlyStopping: val_loss 改善至 0.6931
+  Epoch   1 | LR: 9.97e-04 | Train Loss: 0.6971 Acc: 0.5025 | Val Loss: 0.9937 Acc: 0.5000
+  ✅ EarlyStopping: val_loss 改善至 0.9937
+  Epoch   1 | LR: 9.97e-04 | Train Loss: 0.6956 Acc: 0.5003 | Val Loss: 0.6933 Acc: 0.5000
+  ✅ EarlyStopping: val_loss 改善至 0.6933
+  Epoch   2 | LR: 9.90e-04 | Train Loss: 0.6941 Acc: 0.5020 | Val Loss: 0.6944 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   2 | LR: 9.90e-04 | Train Loss: 0.6953 Acc: 0.5043 | Val Loss: 0.7587 Acc: 0.5000
+  ✅ EarlyStopping: val_loss 改善至 0.7587
+  Epoch   2 | LR: 9.90e-04 | Train Loss: 0.6940 Acc: 0.4970 | Val Loss: 0.6931 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   3 | LR: 9.77e-04 | Train Loss: 0.6942 Acc: 0.4963 | Val Loss: 0.6962 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   3 | LR: 9.77e-04 | Train Loss: 0.6952 Acc: 0.4995 | Val Loss: 0.6934 Acc: 0.5000
+  ✅ EarlyStopping: val_loss 改善至 0.6934
+  Epoch   3 | LR: 9.77e-04 | Train Loss: 0.6941 Acc: 0.4910 | Val Loss: 0.6933 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   4 | LR: 9.60e-04 | Train Loss: 0.6935 Acc: 0.5052 | Val Loss: 0.6963 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch   4 | LR: 9.60e-04 | Train Loss: 0.6952 Acc: 0.4985 | Val Loss: 0.7299 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 1/10
+  Epoch   4 | LR: 9.60e-04 | Train Loss: 0.6935 Acc: 0.4978 | Val Loss: 0.6931 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch   5 | LR: 9.37e-04 | Train Loss: 0.6946 Acc: 0.4903 | Val Loss: 0.6972 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch   5 | LR: 9.37e-04 | Train Loss: 0.6946 Acc: 0.4960 | Val Loss: 1.0131 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 2/10
+  Epoch   5 | LR: 9.37e-04 | Train Loss: 0.6937 Acc: 0.4903 | Val Loss: 0.6932 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch   6 | LR: 9.10e-04 | Train Loss: 0.6943 Acc: 0.4912 | Val Loss: 0.7014 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch   6 | LR: 9.10e-04 | Train Loss: 0.6952 Acc: 0.4927 | Val Loss: 0.6978 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 3/10
+  Epoch   6 | LR: 9.10e-04 | Train Loss: 0.6941 Acc: 0.4997 | Val Loss: 0.6938 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch   7 | LR: 8.79e-04 | Train Loss: 0.6946 Acc: 0.4917 | Val Loss: 0.6995 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch   7 | LR: 8.79e-04 | Train Loss: 0.6941 Acc: 0.5055 | Val Loss: 1.0267 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 4/10
+  Epoch   7 | LR: 8.79e-04 | Train Loss: 0.6948 Acc: 0.5050 | Val Loss: 0.6932 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch   8 | LR: 8.45e-04 | Train Loss: 0.6932 Acc: 0.5047 | Val Loss: 0.7000 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch   8 | LR: 8.45e-04 | Train Loss: 0.6947 Acc: 0.4853 | Val Loss: 0.7249 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 5/10
+  Epoch   8 | LR: 8.45e-04 | Train Loss: 0.6945 Acc: 0.5033 | Val Loss: 0.6934 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch   9 | LR: 8.06e-04 | Train Loss: 0.6941 Acc: 0.4920 | Val Loss: 0.6999 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch   9 | LR: 8.06e-04 | Train Loss: 0.6944 Acc: 0.5020 | Val Loss: 0.6963 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 6/10
+  Epoch   9 | LR: 8.06e-04 | Train Loss: 0.6934 Acc: 0.4885 | Val Loss: 0.6934 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 8/10
+  Epoch  10 | LR: 7.65e-04 | Train Loss: 0.6933 Acc: 0.4963 | Val Loss: 0.7015 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 9/10
+  Epoch  10 | LR: 7.65e-04 | Train Loss: 0.6949 Acc: 0.4937 | Val Loss: 0.7630 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 7/10
+  Epoch  11 | LR: 7.20e-04 | Train Loss: 0.6933 Acc: 0.4983 | Val Loss: 0.7002 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 10/10
+  🛑 早停触发，在第 11 轮停止训练
+  🔄 已恢复最优权重
+  Epoch  10 | LR: 7.65e-04 | Train Loss: 0.6932 Acc: 0.4890 | Val Loss: 0.6931 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 9/10
+  Epoch  11 | LR: 7.20e-04 | Train Loss: 0.6944 Acc: 0.4917 | Val Loss: 0.6954 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 8/10
+
+📊 [EEGNet] 测试集结果 (Macro):
+  Acc: 0.5000 | F1: 0.3333 | Precision: 0.2500 | Recall: 0.5000 | AUC: 0.4840
+  混淆矩阵:
+[[604   0]
+ [604   0]]
+❌ [EEGNet] 训练失败: The number of FixedLocator locations (2), usually from a call to set_ticks, does not match the number of labels (3).
+  Epoch  11 | LR: 7.20e-04 | Train Loss: 0.6933 Acc: 0.4933 | Val Loss: 0.6932 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 10/10
+  🛑 早停触发，在第 11 轮停止训练
+  🔄 已恢复最优权重
+  Epoch  12 | LR: 6.74e-04 | Train Loss: 0.6948 Acc: 0.4913 | Val Loss: 0.7060 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 9/10
+
+📊 [EEGConformer_GCN] 测试集结果 (Macro):
+  Acc: 0.5000 | F1: 0.3333 | Precision: 0.2500 | Recall: 0.5000 | AUC: 0.5595
+  混淆矩阵:
+[[604   0]
+ [604   0]]
+❌ [EEGConformer_GCN] 训练失败: The number of FixedLocator locations (2), usually from a call to set_ticks, does not match the number of labels (3).
+  Epoch  13 | LR: 6.26e-04 | Train Loss: 0.6937 Acc: 0.5095 | Val Loss: 0.6948 Acc: 0.5000
+  ⏳ EarlyStopping: 未改善 10/10
+  🛑 早停触发，在第 13 轮停止训练
+  🔄 已恢复最优权重
+
+📊 [ST-GCN_EEG] 测试集结果 (Macro):
+  Acc: 0.5000 | F1: 0.3333 | Precision: 0.2500 | Recall: 0.5000 | AUC: 0.7830
+  混淆矩阵:
+[[604   0]
+ [604   0]]
+❌ [ST-GCN_EEG] 训练失败: The number of FixedLocator locations (2), usually from a call to set_ticks, does not match the number of labels (3).
+
+⏳ 等待所有 9 个模型训练完成...
+⚠️ [AST-Net_GCN_resnet18] 训练失败: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+⚠️ [AST-Net_GCN_resnext50_32x4d] 训练失败: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+⚠️ [Baseline_ResNeXt_resnext50_32x4d] 训练失败: shape '[64, 3, 224, 224]' is invalid for input of size 21676032
+⚠️ [Baseline_ResNet_resnet18] 训练失败: shape '[64, 3, 224, 224]' is invalid for input of size 21676032
+⚠️ [Baseline_EffNet_efficientnet_b0] 训练失败: shape '[64, 3, 224, 224]' is invalid for input of size 21676032
+⚠️ [Baseline_CNNLSTM_resnet18] 训练失败: shape '[64, 3, 224, 224]' is invalid for input of size 21676032
+⚠️ [EEGNet] 训练失败: The number of FixedLocator locations (2), usually from a call to set_ticks, does not match the number of labels (3).
+⚠️ [EEGConformer_GCN] 训练失败: The number of FixedLocator locations (2), usually from a call to set_ticks, does not match the number of labels (3).
+⚠️ [ST-GCN_EEG] 训练失败: The number of FixedLocator locations (2), usually from a call to set_ticks, does not match the number of labels (3).
+
+======================================================================
+🏆 CHB-MIT 模型性能对比汇总 (按 Macro F1 降序)
+======================================================================
+                           model  accuracy     f1  precision  recall    auc  params_M  gpu_id                                                                                                                                                                                                           error
+            AST-Net_GCN_resnet18    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0 An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+     AST-Net_GCN_resnext50_32x4d    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       1 An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+Baseline_ResNeXt_resnext50_32x4d    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0                                                                                                                                                 shape '[64, 3, 224, 224]' is invalid for input of size 21676032
+        Baseline_ResNet_resnet18    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       1                                                                                                                                                 shape '[64, 3, 224, 224]' is invalid for input of size 21676032
+ Baseline_EffNet_efficientnet_b0    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0                                                                                                                                                 shape '[64, 3, 224, 224]' is invalid for input of size 21676032
+       Baseline_CNNLSTM_resnet18    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       1                                                                                                                                                 shape '[64, 3, 224, 224]' is invalid for input of size 21676032
+                          EEGNet    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0                                                                                            The number of FixedLocator locations (2), usually from a call to set_ticks, does not match the number of labels (3).
+                EEGConformer_GCN    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0                                                                                            The number of FixedLocator locations (2), usually from a call to set_ticks, does not match the number of labels (3).
+                      ST-GCN_EEG    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       1                                                                                            The number of FixedLocator locations (2), usually from a call to set_ticks, does not match the number of labels (3).
+
+✅ 所有实验完成。结果保存于: /home/student/s230005071/shu/cnn_models_chbmit/20260721_115401_ASTNet_CHBMIT_2Class
+======================================
+作业结束时间: Tue Jul 21 12:02:07 CST 2026
+======================================

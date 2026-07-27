@@ -1,0 +1,40 @@
+======================================
+作业开始时间: Mon Jul 27 14:01:11 CST 2026
+节点: hpcgpu14
+作业ID: 140817
+GPU信息:
+name, memory.total [MiB], memory.used [MiB]
+NVIDIA GeForce RTX 4090 D, 24564 MiB, 0 MiB
+NVIDIA GeForce RTX 4090 D, 24564 MiB, 0 MiB
+======================================
+📦 torch.cuda.device_count() 返回: 2
+✅ 实际可用GPU数量: 2
+✅ GPU列表: ['NVIDIA GeForce RTX 4090 D', 'NVIDIA GeForce RTX 4090 D']
+   GPU 0: NVIDIA GeForce RTX 4090 D - 可用显存: 24.88 GB / 25.25 GB
+   GPU 1: NVIDIA GeForce RTX 4090 D - 可用显存: 24.88 GB / 25.25 GB
+结果保存目录: /home/student/s230005071/shu/cnn_models_update/20260727_140224_ASTNet_vs_Baselines_3Class
+配置文件已保存: /home/student/s230005071/shu/cnn_models_update/20260727_140224_ASTNet_vs_Baselines_3Class/config.yaml
+
+🎯 单模型模式，仅训练: AST-Net_GCN_resnet18
+
+🚀 多卡并行模式 (2 GPUs)，同时训练多个模型
+
+📦 准备训练 [AST-Net_GCN_resnet18]，分配到 GPU 0
+   模型参数: {'num_classes': 3, 'num_nodes': 8, 'backbone_name': 'resnet18', 'gradient_checkpointing': True, 'use_anatomical_prior': True}
+🔧 [AST-Net_GCN_resnet18] 设置CUDA_VISIBLE_DEVICES=0
+🚀 [AST-Net_GCN_resnet18] 使用GPU: 0 (NVIDIA GeForce RTX 4090 D)
+❌ [AST-Net_GCN_resnet18] 训练失败: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+
+⏳ 等待所有 1 个模型训练完成...
+⚠️ [AST-Net_GCN_resnet18] 训练失败: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+
+======================================================================
+🏆 模型性能对比汇总 (按 Macro F1 降序)
+======================================================================
+               model  accuracy     f1  precision  recall    auc  params_M  gpu_id                                                                                                                                                                                                           error
+AST-Net_GCN_resnet18    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0 An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+
+✅ 所有实验完成。结果保存于: /home/student/s230005071/shu/cnn_models_update/20260727_140224_ASTNet_vs_Baselines_3Class
+======================================
+作业结束时间: Mon Jul 27 14:03:04 CST 2026
+======================================

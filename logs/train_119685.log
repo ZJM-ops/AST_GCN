@@ -1,0 +1,65 @@
+======================================
+作业开始时间: Fri Jul 24 13:19:14 CST 2026
+节点: hpcgpu13
+作业ID: 119685
+GPU信息:
+name, memory.total [MiB], memory.used [MiB]
+NVIDIA GeForce RTX 4090 D, 24564 MiB, 381 MiB
+NVIDIA GeForce RTX 4090 D, 24564 MiB, 0 MiB
+======================================
+📦 torch.cuda.device_count() 返回: 2
+⚠️  GPU 0 不可用: CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=
+
+CUDA call was originally invoked at:
+
+  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>
+    import torch
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>
+    _C._initExtension(_manager_path())
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>
+    _lazy_call(_check_capability)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call
+    _queued_calls.append((callable, traceback.format_stack()))
+
+⚠️  GPU 1 不可用: CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=
+
+CUDA call was originally invoked at:
+
+  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>
+    import torch
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>
+    _C._initExtension(_manager_path())
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>
+    _lazy_call(_check_capability)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call
+    _queued_calls.append((callable, traceback.format_stack()))
+
+✅ 实际可用GPU数量: 0
+❌ 没有可用GPU，使用CPU
+结果保存目录: /home/student/s230005071/shu/cnn_models_update/20260724_131918_ASTNet_vs_Baselines_3Class
+配置文件已保存: /home/student/s230005071/shu/cnn_models_update/20260724_131918_ASTNet_vs_Baselines_3Class/config.yaml
+
+⚠️ 单卡模式，串行训练所有模型
+======================================
+作业结束时间: Fri Jul 24 13:19:20 CST 2026
+======================================

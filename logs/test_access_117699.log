@@ -1,0 +1,20 @@
+======================================
+节点: hpcgpu02
+当前目录: /home/student/s230005071/shu/code2
+用户: s230005071
+======================================
+检查 s230005041 目录访问:
+总用量 16508
+drwxrwxr-x+  2 s230005041 domain users     4096 7月  20 14:07 .
+drwxrwxr-x+ 10 s230005041 domain users     4096 7月  20 14:07 ..
+-rw-rw-r--+  1 s230005041 domain users      262 7月  20 14:07 patient_split.txt
+-rw-rw-r--+  1 s230005041 domain users   135295 7月  20 14:07 test_1d.txt
+-rw-rw-r--+  1 s230005041 domain users  2402711 7月  20 14:07 test_images.txt
+-rw-rw-r--+  1 s230005041 domain users   671551 7月  20 14:07 train_1d.txt
+-rw-rw-r--+  1 s230005041 domain users 11926043 7月  20 14:07 train_images.txt
+-rw-rw-r--+  1 s230005041 domain users    92959 7月  20 14:07 val_1d.txt
+-rw-rw-r--+  1 s230005041 domain users  1650869 7月  20 14:07 val_images.txt
+======================================
+测试 Python 读取文件:
+成功读取 107928 行
+======================================

@@ -1,0 +1,242 @@
+[AST-Net_GCN] Epoch 1/100:   0%|          | 0/188 [00:00<?, ?it/s][Baseline_ResNeXt] Epoch 1/100:   0%|          | 0/188 [00:00<?, ?it/s]terminate called without an active exception
+terminate called without an active exception
+terminate called without an active exception
+terminate called without an active exception
+terminate called without an active exception
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x1507ef0fc220>
+Traceback (most recent call last):
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1604, in __del__
+    self._shutdown_workers()
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1568, in _shutdown_workers
+    w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/popen_fork.py", line 40, in wait
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x154387884220>
+Traceback (most recent call last):
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1604, in __del__
+    self._shutdown_workers()
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1568, in _shutdown_workers
+    w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/popen_fork.py", line 40, in wait
+    if not wait([self.sentinel], timeout):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/connection.py", line 948, in wait
+    if not wait([self.sentinel], timeout):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/connection.py", line 948, in wait
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/selectors.py", line 415, in select
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/utils/data/_utils/signal_handling.py", line 73, in handler
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/utils/data/_utils/signal_handling.py", line 73, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 2100156) is killed by signal: Aborted. 
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 2100101) is killed by signal: Aborted. 
+[Baseline_ResNeXt] Epoch 1/100:   0%|          | 0/188 [00:48<?, ?it/s][AST-Net_GCN] Epoch 1/100:   0%|          | 0/188 [00:52<?, ?it/s]
+
+Process Process-2:
+Traceback (most recent call last):
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/student/s230005071/shu/code2/main.py", line 83, in train_single_model_worker
+    trained_model = train_one_model(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/trainers/trainer.py", line 50, in train_one_model
+    outputs = model(inputs)
+              ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/models/baselines.py", line 22, in forward
+    feats = self.backbone(x).view(B, -1)
+            ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/resnet.py", line 775, in forward
+    x = self.forward_features(x)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/resnet.py", line 752, in forward_features
+    x = self.layer1(x)
+        ^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/resnet.py", line 257, in forward
+    x = self.conv3(x)
+        ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 554, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 549, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.06 GiB. GPU 1 has a total capacity of 31.73 GiB of which 808.75 MiB is free. Including non-PyTorch memory, this process has 30.93 GiB memory in use. Of the allocated memory 30.55 GiB is allocated by PyTorch, and 21.41 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Process Process-1:
+Traceback (most recent call last):
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/student/s230005071/shu/code2/main.py", line 83, in train_single_model_worker
+    trained_model = train_one_model(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/trainers/trainer.py", line 50, in train_one_model
+    outputs = model(inputs)
+              ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/models/ast_net.py", line 116, in forward
+    node_features = self.backbone(x_flat).view(batch_size, self.num_nodes, -1)
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/resnet.py", line 775, in forward
+    x = self.forward_features(x)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/resnet.py", line 752, in forward_features
+    x = self.layer1(x)
+        ^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/models/ast_net.py", line 47, in forward
+    out = torch.cat([
+          ^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.53 GiB. GPU 0 has a total capacity of 31.73 GiB of which 836.50 MiB is free. Including non-PyTorch memory, this process has 30.90 GiB memory in use. Of the allocated memory 28.99 GiB is allocated by PyTorch, and 1.55 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[Baseline_EffNet] Epoch 1/100:   0%|          | 0/188 [00:00<?, ?it/s][Baseline_CNNLSTM] Epoch 1/100:   0%|          | 0/188 [00:00<?, ?it/s][Baseline_CNNLSTM] Epoch 1/100:   1%|          | 1/188 [00:40<2:06:41, 40.65s/it][Baseline_CNNLSTM] Epoch 1/100:   1%|          | 2/188 [00:41<53:35, 17.29s/it]  [Baseline_CNNLSTM] Epoch 1/100:   2%|▏         | 3/188 [00:42<30:10,  9.79s/it][Baseline_CNNLSTM] Epoch 1/100:   2%|▏         | 4/188 [00:43<19:13,  6.27s/it]terminate called without an active exception
+terminate called without an active exception
+[Baseline_EffNet] Epoch 1/100:   0%|          | 0/188 [00:50<?, ?it/s]
+Process Process-3:
+Traceback (most recent call last):
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/student/s230005071/shu/code2/main.py", line 83, in train_single_model_worker
+    trained_model = train_one_model(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/trainers/trainer.py", line 50, in train_one_model
+    outputs = model(inputs)
+              ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/models/baselines.py", line 42, in forward
+    feats = self.backbone(x).view(B, -1)
+            ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/efficientnet.py", line 347, in forward
+    x = self.forward_features(x)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/efficientnet.py", line 325, in forward_features
+    x = self.blocks(x)
+        ^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/_efficientnet_blocks.py", line 335, in forward
+    x = self.conv_pwl(x)
+        ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 554, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 549, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 294.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 108.50 MiB is free. Including non-PyTorch memory, this process has 31.62 GiB memory in use. Of the allocated memory 31.23 GiB is allocated by PyTorch, and 19.37 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[Baseline_CNNLSTM] Epoch 1/100:   3%|▎         | 5/188 [00:49<19:33,  6.41s/it][Baseline_CNNLSTM] Epoch 1/100:   3%|▎         | 6/188 [00:51<14:12,  4.68s/it][Baseline_CNNLSTM] Epoch 1/100:   4%|▎         | 7/188 [00:52<10:21,  3.44s/it][Baseline_CNNLSTM] Epoch 1/100:   4%|▍         | 8/188 [00:53<07:51,  2.62s/it][Baseline_CNNLSTM] Epoch 1/100:   5%|▍         | 9/188 [01:03<15:30,  5.20s/it][Baseline_CNNLSTM] Epoch 1/100:   5%|▌         | 10/188 [01:05<12:13,  4.12s/it][Baseline_CNNLSTM] Epoch 1/100:   6%|▌         | 11/188 [01:06<09:15,  3.14s/it][Baseline_CNNLSTM] Epoch 1/100:   6%|▋         | 12/188 [01:07<07:11,  2.45s/it][Baseline_CNNLSTM] Epoch 1/100:   7%|▋         | 13/188 [01:29<24:10,  8.29s/it][Baseline_CNNLSTM] Epoch 1/100:   7%|▋         | 14/188 [01:31<19:08,  6.60s/it][Baseline_CNNLSTM] Epoch 1/100:   8%|▊         | 15/188 [01:37<18:15,  6.33s/it][Baseline_CNNLSTM] Epoch 1/100:   9%|▊         | 16/188 [01:38<13:25,  4.69s/it][Baseline_CNNLSTM] Epoch 1/100:   9%|▉         | 17/188 [02:00<28:37, 10.05s/it][Baseline_CNNLSTM] Epoch 1/100:  10%|▉         | 18/188 [02:02<21:35,  7.62s/it][Baseline_CNNLSTM] Epoch 1/100:  10%|█         | 19/188 [02:06<17:59,  6.39s/it][Baseline_CNNLSTM] Epoch 1/100:  11%|█         | 20/188 [02:07<13:15,  4.73s/it][Baseline_CNNLSTM] Epoch 1/100:  11%|█         | 21/188 [02:28<26:56,  9.68s/it][Baseline_CNNLSTM] Epoch 1/100:  12%|█▏        | 22/188 [02:32<22:16,  8.05s/it][Baseline_CNNLSTM] Epoch 1/100:  12%|█▏        | 23/188 [02:34<16:57,  6.17s/it][Baseline_CNNLSTM] Epoch 1/100:  13%|█▎        | 24/188 [02:35<12:30,  4.58s/it][Baseline_CNNLSTM] Epoch 1/100:  13%|█▎        | 25/188 [02:48<19:41,  7.25s/it][Baseline_CNNLSTM] Epoch 1/100:  14%|█▍        | 26/188 [02:51<16:07,  5.97s/it][Baseline_CNNLSTM] Epoch 1/100:  14%|█▍        | 27/188 [02:54<13:17,  4.96s/it][Baseline_CNNLSTM] Epoch 1/100:  15%|█▍        | 28/188 [02:55<09:56,  3.73s/it][Baseline_CNNLSTM] Epoch 1/100:  15%|█▌        | 29/188 [03:14<22:22,  8.44s/it][Baseline_CNNLSTM] Epoch 1/100:  16%|█▌        | 30/188 [03:32<29:26, 11.18s/it][Baseline_CNNLSTM] Epoch 1/100:  16%|█▋        | 31/188 [03:33<21:09,  8.09s/it][Baseline_CNNLSTM] Epoch 1/100:  17%|█▋        | 32/188 [03:34<15:23,  5.92s/it]slurmstepd: error: *** JOB 110867 ON hpcgpu02 CANCELLED AT 2026-07-14T23:59:07 ***

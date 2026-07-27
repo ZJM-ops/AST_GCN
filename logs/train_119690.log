@@ -1,0 +1,396 @@
+======================================
+作业开始时间: Fri Jul 24 13:21:42 CST 2026
+节点: hpcgpu13
+作业ID: 119690
+GPU信息:
+name, memory.total [MiB], memory.used [MiB]
+NVIDIA GeForce RTX 4090 D, 24564 MiB, 381 MiB
+NVIDIA GeForce RTX 4090 D, 24564 MiB, 0 MiB
+======================================
+📦 torch.cuda.device_count() 返回: 2
+⚠️  GPU 0 不可用: CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=
+
+CUDA call was originally invoked at:
+
+  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>
+    import torch
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>
+    _C._initExtension(_manager_path())
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>
+    _lazy_call(_check_capability)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call
+    _queued_calls.append((callable, traceback.format_stack()))
+
+⚠️  GPU 1 不可用: CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=
+
+CUDA call was originally invoked at:
+
+  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>
+    import torch
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>
+    _C._initExtension(_manager_path())
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>
+    _lazy_call(_check_capability)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call
+    _queued_calls.append((callable, traceback.format_stack()))
+
+✅ 实际可用GPU数量: 0
+❌ 没有可用GPU，使用CPU
+结果保存目录: /home/student/s230005071/shu/cnn_models_update/20260724_132147_ASTNet_vs_Baselines_3Class
+配置文件已保存: /home/student/s230005071/shu/cnn_models_update/20260724_132147_ASTNet_vs_Baselines_3Class/config.yaml
+
+⚠️ 单卡模式，串行训练所有模型
+⚠️ [AST-Net_GCN_resnet18] 没有可用GPU，使用CPU
+模型参数量 [AST-Net_GCN_resnet18]: 12.4M
+
+============================================================
+🚀 训练模型: AST-Net_GCN_resnet18
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-04, weight_decay: 1.00e-03
+    patience: 10, warmup_epochs: 10, grad_clip: 1.0
+    accum_steps: 32, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cpu
+❌ [AST-Net_GCN_resnet18] 训练失败: CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=
+
+CUDA call was originally invoked at:
+
+  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>
+    import torch
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>
+    _C._initExtension(_manager_path())
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>
+    _lazy_call(_check_capability)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call
+    _queued_calls.append((callable, traceback.format_stack()))
+
+⚠️ [AST-Net_GCN_resnext50_32x4d] 没有可用GPU，使用CPU
+模型参数量 [AST-Net_GCN_resnext50_32x4d]: 218.5M
+
+============================================================
+🚀 训练模型: AST-Net_GCN_resnext50_32x4d
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-04, weight_decay: 1.00e-03
+    patience: 10, warmup_epochs: 10, grad_clip: 1.0
+    accum_steps: 32, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cpu
+❌ [AST-Net_GCN_resnext50_32x4d] 训练失败: CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=
+
+CUDA call was originally invoked at:
+
+  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>
+    import torch
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>
+    _C._initExtension(_manager_path())
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>
+    _lazy_call(_check_capability)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call
+    _queued_calls.append((callable, traceback.format_stack()))
+
+⚠️ [Baseline_ResNeXt_resnext50_32x4d] 没有可用GPU，使用CPU
+模型参数量 [Baseline_ResNeXt_resnext50_32x4d]: 41.9M
+
+============================================================
+🚀 训练模型: Baseline_ResNeXt_resnext50_32x4d
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-04, weight_decay: 1.00e-03
+    patience: 10, warmup_epochs: 10, grad_clip: 1.0
+    accum_steps: 32, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cpu
+❌ [Baseline_ResNeXt_resnext50_32x4d] 训练失败: CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=
+
+CUDA call was originally invoked at:
+
+  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>
+    import torch
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>
+    _C._initExtension(_manager_path())
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>
+    _lazy_call(_check_capability)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call
+    _queued_calls.append((callable, traceback.format_stack()))
+
+⚠️ [Baseline_ResNet_resnet18] 没有可用GPU，使用CPU
+模型参数量 [Baseline_ResNet_resnet18]: 15.9M
+
+============================================================
+🚀 训练模型: Baseline_ResNet_resnet18
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-04, weight_decay: 1.00e-03
+    patience: 10, warmup_epochs: 10, grad_clip: 1.0
+    accum_steps: 32, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cpu
+❌ [Baseline_ResNet_resnet18] 训练失败: CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=
+
+CUDA call was originally invoked at:
+
+  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>
+    import torch
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>
+    _C._initExtension(_manager_path())
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>
+    _lazy_call(_check_capability)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call
+    _queued_calls.append((callable, traceback.format_stack()))
+
+⚠️ [Baseline_EffNet_efficientnet_b0] 没有可用GPU，使用CPU
+模型参数量 [Baseline_EffNet_efficientnet_b0]: 15.8M
+
+============================================================
+🚀 训练模型: Baseline_EffNet_efficientnet_b0
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-04, weight_decay: 1.00e-03
+    patience: 10, warmup_epochs: 10, grad_clip: 1.0
+    accum_steps: 32, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cpu
+❌ [Baseline_EffNet_efficientnet_b0] 训练失败: CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=
+
+CUDA call was originally invoked at:
+
+  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>
+    import torch
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>
+    _C._initExtension(_manager_path())
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>
+    _lazy_call(_check_capability)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call
+    _queued_calls.append((callable, traceback.format_stack()))
+
+⚠️ [Baseline_CNNLSTM_resnet18] 没有可用GPU，使用CPU
+模型参数量 [Baseline_CNNLSTM_resnet18]: 14.3M
+
+============================================================
+🚀 训练模型: Baseline_CNNLSTM_resnet18
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-04, weight_decay: 1.00e-03
+    patience: 10, warmup_epochs: 10, grad_clip: 1.0
+    accum_steps: 32, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cpu
+❌ [Baseline_CNNLSTM_resnet18] 训练失败: CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=
+
+CUDA call was originally invoked at:
+
+  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>
+    import torch
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>
+    _C._initExtension(_manager_path())
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>
+    _lazy_call(_check_capability)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call
+    _queued_calls.append((callable, traceback.format_stack()))
+
+⚠️ [EEGNet] 没有可用GPU，使用CPU
+模型参数量 [EEGNet]: 0.0M
+
+============================================================
+🚀 训练模型: EEGNet
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-03, weight_decay: 1.00e-04
+    patience: 10, warmup_epochs: 5, grad_clip: 1.0
+    accum_steps: 4, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cpu
+❌ [EEGNet] 训练失败: CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=
+
+CUDA call was originally invoked at:
+
+  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>
+    import torch
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>
+    _C._initExtension(_manager_path())
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>
+    _lazy_call(_check_capability)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call
+    _queued_calls.append((callable, traceback.format_stack()))
+
+⚠️ [ST-GCN_EEG] 没有可用GPU，使用CPU
+模型参数量 [ST-GCN_EEG]: 0.1M
+
+============================================================
+🚀 训练模型: ST-GCN_EEG
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-03, weight_decay: 1.00e-04
+    patience: 10, warmup_epochs: 5, grad_clip: 1.0
+    accum_steps: 4, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cpu
+❌ [ST-GCN_EEG] 训练失败: CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=
+
+CUDA call was originally invoked at:
+
+  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>
+    import torch
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>
+    _C._initExtension(_manager_path())
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>
+    _lazy_call(_check_capability)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call
+    _queued_calls.append((callable, traceback.format_stack()))
+
+⚠️ [EEGConformer_GCN] 没有可用GPU，使用CPU
+模型参数量 [EEGConformer_GCN]: 2.6M
+
+============================================================
+🚀 训练模型: EEGConformer_GCN
+============================================================
+  训练参数:
+    epochs: 100, lr: 1.00e-03, weight_decay: 1.00e-04
+    patience: 10, warmup_epochs: 5, grad_clip: 1.0
+    accum_steps: 4, mixed_precision: True
+    cosine_eta_min: 1.00e-06, cosine_restarts: 3
+    device: cpu
+❌ [EEGConformer_GCN] 训练失败: CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=
+
+CUDA call was originally invoked at:
+
+  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>
+    import torch
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>
+    _C._initExtension(_manager_path())
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>
+    _lazy_call(_check_capability)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call
+    _queued_calls.append((callable, traceback.format_stack()))
+
+
+======================================================================
+🏆 模型性能对比汇总 (按 Macro F1 降序)
+======================================================================
+                           model  accuracy     f1  precision  recall    auc  params_M  gpu_id                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        error
+            AST-Net_GCN_resnet18    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0 CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=\n\nCUDA call was originally invoked at:\n\n  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>\n    import torch\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>\n    _C._initExtension(_manager_path())\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>\n    _lazy_call(_check_capability)\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call\n    _queued_calls.append((callable, traceback.format_stack()))\n
+     AST-Net_GCN_resnext50_32x4d    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0 CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=\n\nCUDA call was originally invoked at:\n\n  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>\n    import torch\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>\n    _C._initExtension(_manager_path())\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>\n    _lazy_call(_check_capability)\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call\n    _queued_calls.append((callable, traceback.format_stack()))\n
+Baseline_ResNeXt_resnext50_32x4d    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0 CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=\n\nCUDA call was originally invoked at:\n\n  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>\n    import torch\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>\n    _C._initExtension(_manager_path())\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>\n    _lazy_call(_check_capability)\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call\n    _queued_calls.append((callable, traceback.format_stack()))\n
+        Baseline_ResNet_resnet18    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0 CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=\n\nCUDA call was originally invoked at:\n\n  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>\n    import torch\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>\n    _C._initExtension(_manager_path())\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>\n    _lazy_call(_check_capability)\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call\n    _queued_calls.append((callable, traceback.format_stack()))\n
+ Baseline_EffNet_efficientnet_b0    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0 CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=\n\nCUDA call was originally invoked at:\n\n  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>\n    import torch\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>\n    _C._initExtension(_manager_path())\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>\n    _lazy_call(_check_capability)\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call\n    _queued_calls.append((callable, traceback.format_stack()))\n
+       Baseline_CNNLSTM_resnet18    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0 CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=\n\nCUDA call was originally invoked at:\n\n  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>\n    import torch\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>\n    _C._initExtension(_manager_path())\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>\n    _lazy_call(_check_capability)\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call\n    _queued_calls.append((callable, traceback.format_stack()))\n
+                          EEGNet    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0 CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=\n\nCUDA call was originally invoked at:\n\n  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>\n    import torch\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>\n    _C._initExtension(_manager_path())\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>\n    _lazy_call(_check_capability)\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call\n    _queued_calls.append((callable, traceback.format_stack()))\n
+                      ST-GCN_EEG    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0 CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=\n\nCUDA call was originally invoked at:\n\n  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>\n    import torch\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>\n    _C._initExtension(_manager_path())\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>\n    _lazy_call(_check_capability)\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call\n    _queued_calls.append((callable, traceback.format_stack()))\n
+                EEGConformer_GCN    0.0000 0.0000     0.0000  0.0000 0.0000    0.0000       0 CUDA call failed lazily at initialization with error: device >= 0 && device < num_gpus INTERNAL ASSERT FAILED at "/opt/conda/conda-bld/pytorch_1729647348947/work/aten/src/ATen/cuda/CUDAContext.cpp":49, please report a bug to PyTorch. device=1, num_gpus=\n\nCUDA call was originally invoked at:\n\n  File "/home/student/s230005071/shu/code2/main.py", line 6, in <module>\n    import torch\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/__init__.py", line 1954, in <module>\n    _C._initExtension(_manager_path())\n  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load\n  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked\n  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked\n  File "<frozen importlib._bootstrap_external>", line 940, in exec_module\n  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 264, in <module>\n    _lazy_call(_check_capability)\n  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/cuda/__init__.py", line 261, in _lazy_call\n    _queued_calls.append((callable, traceback.format_stack()))\n
+
+✅ 所有实验完成。结果保存于: /home/student/s230005071/shu/cnn_models_update/20260724_132147_ASTNet_vs_Baselines_3Class
+======================================
+作业结束时间: Fri Jul 24 13:22:16 CST 2026
+======================================

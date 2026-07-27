@@ -1,0 +1,52 @@
+data:
+  base_dir: /home/student/s230005041/chb-mit/output
+  split_data_dir: /home/student/s230005041/chb-mit/output/shu_format_split
+  train_images: train_images.txt
+  val_images: val_images.txt
+  test_images: test_images.txt
+  train_1d: train_1d.txt
+  val_1d: val_1d.txt
+  test_1d: test_1d.txt
+
+model:
+  save_dir: /home/student/s230005071/shu/cnn_models_chbmit
+  num_classes: 2
+  num_nodes: 18
+  image_size: 224
+  feature_dim: 2048
+  backbone_name: resnet18
+  gradient_checkpointing: true
+
+training:
+  batch_size: 8
+  learning_rate: 0.0001
+  weight_decay: 0.001
+  epochs: 100
+  patience: 10
+  warmup_epochs: 10
+  grad_clip: 1.0
+  accum_steps: 32
+  device: auto
+  mixed_precision: true
+  num_workers: 4
+  pin_memory: true
+  cuda_visible_devices: null
+  memory_growth: true
+  cosine_eta_min: 1e-6
+  cosine_restarts: 3
+
+training_1d:
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  epochs: 100
+  patience: 10
+  warmup_epochs: 5
+  grad_clip: 1.0
+  accum_steps: 4
+  cosine_eta_min: 1e-6
+  cosine_restarts: 3
+
+label_mapping:
+  Interictal: 0
+  Ictal: 1

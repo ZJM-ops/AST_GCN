@@ -1,0 +1,291 @@
+[AST-Net_GCN] Epoch 1/100:   0%|          | 0/376 [00:00<?, ?it/s][Baseline_ResNeXt] Epoch 1/100:   0%|          | 0/376 [00:00<?, ?it/s]terminate called without an active exception
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x1477d7164220>
+Traceback (most recent call last):
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1604, in __del__
+    self._shutdown_workers()
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1568, in _shutdown_workers
+    w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/popen_fork.py", line 40, in wait
+    if not wait([self.sentinel], timeout):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/connection.py", line 948, in wait
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/utils/data/_utils/signal_handling.py", line 73, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 2103763) is killed by signal: Aborted. 
+[Baseline_ResNeXt] Epoch 1/100:   0%|          | 0/376 [00:34<?, ?it/s]
+Process Process-2:
+Traceback (most recent call last):
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/student/s230005071/shu/code2/main.py", line 83, in train_single_model_worker
+    trained_model = train_one_model(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/trainers/trainer.py", line 50, in train_one_model
+    outputs = model(inputs)
+              ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/models/baselines.py", line 22, in forward
+    feats = self.backbone(x).view(B, -1)
+            ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/resnet.py", line 775, in forward
+    x = self.forward_features(x)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/resnet.py", line 753, in forward_features
+    x = self.layer2(x)
+        ^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/resnet.py", line 267, in forward
+    shortcut = self.downsample(shortcut)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/batchnorm.py", line 193, in forward
+    return F.batch_norm(
+           ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/functional.py", line 2812, in batch_norm
+    return torch.batch_norm(
+           ^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 784.00 MiB. GPU 1 has a total capacity of 31.73 GiB of which 712.75 MiB is free. Including non-PyTorch memory, this process has 31.03 GiB memory in use. Of the allocated memory 30.65 GiB is allocated by PyTorch, and 21.39 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+terminate called without an active exception
+terminate called without an active exception
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x14e0c4594220>
+Traceback (most recent call last):
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1604, in __del__
+    self._shutdown_workers()
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1568, in _shutdown_workers
+    w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/popen_fork.py", line 40, in wait
+    if not wait([self.sentinel], timeout):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/connection.py", line 948, in wait
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/utils/data/_utils/signal_handling.py", line 73, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 2103818) is killed by signal: Aborted. 
+[AST-Net_GCN] Epoch 1/100:   0%|          | 0/376 [00:46<?, ?it/s]
+Process Process-1:
+Traceback (most recent call last):
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/student/s230005071/shu/code2/main.py", line 83, in train_single_model_worker
+    trained_model = train_one_model(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/trainers/trainer.py", line 50, in train_one_model
+    outputs = model(inputs)
+              ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/models/ast_net.py", line 116, in forward
+    node_features = self.backbone(x_flat).view(batch_size, self.num_nodes, -1)
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/resnet.py", line 775, in forward
+    x = self.forward_features(x)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/resnet.py", line 753, in forward_features
+    x = self.layer2(x)
+        ^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/models/ast_net.py", line 58, in forward
+    identity = self.downsample(x)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/batchnorm.py", line 193, in forward
+    return F.batch_norm(
+           ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/functional.py", line 2812, in batch_norm
+    return torch.batch_norm(
+           ^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 784.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 742.50 MiB is free. Including non-PyTorch memory, this process has 31.00 GiB memory in use. Of the allocated memory 30.62 GiB is allocated by PyTorch, and 20.26 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[Baseline_EffNet] Epoch 1/100:   0%|          | 0/376 [00:00<?, ?it/s][Baseline_CNNLSTM] Epoch 1/100:   0%|          | 0/376 [00:00<?, ?it/s][Baseline_CNNLSTM] Epoch 1/100:   0%|          | 1/376 [00:32<3:20:49, 32.13s/it][Baseline_CNNLSTM] Epoch 1/100:   1%|          | 2/376 [00:34<1:30:46, 14.56s/it][Baseline_CNNLSTM] Epoch 1/100:   1%|          | 3/376 [00:34<50:25,  8.11s/it]  [Baseline_CNNLSTM] Epoch 1/100:   1%|          | 4/376 [00:35<31:30,  5.08s/it]terminate called without an active exception
+terminate called without an active exception
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x148bb9b0c220>
+Traceback (most recent call last):
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1604, in __del__
+    self._shutdown_workers()
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1568, in _shutdown_workers
+    w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/popen_fork.py", line 40, in wait
+    if not wait([self.sentinel], timeout):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/connection.py", line 948, in wait
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/utils/data/_utils/signal_handling.py", line 73, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 2104741) is killed by signal: Aborted. 
+[Baseline_EffNet] Epoch 1/100:   0%|          | 0/376 [00:42<?, ?it/s]
+Process Process-3:
+Traceback (most recent call last):
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/student/s230005071/shu/code2/main.py", line 83, in train_single_model_worker
+    trained_model = train_one_model(
+                    ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/trainers/trainer.py", line 50, in train_one_model
+    outputs = model(inputs)
+              ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/shu/code2/models/baselines.py", line 42, in forward
+    feats = self.backbone(x).view(B, -1)
+            ^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/efficientnet.py", line 347, in forward
+    x = self.forward_features(x)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/efficientnet.py", line 325, in forward_features
+    x = self.blocks(x)
+        ^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/timm/models/_efficientnet_blocks.py", line 329, in forward
+    x = self.conv_pw(x)
+        ^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 554, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/student/s230005071/miniconda3/envs/torch_stable_cu121/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 549, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 184.00 MiB. GPU 0 has a total capacity of 31.73 GiB of which 46.50 MiB is free. Including non-PyTorch memory, this process has 31.68 GiB memory in use. Of the allocated memory 31.26 GiB is allocated by PyTorch, and 55.06 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[Baseline_CNNLSTM] Epoch 1/100:   1%|▏         | 5/376 [00:42<36:33,  5.91s/it][Baseline_CNNLSTM] Epoch 1/100:   2%|▏         | 6/376 [00:44<27:40,  4.49s/it][Baseline_CNNLSTM] Epoch 1/100:   2%|▏         | 7/376 [00:44<19:26,  3.16s/it][Baseline_CNNLSTM] Epoch 1/100:   2%|▏         | 8/376 [00:45<14:04,  2.29s/it][Baseline_CNNLSTM] Epoch 1/100:   2%|▏         | 9/376 [00:52<24:16,  3.97s/it][Baseline_CNNLSTM] Epoch 1/100:   3%|▎         | 10/376 [00:53<17:33,  2.88s/it][Baseline_CNNLSTM] Epoch 1/100:   3%|▎         | 11/376 [00:56<17:57,  2.95s/it][Baseline_CNNLSTM] Epoch 1/100:   3%|▎         | 12/376 [00:57<14:13,  2.34s/it][Baseline_CNNLSTM] Epoch 1/100:   3%|▎         | 13/376 [01:03<21:32,  3.56s/it][Baseline_CNNLSTM] Epoch 1/100:   4%|▎         | 14/376 [01:04<15:47,  2.62s/it][Baseline_CNNLSTM] Epoch 1/100:   4%|▍         | 15/376 [01:09<20:30,  3.41s/it][Baseline_CNNLSTM] Epoch 1/100:   4%|▍         | 16/376 [01:09<15:05,  2.52s/it][Baseline_CNNLSTM] Epoch 1/100:   5%|▍         | 17/376 [01:14<18:52,  3.15s/it][Baseline_CNNLSTM] Epoch 1/100:   5%|▍         | 18/376 [01:15<14:01,  2.35s/it][Baseline_CNNLSTM] Epoch 1/100:   5%|▌         | 19/376 [01:18<15:35,  2.62s/it][Baseline_CNNLSTM] Epoch 1/100:   5%|▌         | 20/376 [01:18<11:39,  1.96s/it][Baseline_CNNLSTM] Epoch 1/100:   6%|▌         | 21/376 [01:26<22:44,  3.84s/it][Baseline_CNNLSTM] Epoch 1/100:   6%|▌         | 22/376 [01:27<16:38,  2.82s/it][Baseline_CNNLSTM] Epoch 1/100:   6%|▌         | 23/376 [01:29<15:31,  2.64s/it][Baseline_CNNLSTM] Epoch 1/100:   6%|▋         | 24/376 [01:30<11:36,  1.98s/it][Baseline_CNNLSTM] Epoch 1/100:   7%|▋         | 25/376 [01:40<26:39,  4.56s/it][Baseline_CNNLSTM] Epoch 1/100:   7%|▋         | 26/376 [01:41<19:22,  3.32s/it][Baseline_CNNLSTM] Epoch 1/100:   7%|▋         | 27/376 [01:41<14:16,  2.46s/it][Baseline_CNNLSTM] Epoch 1/100:   7%|▋         | 28/376 [01:41<10:43,  1.85s/it][Baseline_CNNLSTM] Epoch 1/100:   8%|▊         | 29/376 [01:54<28:50,  4.99s/it][Baseline_CNNLSTM] Epoch 1/100:   8%|▊         | 30/376 [01:54<20:53,  3.62s/it][Baseline_CNNLSTM] Epoch 1/100:   8%|▊         | 31/376 [01:55<15:19,  2.67s/it][Baseline_CNNLSTM] Epoch 1/100:   9%|▊         | 32/376 [01:55<11:26,  2.00s/it][Baseline_CNNLSTM] Epoch 1/100:   9%|▉         | 33/376 [02:07<29:17,  5.12s/it][Baseline_CNNLSTM] Epoch 1/100:   9%|▉         | 34/376 [02:08<21:11,  3.72s/it][Baseline_CNNLSTM] Epoch 1/100:   9%|▉         | 35/376 [02:08<15:31,  2.73s/it][Baseline_CNNLSTM] Epoch 1/100:  10%|▉         | 36/376 [02:09<11:34,  2.04s/it][Baseline_CNNLSTM] Epoch 1/100:  10%|▉         | 37/376 [02:19<24:41,  4.37s/it][Baseline_CNNLSTM] Epoch 1/100:  10%|█         | 38/376 [02:19<17:58,  3.19s/it][Baseline_CNNLSTM] Epoch 1/100:  10%|█         | 39/376 [02:19<13:16,  2.36s/it][Baseline_CNNLSTM] Epoch 1/100:  11%|█         | 40/376 [02:20<10:37,  1.90s/it][Baseline_CNNLSTM] Epoch 1/100:  11%|█         | 41/376 [02:30<24:35,  4.40s/it][Baseline_CNNLSTM] Epoch 1/100:  11%|█         | 42/376 [02:31<17:53,  3.21s/it][Baseline_CNNLSTM] Epoch 1/100:  11%|█▏        | 43/376 [02:31<13:12,  2.38s/it][Baseline_CNNLSTM] Epoch 1/100:  12%|█▏        | 44/376 [02:32<09:56,  1.80s/it][Baseline_CNNLSTM] Epoch 1/100:  12%|█▏        | 45/376 [02:43<25:11,  4.57s/it][Baseline_CNNLSTM] Epoch 1/100:  12%|█▏        | 46/376 [02:43<18:17,  3.33s/it][Baseline_CNNLSTM] Epoch 1/100:  12%|█▎        | 47/376 [02:44<13:29,  2.46s/it][Baseline_CNNLSTM] Epoch 1/100:  13%|█▎        | 48/376 [02:44<10:07,  1.85s/it][Baseline_CNNLSTM] Epoch 1/100:  13%|█▎        | 49/376 [02:56<26:17,  4.83s/it][Baseline_CNNLSTM] Epoch 1/100:  13%|█▎        | 50/376 [02:56<19:03,  3.51s/it][Baseline_CNNLSTM] Epoch 1/100:  14%|█▎        | 51/376 [02:57<14:00,  2.59s/it][Baseline_CNNLSTM] Epoch 1/100:  14%|█▍        | 52/376 [02:57<10:29,  1.94s/it][Baseline_CNNLSTM] Epoch 1/100:  14%|█▍        | 53/376 [03:06<22:00,  4.09s/it][Baseline_CNNLSTM] Epoch 1/100:  14%|█▍        | 54/376 [03:07<16:03,  2.99s/it][Baseline_CNNLSTM] Epoch 1/100:  15%|█▍        | 55/376 [03:07<11:54,  2.23s/it][Baseline_CNNLSTM] Epoch 1/100:  15%|█▍        | 56/376 [03:08<09:00,  1.69s/it][Baseline_CNNLSTM] Epoch 1/100:  15%|█▌        | 57/376 [03:15<17:28,  3.29s/it][Baseline_CNNLSTM] Epoch 1/100:  15%|█▌        | 58/376 [03:15<12:53,  2.43s/it][Baseline_CNNLSTM] Epoch 1/100:  16%|█▌        | 59/376 [03:15<09:40,  1.83s/it][Baseline_CNNLSTM] Epoch 1/100:  16%|█▌        | 60/376 [03:16<07:26,  1.41s/it][Baseline_CNNLSTM] Epoch 1/100:  16%|█▌        | 61/376 [03:26<20:25,  3.89s/it][Baseline_CNNLSTM] Epoch 1/100:  16%|█▋        | 62/376 [03:26<14:56,  2.85s/it][Baseline_CNNLSTM] Epoch 1/100:  17%|█▋        | 63/376 [03:26<11:06,  2.13s/it][Baseline_CNNLSTM] Epoch 1/100:  17%|█▋        | 64/376 [03:27<08:25,  1.62s/it][Baseline_CNNLSTM] Epoch 1/100:  17%|█▋        | 65/376 [03:36<20:19,  3.92s/it][Baseline_CNNLSTM] Epoch 1/100:  18%|█▊        | 66/376 [03:37<14:51,  2.88s/it][Baseline_CNNLSTM] Epoch 1/100:  18%|█▊        | 67/376 [03:37<11:02,  2.14s/it][Baseline_CNNLSTM] Epoch 1/100:  18%|█▊        | 68/376 [03:37<08:22,  1.63s/it][Baseline_CNNLSTM] Epoch 1/100:  18%|█▊        | 69/376 [03:45<16:56,  3.31s/it][Baseline_CNNLSTM] Epoch 1/100:  19%|█▊        | 70/376 [03:45<12:29,  2.45s/it][Baseline_CNNLSTM] Epoch 1/100:  19%|█▉        | 71/376 [03:46<09:22,  1.84s/it][Baseline_CNNLSTM] Epoch 1/100:  19%|█▉        | 72/376 [03:46<07:12,  1.42s/it][Baseline_CNNLSTM] Epoch 1/100:  19%|█▉        | 73/376 [03:58<22:57,  4.54s/it][Baseline_CNNLSTM] Epoch 1/100:  20%|█▉        | 74/376 [03:58<16:40,  3.31s/it][Baseline_CNNLSTM] Epoch 1/100:  20%|█▉        | 75/376 [03:59<12:16,  2.45s/it][Baseline_CNNLSTM] Epoch 1/100:  20%|██        | 76/376 [03:59<09:13,  1.85s/it][Baseline_CNNLSTM] Epoch 1/100:  20%|██        | 77/376 [04:09<21:06,  4.24s/it][Baseline_CNNLSTM] Epoch 1/100:  21%|██        | 78/376 [04:09<15:22,  3.10s/it][Baseline_CNNLSTM] Epoch 1/100:  21%|██        | 79/376 [04:10<11:22,  2.30s/it][Baseline_CNNLSTM] Epoch 1/100:  21%|██▏       | 80/376 [04:10<08:34,  1.74s/it][Baseline_CNNLSTM] Epoch 1/100:  22%|██▏       | 81/376 [04:19<18:16,  3.72s/it][Baseline_CNNLSTM] Epoch 1/100:  22%|██▏       | 82/376 [04:19<13:23,  2.73s/it][Baseline_CNNLSTM] Epoch 1/100:  22%|██▏       | 83/376 [04:19<09:58,  2.04s/it][Baseline_CNNLSTM] Epoch 1/100:  22%|██▏       | 84/376 [04:20<07:35,  1.56s/it][Baseline_CNNLSTM] Epoch 1/100:  23%|██▎       | 85/376 [04:26<14:35,  3.01s/it][Baseline_CNNLSTM] Epoch 1/100:  23%|██▎       | 86/376 [04:27<10:48,  2.24s/it][Baseline_CNNLSTM] Epoch 1/100:  23%|██▎       | 87/376 [04:27<08:10,  1.70s/it][Baseline_CNNLSTM] Epoch 1/100:  23%|██▎       | 88/376 [04:28<06:19,  1.32s/it][Baseline_CNNLSTM] Epoch 1/100:  24%|██▎       | 89/376 [04:36<15:47,  3.30s/it][Baseline_CNNLSTM] Epoch 1/100:  24%|██▍       | 90/376 [04:36<11:38,  2.44s/it][Baseline_CNNLSTM] Epoch 1/100:  24%|██▍       | 91/376 [04:36<08:44,  1.84s/it][Baseline_CNNLSTM] Epoch 1/100:  24%|██▍       | 92/376 [04:37<06:42,  1.42s/it][Baseline_CNNLSTM] Epoch 1/100:  25%|██▍       | 93/376 [04:44<15:09,  3.21s/it][Baseline_CNNLSTM] Epoch 1/100:  25%|██▌       | 94/376 [04:45<11:11,  2.38s/it][Baseline_CNNLSTM] Epoch 1/100:  25%|██▌       | 95/376 [04:45<08:24,  1.80s/it][Baseline_CNNLSTM] Epoch 1/100:  26%|██▌       | 96/376 [04:46<06:28,  1.39s/it][Baseline_CNNLSTM] Epoch 1/100:  26%|██▌       | 97/376 [04:52<13:40,  2.94s/it][Baseline_CNNLSTM] Epoch 1/100:  26%|██▌       | 98/376 [04:53<10:08,  2.19s/it][Baseline_CNNLSTM] Epoch 1/100:  26%|██▋       | 99/376 [04:53<07:40,  1.66s/it][Baseline_CNNLSTM] Epoch 1/100:  27%|██▋       | 100/376 [04:53<05:57,  1.30s/it][Baseline_CNNLSTM] Epoch 1/100:  27%|██▋       | 101/376 [05:02<15:47,  3.45s/it][Baseline_CNNLSTM] Epoch 1/100:  27%|██▋       | 102/376 [05:02<11:36,  2.54s/it][Baseline_CNNLSTM] Epoch 1/100:  27%|██▋       | 103/376 [05:03<08:41,  1.91s/it][Baseline_CNNLSTM] Epoch 1/100:  28%|██▊       | 104/376 [05:03<06:39,  1.47s/it][Baseline_CNNLSTM] Epoch 1/100:  28%|██▊       | 105/376 [05:13<17:32,  3.88s/it][Baseline_CNNLSTM] Epoch 1/100:  28%|██▊       | 106/376 [05:13<12:49,  2.85s/it][Baseline_CNNLSTM] Epoch 1/100:  28%|██▊       | 107/376 [05:14<09:31,  2.13s/it][Baseline_CNNLSTM] Epoch 1/100:  29%|██▊       | 108/376 [05:14<07:13,  1.62s/it][Baseline_CNNLSTM] Epoch 1/100:  29%|██▉       | 109/376 [05:25<19:09,  4.31s/it][Baseline_CNNLSTM] Epoch 1/100:  29%|██▉       | 110/376 [05:25<13:56,  3.15s/it][Baseline_CNNLSTM] Epoch 1/100:  30%|██▉       | 111/376 [05:25<10:18,  2.33s/it][Baseline_CNNLSTM] Epoch 1/100:  30%|██▉       | 112/376 [05:26<07:45,  1.76s/it][Baseline_CNNLSTM] Epoch 1/100:  30%|███       | 113/376 [05:34<15:55,  3.63s/it][Baseline_CNNLSTM] Epoch 1/100:  30%|███       | 114/376 [05:34<11:40,  2.67s/it][Baseline_CNNLSTM] Epoch 1/100:  31%|███       | 115/376 [05:35<08:42,  2.00s/it][Baseline_CNNLSTM] Epoch 1/100:  31%|███       | 116/376 [05:35<06:38,  1.53s/it][Baseline_CNNLSTM] Epoch 1/100:  31%|███       | 117/376 [05:43<14:39,  3.39s/it][Baseline_CNNLSTM] Epoch 1/100:  31%|███▏      | 118/376 [05:43<10:46,  2.51s/it][Baseline_CNNLSTM] Epoch 1/100:  32%|███▏      | 119/376 [05:44<08:04,  1.88s/it][Baseline_CNNLSTM] Epoch 1/100:  32%|███▏      | 120/376 [05:44<06:11,  1.45s/it][Baseline_CNNLSTM] Epoch 1/100:  32%|███▏      | 121/376 [05:53<15:37,  3.68s/it][Baseline_CNNLSTM] Epoch 1/100:  32%|███▏      | 122/376 [05:54<11:26,  2.70s/it][Baseline_CNNLSTM] Epoch 1/100:  33%|███▎      | 123/376 [05:54<08:31,  2.02s/it][Baseline_CNNLSTM] Epoch 1/100:  33%|███▎      | 124/376 [05:54<06:29,  1.55s/it][Baseline_CNNLSTM] Epoch 1/100:  33%|███▎      | 125/376 [06:05<18:06,  4.33s/it][Baseline_CNNLSTM] Epoch 1/100:  34%|███▎      | 126/376 [06:06<13:10,  3.16s/it][Baseline_CNNLSTM] Epoch 1/100:  34%|███▍      | 127/376 [06:06<09:43,  2.34s/it][Baseline_CNNLSTM] Epoch 1/100:  34%|███▍      | 128/376 [06:07<07:19,  1.77s/it][Baseline_CNNLSTM] Epoch 1/100:  34%|███▍      | 129/376 [06:15<15:47,  3.84s/it][Baseline_CNNLSTM] Epoch 1/100:  35%|███▍      | 130/376 [06:16<11:32,  2.82s/it][Baseline_CNNLSTM] Epoch 1/100:  35%|███▍      | 131/376 [06:16<08:34,  2.10s/it][Baseline_CNNLSTM] Epoch 1/100:  35%|███▌      | 132/376 [06:17<06:30,  1.60s/it][Baseline_CNNLSTM] Epoch 1/100:  35%|███▌      | 133/376 [06:27<17:50,  4.40s/it][Baseline_CNNLSTM] Epoch 1/100:  36%|███▌      | 134/376 [06:28<12:57,  3.21s/it][Baseline_CNNLSTM] Epoch 1/100:  36%|███▌      | 135/376 [06:28<09:33,  2.38s/it][Baseline_CNNLSTM] Epoch 1/100:  36%|███▌      | 136/376 [06:29<07:11,  1.80s/it][Baseline_CNNLSTM] Epoch 1/100:  36%|███▋      | 137/376 [06:38<15:56,  4.00s/it][Baseline_CNNLSTM] Epoch 1/100:  37%|███▋      | 138/376 [06:38<11:37,  2.93s/it][Baseline_CNNLSTM] Epoch 1/100:  37%|███▋      | 139/376 [06:39<08:37,  2.18s/it][Baseline_CNNLSTM] Epoch 1/100:  37%|███▋      | 140/376 [06:39<06:31,  1.66s/it][Baseline_CNNLSTM] Epoch 1/100:  38%|███▊      | 141/376 [06:50<16:58,  4.34s/it][Baseline_CNNLSTM] Epoch 1/100:  38%|███▊      | 142/376 [06:50<12:20,  3.17s/it][Baseline_CNNLSTM] Epoch 1/100:  38%|███▊      | 143/376 [06:52<10:23,  2.67s/it][Baseline_CNNLSTM] Epoch 1/100:  38%|███▊      | 144/376 [06:52<07:44,  2.00s/it][Baseline_CNNLSTM] Epoch 1/100:  39%|███▊      | 145/376 [06:57<11:28,  2.98s/it][Baseline_CNNLSTM] Epoch 1/100:  39%|███▉      | 146/376 [06:58<08:29,  2.22s/it][Baseline_CNNLSTM] Epoch 1/100:  39%|███▉      | 147/376 [07:00<08:26,  2.21s/it][Baseline_CNNLSTM] Epoch 1/100:  39%|███▉      | 148/376 [07:01<06:22,  1.68s/it][Baseline_CNNLSTM] Epoch 1/100:  40%|███▉      | 149/376 [07:06<10:35,  2.80s/it][Baseline_CNNLSTM] Epoch 1/100:  40%|███▉      | 150/376 [07:07<08:17,  2.20s/it][Baseline_CNNLSTM] Epoch 1/100:  40%|████      | 151/376 [07:09<08:21,  2.23s/it][Baseline_CNNLSTM] Epoch 1/100:  40%|████      | 152/376 [07:09<06:18,  1.69s/it][Baseline_CNNLSTM] Epoch 1/100:  41%|████      | 153/376 [07:17<12:23,  3.34s/it][Baseline_CNNLSTM] Epoch 1/100:  41%|████      | 154/376 [07:17<09:29,  2.57s/it][Baseline_CNNLSTM] Epoch 1/100:  41%|████      | 155/376 [07:18<07:22,  2.00s/it][Baseline_CNNLSTM] Epoch 1/100:  41%|████▏     | 156/376 [07:19<05:36,  1.53s/it][Baseline_CNNLSTM] Epoch 1/100:  42%|████▏     | 157/376 [07:29<15:14,  4.18s/it][Baseline_CNNLSTM] Epoch 1/100:  42%|████▏     | 158/376 [07:29<11:15,  3.10s/it][Baseline_CNNLSTM] Epoch 1/100:  42%|████▏     | 159/376 [07:30<08:18,  2.30s/it][Baseline_CNNLSTM] Epoch 1/100:  43%|████▎     | 160/376 [07:30<06:15,  1.74s/it][Baseline_CNNLSTM] Epoch 1/100:  43%|████▎     | 161/376 [07:38<12:39,  3.53s/it][Baseline_CNNLSTM] Epoch 1/100:  43%|████▎     | 162/376 [07:38<09:17,  2.60s/it][Baseline_CNNLSTM] Epoch 1/100:  43%|████▎     | 163/376 [07:39<07:05,  2.00s/it][Baseline_CNNLSTM] Epoch 1/100:  44%|████▎     | 164/376 [07:40<05:29,  1.55s/it][Baseline_CNNLSTM] Epoch 1/100:  44%|████▍     | 165/376 [07:49<13:45,  3.91s/it][Baseline_CNNLSTM] Epoch 1/100:  44%|████▍     | 166/376 [07:49<10:02,  2.87s/it][Baseline_CNNLSTM] Epoch 1/100:  44%|████▍     | 167/376 [07:50<07:27,  2.14s/it][Baseline_CNNLSTM] Epoch 1/100:  45%|████▍     | 168/376 [07:50<05:38,  1.63s/it][Baseline_CNNLSTM] Epoch 1/100:  45%|████▍     | 169/376 [08:00<13:56,  4.04s/it][Baseline_CNNLSTM] Epoch 1/100:  45%|████▌     | 170/376 [08:00<10:09,  2.96s/it][Baseline_CNNLSTM] Epoch 1/100:  45%|████▌     | 171/376 [08:01<07:31,  2.20s/it][Baseline_CNNLSTM] Epoch 1/100:  46%|████▌     | 172/376 [08:01<05:41,  1.67s/it][Baseline_CNNLSTM] Epoch 1/100:  46%|████▌     | 173/376 [08:10<13:10,  3.90s/it][Baseline_CNNLSTM] Epoch 1/100:  46%|████▋     | 174/376 [08:11<09:37,  2.86s/it][Baseline_CNNLSTM] Epoch 1/100:  47%|████▋     | 175/376 [08:11<07:08,  2.13s/it][Baseline_CNNLSTM] Epoch 1/100:  47%|████▋     | 176/376 [08:12<05:24,  1.62s/it][Baseline_CNNLSTM] Epoch 1/100:  47%|████▋     | 177/376 [08:21<12:34,  3.79s/it][Baseline_CNNLSTM] Epoch 1/100:  47%|████▋     | 178/376 [08:21<09:11,  2.78s/it][Baseline_CNNLSTM] Epoch 1/100:  48%|████▊     | 179/376 [08:21<06:49,  2.08s/it][Baseline_CNNLSTM] Epoch 1/100:  48%|████▊     | 180/376 [08:22<05:10,  1.59s/it][Baseline_CNNLSTM] Epoch 1/100:  48%|████▊     | 181/376 [08:36<17:25,  5.36s/it][Baseline_CNNLSTM] Epoch 1/100:  48%|████▊     | 182/376 [08:36<12:33,  3.88s/it][Baseline_CNNLSTM] Epoch 1/100:  49%|████▊     | 183/376 [08:37<09:09,  2.85s/it][Baseline_CNNLSTM] Epoch 1/100:  49%|████▉     | 184/376 [08:37<06:48,  2.13s/it][Baseline_CNNLSTM] Epoch 1/100:  49%|████▉     | 185/376 [08:49<16:10,  5.08s/it][Baseline_CNNLSTM] Epoch 1/100:  49%|████▉     | 186/376 [08:50<11:40,  3.69s/it][Baseline_CNNLSTM] Epoch 1/100:  50%|████▉     | 187/376 [08:50<08:32,  2.71s/it][Baseline_CNNLSTM] Epoch 1/100:  50%|█████     | 188/376 [08:51<06:21,  2.03s/it][Baseline_CNNLSTM] Epoch 1/100:  50%|█████     | 189/376 [09:02<15:15,  4.90s/it][Baseline_CNNLSTM] Epoch 1/100:  51%|█████     | 190/376 [09:03<11:02,  3.56s/it][Baseline_CNNLSTM] Epoch 1/100:  51%|█████     | 191/376 [09:03<08:05,  2.62s/it][Baseline_CNNLSTM] Epoch 1/100:  51%|█████     | 192/376 [09:05<07:09,  2.33s/it][Baseline_CNNLSTM] Epoch 1/100:  51%|█████▏    | 193/376 [09:16<15:13,  4.99s/it][Baseline_CNNLSTM] Epoch 1/100:  52%|█████▏    | 194/376 [09:16<11:00,  3.63s/it][Baseline_CNNLSTM] Epoch 1/100:  52%|█████▏    | 195/376 [09:19<09:36,  3.19s/it][Baseline_CNNLSTM] Epoch 1/100:  52%|█████▏    | 196/376 [09:22<09:38,  3.22s/it][Baseline_CNNLSTM] Epoch 1/100:  52%|█████▏    | 197/376 [09:33<16:17,  5.46s/it][Baseline_CNNLSTM] Epoch 1/100:  53%|█████▎    | 198/376 [09:33<11:43,  3.95s/it][Baseline_CNNLSTM] Epoch 1/100:  53%|█████▎    | 199/376 [09:33<08:33,  2.90s/it][Baseline_CNNLSTM] Epoch 1/100:  53%|█████▎    | 200/376 [09:34<06:20,  2.16s/it][Baseline_CNNLSTM] Epoch 1/100:  53%|█████▎    | 201/376 [09:45<14:34,  5.00s/it][Baseline_CNNLSTM] Epoch 1/100:  54%|█████▎    | 202/376 [09:46<10:31,  3.63s/it][Baseline_CNNLSTM] Epoch 1/100:  54%|█████▍    | 203/376 [09:46<07:41,  2.67s/it][Baseline_CNNLSTM] Epoch 1/100:  54%|█████▍    | 204/376 [09:47<05:44,  2.00s/it][Baseline_CNNLSTM] Epoch 1/100:  55%|█████▍    | 205/376 [10:00<14:58,  5.26s/it][Baseline_CNNLSTM] Epoch 1/100:  55%|█████▍    | 206/376 [10:00<10:47,  3.81s/it][Baseline_CNNLSTM] Epoch 1/100:  55%|█████▌    | 207/376 [10:00<07:52,  2.80s/it][Baseline_CNNLSTM] Epoch 1/100:  55%|█████▌    | 208/376 [10:01<05:51,  2.09s/it][Baseline_CNNLSTM] Epoch 1/100:  56%|█████▌    | 209/376 [10:15<16:01,  5.76s/it][Baseline_CNNLSTM] Epoch 1/100:  56%|█████▌    | 210/376 [10:16<11:30,  4.16s/it][Baseline_CNNLSTM] Epoch 1/100:  56%|█████▌    | 211/376 [10:17<08:54,  3.24s/it][Baseline_CNNLSTM] Epoch 1/100:  56%|█████▋    | 212/376 [10:17<06:33,  2.40s/it][Baseline_CNNLSTM] Epoch 1/100:  57%|█████▋    | 213/376 [10:32<16:16,  5.99s/it][Baseline_CNNLSTM] Epoch 1/100:  57%|█████▋    | 214/376 [10:32<11:40,  4.33s/it][Baseline_CNNLSTM] Epoch 1/100:  57%|█████▋    | 215/376 [10:32<08:28,  3.16s/it][Baseline_CNNLSTM] Epoch 1/100:  57%|█████▋    | 216/376 [10:33<06:14,  2.34s/it]slurmstepd: error: *** JOB 110912 ON hpcgpu02 CANCELLED AT 2026-07-15T00:12:47 ***
