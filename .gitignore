@@ -1,0 +1,42 @@
+# Python 缓存
+__pycache__/
+*.py[cod]
+*.so
+
+# 日志文件
+*.log
+*.err
+
+# 模型权重（大文件）
+*.pth
+*.pt
+*.h5
+
+# 图片和表格
+*.png
+*.jpg
+*.jpeg
+*.csv
+
+# 实验结果目录（整目录忽略）
+summary_results/
+logs_chbmit/
+logs/
+
+# JSON 和 YAML（如果你希望忽略所有，则取消注释下一行）
+# *.json
+# *.yaml
+# *.yml
+
+# 编辑器配置
+.vscode/
+*.code-workspace
+
+# 系统垃圾
+.DS_Store
+Thumbs.db
+
+# 忽略所有实验结果和日志目录（以及它们里面的所有内容）
+summary_results/
+logs_chbmit/
+logs/
