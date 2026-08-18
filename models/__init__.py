@@ -1,11 +1,12 @@
 from .ast_net import MultiScaleResNeXtBlock, apply_multiscale_block, ResNeXt_GCN_Bridge
-from .baselines import BaselineResNeXt, BaselineResNet, BaselineEfficientNet, BaselineCNNLSTM
-from .sota import EEGNet, ST_GCN_EEG, EEGConformer1D_GCN_Model
+from .baselines import BaselineMultiScaleResNeXt, BaselineResNeXt, BaselineResNet, BaselineEfficientNet, BaselineCNNLSTM
+from .sota import EEGNet, ST_GCN_EEG, EEGConformer1D_GCN_Model, BraindecodeEEGConformer
 
 __all__ = [
     'MultiScaleResNeXtBlock',
     'apply_multiscale_block',
     'ResNeXt_GCN_Bridge',
+    'BaselineMultiScaleResNeXt',
     'BaselineResNeXt',
     'BaselineResNet',
     'BaselineEfficientNet',
@@ -13,4 +14,5 @@ __all__ = [
     'EEGNet',
     'ST_GCN_EEG',
     'EEGConformer1D_GCN_Model',
+    'BraindecodeEEGConformer',
 ]

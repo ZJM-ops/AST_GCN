@@ -1,3 +1,4 @@
+#ast_net.py
 import timm
 import torch
 import torch.nn as nn
@@ -56,6 +57,75 @@ def build_hippocampal_adjacency():
     return adj
 
 
+def build_chbmit_scalp_adjacency():
+    """
+    构建CHB-MIT 18通道双极导联的头皮拓扑邻接矩阵
+    
+    通道顺序 (标准10-20纵向双极导联, double banana):
+      左外侧链:    FP1-F7, F7-T7, T7-P7, P7-O1       (0-3)
+      左旁正中链:  FP1-F3, F3-C3, C3-P3, P3-O1       (4-7)
+      右旁正中链:  FP2-F4, F4-C4, C4-P4, P4-O2       (8-11)
+      右外侧链:    FP2-F8, F8-T8, T8-P8, P8-O2       (12-15)
+      中线链:      FZ-CZ, CZ-PZ                       (16-17)
+    
+    连接强度设计 (与海马体邻接同哲学):
+      1. 同链相邻 (共享电极): 1.0  — 双极导联标志性连接
+      2. 跨链共享电极: 0.7        — 额极/枕极交叉
+      3. 左右对称: 0.6            — 跨半球
+      4. 旁正中↔中线同级: 0.4
+      5. 自连接: 0.5
+    """
+    channels = [
+        'FP1-F7', 'F7-T7', 'T7-P7', 'P7-O1',     # 左外侧
+        'FP1-F3', 'F3-C3', 'C3-P3', 'P3-O1',     # 左旁正中
+        'FP2-F4', 'F4-C4', 'C4-P4', 'P4-O2',     # 右旁正中
+        'FP2-F8', 'F8-T8', 'T8-P8', 'P8-O2',     # 右外侧
+        'FZ-CZ', 'CZ-PZ'                          # 中线
+    ]
+    n = len(channels)
+    electrodes = [ch.split('-') for ch in channels]
+    adj = torch.zeros(n, n)
+
+    # 5条前-后走向的链
+    chains = [[0, 1, 2, 3], [4, 5, 6, 7], [8, 9, 10, 11], [12, 13, 14, 15], [16, 17]]
+
+    # 1. 同链相邻 (共享电极) - 最强
+    for chain in chains:
+        for i in range(len(chain) - 1):
+            a, b = chain[i], chain[i + 1]
+            adj[a, b] = 1.0
+            adj[b, a] = 1.0
+
+    # 2. 跨链共享电极 (额极/枕极交叉)
+    for i in range(n):
+        for j in range(i + 1, n):
+            if adj[i, j] > 0:
+                continue
+            if set(electrodes[i]) & set(electrodes[j]):
+                adj[i, j] = 0.7
+                adj[j, i] = 0.7
+
+    # 3. 左右对称 (同水平不同半球对应通道)
+    sym_pairs = [(0, 12), (1, 13), (2, 14), (3, 15),   # 左外侧 ↔ 右外侧
+                 (4, 8), (5, 9), (6, 10), (7, 11)]     # 左旁正中 ↔ 右旁正中
+    for a, b in sym_pairs:
+        if adj[a, b] == 0:
+            adj[a, b] = 0.6
+            adj[b, a] = 0.6
+
+    # 4. 旁正中 ↔ 中线 (同矢状位水平)
+    midline_pairs = [(5, 16), (6, 17),   # 左旁正中 ↔ 中线
+                     (9, 16), (10, 17)]  # 右旁正中 ↔ 中线
+    for a, b in midline_pairs:
+        if adj[a, b] == 0:
+            adj[a, b] = 0.4
+            adj[b, a] = 0.4
+
+    # 5. 自连接
+    adj = adj + torch.eye(n) * 0.5
+    return adj
+
+
 class MultiScaleResNeXtBlock(nn.Module):
     expansion = 4
 
@@ -85,13 +155,6 @@ class MultiScaleResNeXtBlock(nn.Module):
                                       groups=self.last_width // 2 if self.last_width > 2 else 1, bias=False)
 
         self.bn2 = norm_layer(width)
-        
-        # SE模块：跨尺度通道注意力融合
-        self.se_reduction = width // 16
-        self.se_fc1 = nn.Conv2d(width, self.se_reduction, kernel_size=1, bias=False)
-        self.se_fc2 = nn.Conv2d(self.se_reduction, width, kernel_size=1, bias=False)
-        self.se_sigmoid = nn.Sigmoid()
-        
         self.conv3 = nn.Conv2d(width, planes * self.expansion, kernel_size=1, bias=False)
         self.bn3 = norm_layer(planes * self.expansion)
 
@@ -111,11 +174,6 @@ class MultiScaleResNeXtBlock(nn.Module):
             self.conv_branch4(x4)
         ], dim=1)
 
-        # SE模块：自适应跨尺度融合
-        se_out = torch.mean(out, dim=[2, 3], keepdim=True)  # 全局平均池化
-        se_out = self.se_sigmoid(self.se_fc2(self.relu(self.se_fc1(se_out))))
-        out = out * se_out  # 通道加权
-        
         out = self.relu(self.bn2(out))
         out = self.bn3(self.conv3(out))
 
@@ -157,23 +215,12 @@ def apply_multiscale_block(model, gradient_checkpointing=False):
 
 
 class GCNLayer(nn.Module):
-    def __init__(self, in_features, out_features, dropout=0.3):
+    def __init__(self, in_features, out_features):
         super(GCNLayer, self).__init__()
         self.linear = nn.Linear(in_features, out_features)
-        self.ln = nn.LayerNorm(out_features)
-        self.dropout = nn.Dropout(dropout)
-        # 残差连接
-        self.residual = nn.Linear(in_features, out_features) if in_features != out_features else None
 
     def forward(self, x, adj):
-        out = torch.bmm(adj, self.linear(x))
-        out = self.ln(out)
-        # 残差连接
-        if self.residual is not None:
-            out = out + self.residual(x)
-        else:
-            out = out + x
-        return self.dropout(out)
+        return torch.bmm(adj, self.linear(x))
 
 
 class ResNeXt_GCN_Bridge(nn.Module):
@@ -182,32 +229,41 @@ class ResNeXt_GCN_Bridge(nn.Module):
         self.num_nodes = num_nodes
         self.use_anatomical_prior = use_anatomical_prior
 
-        base_model = timm.create_model(backbone_name, pretrained=False, num_classes=0)
+        base_model = timm.create_model(backbone_name, num_classes=0)
         self.backbone = apply_multiscale_block(base_model, gradient_checkpointing)
         self.gradient_checkpointing = gradient_checkpointing
         
         self.feature_dim = base_model.num_features if hasattr(base_model, 'num_features') else feature_dim
 
-        self.num_heads = 4
-        self.attn_dim = 64
-        self.attn_query = nn.Linear(self.feature_dim, self.num_heads * self.attn_dim)
-        self.attn_key = nn.Linear(self.feature_dim, self.num_heads * self.attn_dim)
+        self.attn_query = nn.Linear(self.feature_dim, 128)
+        self.attn_key = nn.Linear(self.feature_dim, 128)
 
-        if use_anatomical_prior and num_nodes == 8:
-            self.register_buffer('anatomical_adj', build_hippocampal_adjacency())
-            self.prior_weight = nn.Parameter(torch.tensor(0.3))
+        if use_anatomical_prior:
+            if num_nodes == 8:
+                prior_adj = build_hippocampal_adjacency()
+            elif num_nodes == 18:
+                prior_adj = build_chbmit_scalp_adjacency()
+            else:
+                prior_adj = None
+            if prior_adj is not None:
+                self.register_buffer('anatomical_adj', prior_adj)
+                self.prior_weight = nn.Parameter(torch.tensor(0.3))
+                print(f"🧠 [AST-Net_GCN] 启用解剖学位置先验 (num_nodes={num_nodes}, 邻接shape={tuple(prior_adj.shape)})")
+            else:
+                self.anatomical_adj = None
         else:
             self.anatomical_adj = None
 
-        self.gcn1 = GCNLayer(self.feature_dim, 512, dropout=0.2)
-        self.gcn2 = GCNLayer(512, 128, dropout=0.2)
+        self.gcn1 = GCNLayer(self.feature_dim, 512)
+        self.gcn2 = GCNLayer(512, 128)
         self.relu = nn.ReLU(inplace=True)
 
         self.channel_attention = nn.MultiheadAttention(embed_dim=128, num_heads=4, batch_first=True)
+        self.dropout = nn.Dropout(0.5)
         self.fc = nn.Sequential(
             nn.Linear(128, 64),
             nn.ReLU(inplace=True),
-            nn.Dropout(0.3),
+            nn.Dropout(0.5),
             nn.Linear(64, num_classes)
         )
 
@@ -224,14 +280,9 @@ class ResNeXt_GCN_Bridge(nn.Module):
         
         node_features = backbone_out.view(batch_size, self.num_nodes, -1)
 
-        q = self.attn_query(node_features).view(batch_size, self.num_nodes, self.num_heads, self.attn_dim)
-        k = self.attn_key(node_features).view(batch_size, self.num_nodes, self.num_heads, self.attn_dim)
-        q = q.permute(0, 2, 1, 3)
-        k = k.permute(0, 2, 1, 3)
-        
-        attn_scores = torch.matmul(q, k.transpose(-2, -1)) / (self.attn_dim ** 0.5)
-        adj = torch.softmax(attn_scores, dim=-1)
-        adj = adj.mean(dim=1)
+        q = self.attn_query(node_features)
+        k = self.attn_key(node_features).transpose(1, 2)
+        adj = torch.softmax(torch.bmm(q, k), dim=-1)
         
         if self.anatomical_adj is not None:
             prior_adj = self.anatomical_adj.unsqueeze(0).expand(batch_size, -1, -1).to(x.device)

@@ -1,3 +1,4 @@
+#dataset.py
 import os
 import numpy as np
 import torch
@@ -178,8 +179,14 @@ class Complete1DGraphDataset(Dataset):
         if signal.shape[0] != 8:
             raise ValueError(f"通道不匹配：{path} shape={signal.shape}")
 
-        if self.global_mean is not None and self.global_std is not None:
-            signal = (signal - self.global_mean) / (self.global_std + 1e-6)
+        # Per-channel z-score normalization
+        for ch in range(signal.shape[0]):
+            ch_mean = signal[ch, :].mean()
+            ch_std = signal[ch, :].std()
+            if ch_std > 1e-8:
+                signal[ch, :] = (signal[ch, :] - ch_mean) / ch_std
+            else:
+                signal[ch, :] = signal[ch, :] - ch_mean
 
         signal_tensor = torch.tensor(signal)
         if self.training:

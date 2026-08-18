@@ -2,6 +2,12 @@ import numpy as np
 import torch
 import torch.nn as nn
 
+try:
+    from braindecode.models import EEGConformer as BrainEEGConformer
+    BRAINDECODE_AVAILABLE = True
+except ImportError:
+    BRAINDECODE_AVAILABLE = False
+
 
 class EEGNet(nn.Module):
     def __init__(self, num_classes=2, num_channels=8, F1=8, D=2, F2=16, kernel_length=64, dropout_rate=0.5):
@@ -253,3 +259,28 @@ class EEGConformer1D_GCN_Model(nn.Module):
         flat = g2.view(batch_size, -1)
         out = self.fc(flat)
         return out
+
+
+class BraindecodeEEGConformer(nn.Module):
+    def __init__(self, num_classes=3, num_channels=8, n_times=2000,
+                 n_filters_time=40, filter_time_length=25,
+                 pool_time_length=75, pool_time_stride=15,
+                 drop_prob=0.5, num_layers=6, num_heads=10):
+        super().__init__()
+        if not BRAINDECODE_AVAILABLE:
+            raise ImportError("braindecode 库未安装，请运行: pip install braindecode")
+        self.model = BrainEEGConformer(
+            n_chans=num_channels,
+            n_outputs=num_classes,
+            n_times=n_times,
+            n_filters_time=n_filters_time,
+            filter_time_length=filter_time_length,
+            pool_time_length=pool_time_length,
+            pool_time_stride=pool_time_stride,
+            drop_prob=drop_prob,
+            num_layers=num_layers,
+            num_heads=num_heads,
+        )
+
+    def forward(self, x):
+        return self.model(x)

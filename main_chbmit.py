@@ -14,7 +14,7 @@ import traceback
 
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
 
-from models import ResNeXt_GCN_Bridge, BaselineResNeXt, BaselineResNet, BaselineEfficientNet, BaselineCNNLSTM, EEGNet, ST_GCN_EEG, EEGConformer1D_GCN_Model
+from models import ResNeXt_GCN_Bridge, BaselineMultiScaleResNeXt, BaselineResNeXt, BaselineResNet, BaselineEfficientNet, BaselineCNNLSTM, EEGNet, ST_GCN_EEG, EEGConformer1D_GCN_Model
 from datasets import CHBMITGraphDataset, CHBMIT1DGraphDataset
 from trainers import train_one_model, evaluate_model
 from utils.visualization import plot_comparison
@@ -25,7 +25,15 @@ def load_config(config_path='config/config_chbmit.yaml'):
         return yaml.safe_load(f)
 
 
-def build_image_loaders(train_paths, val_paths, test_paths, label_mapping, transform, batch_size, num_channels=18, num_workers=2, pin_memory=False):
+def detect_dataset_type(config):
+    if 'dataset_type' in config:
+        return config['dataset_type']
+    return 'chbmit'
+
+
+def build_image_loaders(train_paths, val_paths, test_paths, label_mapping, transform,
+                        batch_size, dataset_type='chbmit', num_channels=18,
+                        num_workers=2, pin_memory=False):
     train_dataset = CHBMITGraphDataset(train_paths, transform=transform, label_mapping=label_mapping, num_channels=num_channels)
     val_dataset = CHBMITGraphDataset(val_paths, transform=transform, label_mapping=label_mapping, num_channels=num_channels)
     test_dataset = CHBMITGraphDataset(test_paths, transform=transform, label_mapping=label_mapping, num_channels=num_channels)
@@ -39,7 +47,9 @@ def build_image_loaders(train_paths, val_paths, test_paths, label_mapping, trans
     return train_loader, val_loader, test_loader
 
 
-def build_1d_loaders(train_1d_path, val_1d_path, test_1d_path, label_mapping, batch_size, num_channels=18, num_workers=2, pin_memory=False):
+def build_1d_loaders(train_1d_path, val_1d_path, test_1d_path, label_mapping,
+                     batch_size, dataset_type='chbmit', num_channels=18,
+                     num_workers=2, pin_memory=False):
     train_dataset = CHBMIT1DGraphDataset(train_1d_path, training=True, label_mapping=label_mapping, num_channels=num_channels)
     val_dataset = CHBMIT1DGraphDataset(val_1d_path, training=False, label_mapping=label_mapping, num_channels=num_channels)
     test_dataset = CHBMIT1DGraphDataset(test_1d_path, training=False, label_mapping=label_mapping, num_channels=num_channels)
@@ -56,45 +66,66 @@ def build_1d_loaders(train_1d_path, val_1d_path, test_1d_path, label_mapping, ba
 def train_single_model_worker(args):
     results_queue, model_name, model_cls, model_kwargs, data_type, data_args, run_save_dir, gpu_id, config = args
 
-    torch.cuda.set_device(gpu_id)
-    device = torch.device(f'cuda:{gpu_id}')
-    
-    torch.cuda.set_per_process_memory_fraction(0.85, gpu_id)
+    import os
 
-    print(f"🚀 [{model_name}] 使用GPU: {gpu_id} ({torch.cuda.get_device_name(gpu_id)})")
+    actual_gpu_id = gpu_id
+
+    if actual_gpu_id >= 0:
+        os.environ['CUDA_VISIBLE_DEVICES'] = str(actual_gpu_id)
+        print(f"🔧 [{model_name}] 设置CUDA_VISIBLE_DEVICES={actual_gpu_id}")
+
+        torch.cuda.set_device(0)
+        device = torch.device('cuda:0')
+        torch.cuda.set_per_process_memory_fraction(0.85, 0)
+        print(f"🚀 [{model_name}] 使用GPU: {actual_gpu_id} ({torch.cuda.get_device_name(0)})")
+    else:
+        os.environ['CUDA_VISIBLE_DEVICES'] = ''
+        device = torch.device('cpu')
+        print(f"⚠️ [{model_name}] 没有可用GPU，使用CPU")
 
     try:
         model = model_cls(**model_kwargs).to(device)
         n_params = sum(p.numel() for p in model.parameters()) / 1e6
-        print(f"模型参数量 [{model_name}]: {n_params:.1f}M")
+        n_trainable = sum(p.numel() for p in model.parameters() if p.requires_grad) / 1e6
+        print(f"模型参数量 [{model_name}]: {n_params:.1f}M (可训练 {n_trainable:.1f}M)")
 
         num_classes = config['model']['num_classes']
+        num_nodes = config['model']['num_nodes']
         num_workers = config['training'].get('num_workers', 2)
         pin_memory = config['training'].get('pin_memory', False)
-        mixed_precision = config['training'].get('mixed_precision', True)
 
         if data_type == 'image':
-            train_cfg = config['training']
+            train_cfg = dict(config['training'])
             train_paths, val_paths, test_paths, label_mapping, transform = data_args
-            num_channels = config['model']['num_nodes']
-            train_loader, val_loader, test_loader = build_image_loaders(
-                train_paths, val_paths, test_paths, label_mapping, transform, 
-                train_cfg['batch_size'], num_channels, num_workers, pin_memory)
         else:
-            train_cfg = config.get('training_1d', config['training'])
+            train_cfg = dict(config.get('training_1d', config['training']))
             train_1d_path, val_1d_path, test_1d_path, label_mapping = data_args
-            num_channels = config['model']['num_nodes']
+
+        model_overrides = config.get('model_configs', {}).get(model_name, {})
+        if model_overrides:
+            print(f"  ⚙️ 使用 [{model_name}] 专属配置: {model_overrides}")
+            train_cfg.update(model_overrides)
+
+        mixed_precision = train_cfg.get('mixed_precision', config['training'].get('mixed_precision', True))
+
+        if data_type == 'image':
+            train_loader, val_loader, test_loader = build_image_loaders(
+                train_paths, val_paths, test_paths, label_mapping, transform,
+                train_cfg['batch_size'], 'chbmit', num_nodes, num_workers, pin_memory)
+        else:
             train_loader, val_loader, test_loader = build_1d_loaders(
-                train_1d_path, val_1d_path, test_1d_path, label_mapping, 
-                train_cfg['batch_size'], num_channels, num_workers, pin_memory)
+                train_1d_path, val_1d_path, test_1d_path, label_mapping,
+                train_cfg['batch_size'], 'chbmit', num_nodes, num_workers, pin_memory)
 
         train_labels = train_loader.dataset.get_labels()
         class_counts = Counter(train_labels)
         total = sum(class_counts.values())
-        class_weights = torch.tensor(
+        raw_weights = torch.tensor(
             [total / (num_classes * class_counts.get(i, 1)) for i in range(num_classes)],
             dtype=torch.float
-        ).to(device)
+        )
+        class_weights = torch.pow(raw_weights, 0.5).to(device)
+        print(f"  类权重 (软化后): {class_weights.cpu().numpy()}")
 
         trained_model = train_one_model(
             model=model,
@@ -115,6 +146,8 @@ def train_single_model_worker(args):
             mixed_precision=mixed_precision,
             cosine_eta_min=train_cfg.get('cosine_eta_min', 1e-6),
             cosine_restarts=train_cfg.get('cosine_restarts', 3),
+            optimizer_type=train_cfg.get('optimizer_type', 'sgd'),
+            early_stop_monitor=train_cfg.get('early_stop_monitor', 'val_acc'),
         )
 
         result = evaluate_model(
@@ -160,14 +193,35 @@ def train_single_model_worker(args):
 
 
 def main(config, model_filter=None):
+    dataset_type = detect_dataset_type(config)
+    num_classes = config['model']['num_classes']
+    dataset_label = "CHB-MIT"
+
+    print(f"\n{'='*60}")
+    print(f"📊 数据集类型: {dataset_label} (dataset_type={dataset_type})")
+    print(f"   类别数: {num_classes}, 通道数: {config['model']['num_nodes']}")
+    print(f"   标签映射: {config.get('label_mapping', {})}")
+    print(f"{'='*60}\n")
+
     num_gpus = torch.cuda.device_count()
-    print(f"📦 可用GPU数量: {num_gpus}")
+    print(f"📦 torch.cuda.device_count() 返回: {num_gpus}")
+
+    available_gpus = []
+    for i in range(num_gpus):
+        try:
+            torch.cuda.get_device_name(i)
+            available_gpus.append(i)
+        except Exception as e:
+            print(f"⚠️  GPU {i} 不可用: {e}")
+
+    num_gpus = len(available_gpus)
+    print(f"✅ 实际可用GPU数量: {num_gpus}")
 
     if num_gpus == 0:
         print("❌ 没有可用GPU，使用CPU")
     else:
-        print(f"✅ GPU列表: {[torch.cuda.get_device_name(i) for i in range(num_gpus)]}")
-        for i in range(num_gpus):
+        print(f"✅ GPU列表: {[torch.cuda.get_device_name(i) for i in available_gpus]}")
+        for i in available_gpus:
             mem_info = torch.cuda.mem_get_info(i)
             print(f"   GPU {i}: {torch.cuda.get_device_name(i)} - 可用显存: {mem_info[0]/1e9:.2f} GB / {mem_info[1]/1e9:.2f} GB")
 
@@ -183,19 +237,40 @@ def main(config, model_filter=None):
     os.makedirs(model_save_dir, exist_ok=True)
 
     batch_size = config['training']['batch_size']
-    num_classes = config['model']['num_classes']
     num_nodes = config['model']['num_nodes']
     image_size = config['model']['image_size']
-    backbone_name = config['model'].get('backbone_name', 'resnext50_32x4d')
+
+    n_times = config['model'].get('n_times', None)
+    if n_times is None:
+        try:
+            import numpy as _np
+            with open(train_1d_path, 'r') as f:
+                _first_line = f.readline().strip()
+            _sample_data = _np.load(_first_line)
+            if _sample_data.shape[0] == num_nodes:
+                n_times = _sample_data.shape[1]
+            else:
+                n_times = _sample_data.shape[0]
+            print(f"✅ 自动检测 1D 数据时间点数: n_times={n_times}")
+        except Exception as e:
+            n_times = 512
+            print(f"⚠️ 无法自动检测 n_times，使用默认值 512: {e}")
     gradient_checkpointing = config['model'].get('gradient_checkpointing', False)
     label_mapping = config['label_mapping']
 
+    class_label = f"{num_classes}Class"
     run_dir_name = (datetime.now().strftime("%Y%m%d_%H%M%S")
-                    + "_ASTNet_CHBMIT_2Class")
+                    + f"_ASTNet_{dataset_label}_{class_label}")
     run_save_dir = os.path.join(model_save_dir, run_dir_name)
     os.makedirs(run_save_dir, exist_ok=True)
 
     print(f"结果保存目录: {run_save_dir}")
+
+    config['optimizer'] = {
+        'type': 'SGD',
+        'momentum': 0.9,
+        'scheduler': 'CosineAnnealingLR',
+    }
 
     config_save_path = os.path.join(run_save_dir, 'config.yaml')
     with open(config_save_path, 'w') as f:
@@ -226,17 +301,19 @@ def main(config, model_filter=None):
     one_d_data_args = (train_1d_path, val_1d_path, test_1d_path, label_mapping)
 
     all_tasks = [
-        ('AST-Net_GCN_resnet18', ResNeXt_GCN_Bridge, {'num_classes': num_classes, 'backbone_name': 'resnet18', 'gradient_checkpointing': gradient_checkpointing},
+        ('AST-Net_GCN_resnet18', ResNeXt_GCN_Bridge, {'num_classes': num_classes, 'num_nodes': num_nodes, 'backbone_name': 'resnet18', 'gradient_checkpointing': gradient_checkpointing, 'use_anatomical_prior': True},
          'image', image_data_args),
-        ('AST-Net_GCN_resnext50_32x4d', ResNeXt_GCN_Bridge, {'num_classes': num_classes, 'backbone_name': 'resnext50_32x4d', 'gradient_checkpointing': gradient_checkpointing},
+        ('AST-Net_GCN_resnext50_32x4d', ResNeXt_GCN_Bridge, {'num_classes': num_classes, 'num_nodes': num_nodes, 'backbone_name': 'resnext50_32x4d', 'gradient_checkpointing': gradient_checkpointing, 'use_anatomical_prior': True},
          'image', image_data_args),
-        ('Baseline_ResNeXt_resnext50_32x4d', BaselineResNeXt, {'num_classes': num_classes, 'backbone_name': 'resnext50_32x4d', 'gradient_checkpointing': gradient_checkpointing},
+        ('Baseline_MultiScaleResNeXt', BaselineMultiScaleResNeXt, {'num_classes': num_classes, 'num_nodes': num_nodes, 'backbone_name': 'resnext50_32x4d', 'gradient_checkpointing': gradient_checkpointing},
          'image', image_data_args),
-        ('Baseline_ResNet_resnet18', BaselineResNet, {'num_classes': num_classes, 'backbone_name': 'resnet18', 'gradient_checkpointing': gradient_checkpointing},
+        ('Baseline_ResNeXt_resnext50_32x4d', BaselineResNeXt, {'num_classes': num_classes, 'num_nodes': num_nodes, 'backbone_name': 'resnext50_32x4d', 'gradient_checkpointing': gradient_checkpointing},
          'image', image_data_args),
-        ('Baseline_EffNet_efficientnet_b0', BaselineEfficientNet, {'num_classes': num_classes, 'backbone_name': 'efficientnet_b0', 'gradient_checkpointing': gradient_checkpointing},
+        ('Baseline_ResNet_resnet18', BaselineResNet, {'num_classes': num_classes, 'num_nodes': num_nodes, 'backbone_name': 'resnet18', 'gradient_checkpointing': gradient_checkpointing},
          'image', image_data_args),
-        ('Baseline_CNNLSTM_resnet18', BaselineCNNLSTM, {'num_classes': num_classes, 'backbone_name': 'resnet18', 'gradient_checkpointing': gradient_checkpointing},
+        ('Baseline_EffNet_efficientnet_b0', BaselineEfficientNet, {'num_classes': num_classes, 'num_nodes': num_nodes, 'backbone_name': 'efficientnet_b0', 'gradient_checkpointing': gradient_checkpointing},
+         'image', image_data_args),
+        ('Baseline_CNNLSTM_resnet18', BaselineCNNLSTM, {'num_classes': num_classes, 'num_nodes': num_nodes, 'backbone_name': 'resnet18', 'gradient_checkpointing': gradient_checkpointing},
          'image', image_data_args),
         ('EEGNet', EEGNet, {'num_classes': num_classes, 'num_channels': num_nodes},
          '1d', one_d_data_args),
@@ -247,13 +324,20 @@ def main(config, model_filter=None):
     ]
 
     if model_filter:
+        available_names = [t[0] for t in all_tasks]
         if isinstance(model_filter, list):
             all_tasks = [t for t in all_tasks if t[0] in model_filter]
-            print(f"\n🎯 多模型模式，训练: {', '.join(model_filter)}")
+            print(f"\n🎯 多模型模式，请求: {', '.join(model_filter)}")
         else:
             all_tasks = [t for t in all_tasks if t[0] == model_filter]
-            print(f"\n🎯 单模型模式，仅训练: {model_filter}")
-    
+            print(f"\n🎯 单模型模式，请求: {model_filter}")
+
+        if not all_tasks:
+            print(f"⚠️ 没有匹配的模型！可用模型:")
+            for name in available_names:
+                print(f"     - {name}")
+            return
+
     if num_gpus <= 1:
         print("\n⚠️ 单卡模式，串行训练所有模型")
         all_results = []
@@ -266,30 +350,59 @@ def main(config, model_filter=None):
                 all_results.append(result)
             torch.cuda.empty_cache()
     else:
-        print(f"\n🚀 多卡并行模式 ({num_gpus} GPUs)，同时训练多个模型")
-        mp.set_start_method('spawn', force=True)
+        from collections import deque
 
-        results_queue = mp.Queue()
+        print(f"\n🚀 动态GPU调度模式 ({num_gpus} GPUs)")
+        print(f"   优先模型: AST-Net_GCN_resnext50_32x4d, Baseline_MultiScaleResNeXt")
+        print(f"   总模型数: {len(all_tasks)}, 可用GPU: {num_gpus}")
+
+        priority_models = {'AST-Net_GCN_resnext50_32x4d', 'Baseline_MultiScaleResNeXt'}
+        sorted_tasks = sorted(all_tasks, key=lambda t: 0 if t[0] in priority_models else 1)
+
+        task_queue = deque(sorted_tasks)
         all_results = []
-        processes = []
+        mp.set_start_method('spawn', force=True)
+        results_queue = mp.Queue()
 
-        for idx, task in enumerate(all_tasks):
-            model_name, model_cls, model_kwargs, data_type, data_args = task
-            gpu_id = idx % num_gpus
+        running = {}
+        gpu_available = list(range(num_gpus))
 
-            print(f"\n📦 准备训练 [{model_name}]，分配到 GPU {gpu_id}")
-            print(f"   模型参数: {model_kwargs}")
+        print(f"\n{'='*60}")
+        print(f"🚀 开始动态调度，共 {len(sorted_tasks)} 个模型，{num_gpus} 张GPU")
+        print(f"{'='*60}")
 
-            args = (results_queue, model_name, model_cls, model_kwargs, data_type, data_args,
-                    run_save_dir, gpu_id, config)
+        while task_queue or running:
+            while task_queue and gpu_available:
+                task = task_queue.popleft()
+                model_name, model_cls, model_kwargs, data_type, data_args = task
+                gpu_id = gpu_available.pop(0)
 
-            p = mp.Process(target=train_single_model_worker, args=(args,))
-            processes.append((p, model_name))
-            p.start()
+                print(f"\n📦 准备训练 [{model_name}]，分配到 GPU {gpu_id}")
+                print(f"   模型参数: {model_kwargs}")
 
-        print(f"\n⏳ 等待所有 {len(processes)} 个模型训练完成...")
-        for p, model_name in processes:
-            p.join()
+                args = (results_queue, model_name, model_cls, model_kwargs, data_type, data_args,
+                        run_save_dir, gpu_id, config)
+
+                p = mp.Process(target=train_single_model_worker, args=(args,))
+                p.start()
+                running[p] = (gpu_id, model_name)
+
+                remaining = len(task_queue)
+                if remaining > 0:
+                    print(f"   队列中还有 {remaining} 个模型等待调度")
+
+            if running:
+                time.sleep(2)
+                finished = []
+                for p, (gpu_id, model_name) in list(running.items()):
+                    if not p.is_alive():
+                        p.join()
+                        finished.append(p)
+                        gpu_available.append(gpu_id)
+                        print(f"\n  ✅ [{model_name}] 训练完成，GPU {gpu_id} 已释放")
+
+                for p in finished:
+                    del running[p]
 
         while not results_queue.empty():
             result = results_queue.get()
@@ -299,11 +412,18 @@ def main(config, model_filter=None):
 
         torch.cuda.empty_cache()
 
+    if not all_results:
+        print("\n⚠️ 没有任何模型训练成功，跳过结果汇总。")
+        print("   请检查模型名称是否正确，可用模型名称:")
+        for task in all_tasks:
+            print(f"     - {task[0]}")
+        return
+
     results_df = pd.DataFrame(all_results)
     results_df = results_df.sort_values('f1', ascending=False).reset_index(drop=True)
 
     print("\n" + "="*70)
-    print("🏆 CHB-MIT 模型性能对比汇总 (按 Macro F1 降序)")
+    print(f"🏆 {dataset_label} 模型性能对比汇总 (按 Macro F1 降序)")
     print("="*70)
     print(results_df.to_string(index=False, float_format=lambda x: f"{x:.4f}"))
 
@@ -318,17 +438,17 @@ if __name__ == '__main__':
     parser.add_argument('--config', type=str, default='config/config_chbmit.yaml',
                         help='Path to configuration file')
     parser.add_argument('--model', type=str, default=None,
-                        help='Specify a single model to train (e.g., AST-Net_GCN_resnet18)')
+                        help='Specify a single model to train (e.g., AST-Net_GCN_resnext50_32x4d)')
     parser.add_argument('--models', type=str, default=None,
-                        help='Specify multiple models to train, separated by comma (e.g., AST-Net_GCN_resnet18,EEGNet)')
+                        help='Specify multiple models to train, separated by comma (e.g., AST-Net_GCN_resnext50_32x4d,EEGNet)')
     args = parser.parse_args()
 
     config = load_config(args.config)
-    
+
     model_filter = None
     if args.models:
         model_filter = [m.strip() for m in args.models.split(',')]
     elif args.model:
         model_filter = args.model
-    
+
     main(config, model_filter=model_filter)

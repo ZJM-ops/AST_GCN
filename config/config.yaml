@@ -1,3 +1,5 @@
+dataset_type: standard
+
 data:
   base_dir: /home/student/s230005071/shu
   labels_csv: /home/student/s230005071/shu/labels.csv
@@ -13,13 +15,17 @@ data:
   test_1d: test_1d.txt
 
 model:
-  save_dir: /home/student/s230005071/shu/cnn_models_update
+  save_dir: /home/student/s230005071/shu/code2/summary_results/10mineeg/results
   num_classes: 3
   num_nodes: 8
   image_size: 224
   feature_dim: 2048
-  backbone_name: resnext50_32x4d
   gradient_checkpointing: true
+
+optimizer:
+  type: SGD
+  momentum: 0.9
+  scheduler: CosineAnnealingLR
 
 training:
   batch_size: 8
@@ -50,6 +56,72 @@ training_1d:
   accum_steps: 4
   cosine_eta_min: 1e-6
   cosine_restarts: 3
+
+model_configs:
+  AST-Net_GCN:
+    batch_size: 8
+    learning_rate: 0.003
+    weight_decay: 0.0005
+    accum_steps: 8
+    patience: 20
+    warmup_epochs: 15
+  Baseline_MultiScaleResNeXt:
+    batch_size: 32
+    learning_rate: 0.0001
+    accum_steps: 16
+    epochs: 80
+    patience: 15
+    warmup_epochs: 15
+  Baseline_ResNeXt_resnext50_32x4d:
+    batch_size: 8
+    learning_rate: 0.0005
+    epochs: 30
+    patience: 8
+  Baseline_ResNet_resnet18:
+    batch_size: 16
+    learning_rate: 0.0005
+    epochs: 30
+    patience: 8
+  Baseline_EffNet_efficientnet_b0:
+    batch_size: 16
+    learning_rate: 0.0005
+    epochs: 30
+    patience: 8
+  Baseline_CNNLSTM_resnet18:
+    batch_size: 16
+    learning_rate: 0.0005
+    epochs: 30
+    patience: 8
+  EEGNet:
+    batch_size: 64
+    learning_rate: 0.0003
+    weight_decay: 0.01
+    epochs: 100
+    patience: 20
+    optimizer_type: adamw
+    mixed_precision: false
+    accum_steps: 4
+    grad_clip: 1.0
+  ST-GCN_EEG:
+    batch_size: 32
+    learning_rate: 0.0003
+    weight_decay: 0.01
+    epochs: 100
+    patience: 20
+    optimizer_type: adamw
+    mixed_precision: false
+    accum_steps: 4
+    grad_clip: 1.0
+  EEGConformer:
+    batch_size: 32
+    learning_rate: 0.0001
+    weight_decay: 0.01
+    epochs: 100
+    patience: 20
+    optimizer_type: adamw
+    mixed_precision: false
+    accum_steps: 4
+    grad_clip: 1.0
 
 cwt:
   wavelet: cmor1.5-1.0
