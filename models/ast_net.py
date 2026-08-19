@@ -280,9 +280,12 @@ class ResNeXt_GCN_Bridge(nn.Module):
         
         node_features = backbone_out.view(batch_size, self.num_nodes, -1)
 
-        q = self.attn_query(node_features)
-        k = self.attn_key(node_features).transpose(1, 2)
-        adj = torch.softmax(torch.bmm(q, k), dim=-1)
+        q = self.attn_query(node_features)                 # [B, N, 128]
+        k = self.attn_key(node_features).transpose(1, 2)  # [B, 128, N]
+
+        d_k = q.size(-1)                                 
+        scores = torch.bmm(q, k) / (d_k ** 0.5)           # QK^T / sqrt(d_k)
+        adj = torch.softmax(scores, dim=-1)                # [B, N, N]
         
         if self.anatomical_adj is not None:
             prior_adj = self.anatomical_adj.unsqueeze(0).expand(batch_size, -1, -1).to(x.device)
