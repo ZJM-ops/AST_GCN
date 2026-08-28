@@ -65,7 +65,7 @@ NUM_CLASSES = 3
 CLASS_NAMES = ['Baseline', 'Ictal', 'Chronic']
 LABEL_MAPPING = {'Baseline': 0, 'Ictal': 1, 'Chronic': 2, 'Chronic-28d': 2}
 
-OUTPUT_DIR = '/home/student/s230005071/shu/code2/summary_results/10mineeg/results/20260804_184146_ASTNet_Standard_3Class/AST-Net_GCN/drug_efficacy_train_only'
+OUTPUT_DIR = '/home/student/s230005071/shu/code2/summary_results/10mineeg/drug_efficacy/drug_efficacy_train_only'
 
 # 药物组顺序 (对照 -> 干预). pilo 组作为未给药建模对照(基准)
 DRUG_GROUPS = ['pilo组', 'VPA组', 'mir过表达组', 'sponges组']

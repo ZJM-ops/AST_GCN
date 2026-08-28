@@ -3,9 +3,9 @@
 #SBATCH --output=/home/student/s230005071/shu/code2/summary_results/10mineeg/logs/drug_eff_full_%j.log
 #SBATCH --error=/home/student/s230005071/shu/code2/summary_results/10mineeg/logs/drug_eff_full_%j.err
 #SBATCH --nodes=1
-#SBATCH --time=6:0:00
+#SBATCH --time=6:00:00
 #SBATCH --partition=gpu
-#SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:v100:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=32G
 
@@ -29,7 +29,7 @@ cd ${PROJECT_DIR}
 # 扫描 cwt_images_all_phases 全部图片, 含 pilo 建模对照
 # 模型: 20260804_184146_ASTNet_Standard_3Class/AST-Net_GCN/best_AST-Net_GCN.pth
 # 输出: summary_results/10mineeg/results/20260804_184146_ASTNet_Standard_3Class/AST-Net_GCN/drug_efficacy_full/
-python drug_efficacy_analysis.py
+python drug_efficacy_analysis_animal.py
 
 echo "======================================"
 echo "作业结束时间: $(date)"
